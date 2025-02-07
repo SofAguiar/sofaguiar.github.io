@@ -2,7 +2,7 @@
 title: "Welcome to My Portfolio"
 ---
 
-## Hi, I'm SofAguiar!
+## Hi, I'm Sof!
 
 Welcome to my portfolio website. Here, I showcase my projects, skills, and experiences. Feel free to explore!
 
@@ -12,4 +12,4 @@ Welcome to my portfolio website. Here, I showcase my projects, skills, and exper
 
 ---
 
-**Contact Me**: [Your Email](mailto:youremail@example.com) | [GitHub](https://github.com/SofAguiar)
+**Contact Me**: [Your Email](mailto:sof.m.aguiar@gmail.com) | [GitHub](https://github.com/SofAguiar)

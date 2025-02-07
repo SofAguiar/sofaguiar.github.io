@@ -4,9 +4,10 @@ title: "About Me"
 
 ## Who Am I?
 
-I'm SofAguiar, a data enthusiast and R programmer. I love working with data, building interactive visualizations, and solving real-world problems.
+I'm Sof, a data enthusiast and R programmer. I love working with data, building interactive visualizations, and solving real-world problems.
 
 ### Skills
+- Statistical modeling
 - R Programming
 - Data Visualization
 - Shiny App Development
@@ -14,4 +15,4 @@ I'm SofAguiar, a data enthusiast and R programmer. I love working with data, bui
 
 ---
 
-**Let's connect!** [GitHub](https://github.com/SofAguiar) | [LinkedIn](#) *(add your LinkedIn link)*
+**Let's connect!** [GitHub](https://github.com/SofAguiar) 
