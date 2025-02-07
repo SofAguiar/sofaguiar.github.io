@@ -2,14 +2,17 @@
 title: "Welcome to My Portfolio"
 ---
 
-## Hi, I'm Sof!
+I'm a Statistics student at UFMG with a passion for data analysis, programming, and statistical modeling. Welcome to my portfolio, where I showcase my projects, skills, and experiences. Feel free to explore!
 
-Welcome to my portfolio website. Here, I showcase my projects, skills, and experiences. Feel free to explore!
+### Key Skills
+- **Programming**: Advanced in R, Intermediate in Python, Basic in SQL
+- **Data Visualization**: Power BI, R (tidyverse, leaflet), Data Storytelling
+- **Tools**: Git, GitHub, Microsoft 365 (PowerAutomate, PowerBI)
+- **Languages**: English (Advanced), German (Basic)
 
 ### Featured Projects
-- [Project 1](#) *(coming soon)*
-- [Project 2](#) *(coming soon)*
+- [Obesity Prediction in Brazilian Children](#) *(using survival analysis)*
 
 ---
 
-**Contact Me**: [Your Email](mailto:sof.m.aguiar@gmail.com) | [GitHub](https://github.com/SofAguiar)
+**Contact Me**: [Email me](mailto:sof.m.aguiar@gmail.com) | [GitHub](https://github.com/SofAguiar)

@@ -6,15 +6,20 @@ title: "My Projects"
 
 Here are some of the projects I've worked on:
 
-### Project 1: [Project Name]
-- **Description**: A brief description of the project.
-- **Tools Used**: R, Shiny, ggplot2
-- **Link**: [GitHub Repository](#) *(add your repo link)*
+### Obesity Prediction in Brazilian Children
+- **Description**: Developed statistical models for predicting childhood obesity using survival analysis, generalized mixed models, and spatial modeling.
+- **Tools**: R, Spatial Analysis, Survival Analysis
+- **Outcome**: Presented a poster at the 12th Brazilian Congress of Epidemiology.
 
-### Project 2: [Project Name]
-- **Description**: Another brief description.
-- **Tools Used**: R, Markdown, dplyr
-- **Link**: [GitHub Repository](#) *(add your repo link)*
+### Bias Correction in Word Embeddings
+- **Description**: Assisted in identifying and correcting gender biases in popular Word Embeddings.
+- **Tools**: Python, Natural Language Processing (NLP)
+- **Outcome**: Contributed to a master's thesis in Computer Science.
+
+### Data Automation and Visualization at green4T
+- **Description**: Automated workflows and created data visualizations using Power BI and PowerAutomate.
+- **Tools**: Power BI, PowerAutomate, Microsoft 365
+- **Outcome**: Improved process efficiency and data-driven decision-making.
 
 ---
 

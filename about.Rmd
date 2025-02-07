@@ -4,14 +4,22 @@ title: "About Me"
 
 ## Who Am I?
 
-I'm Sof, a data enthusiast and R programmer. I love working with data, building interactive visualizations, and solving real-world problems.
+I'm Sofia Moreira de Aguiar, a Statistics undergraduate at UFMG with a strong interest in data analysis, statistical modeling, and machine learning. I have experience in academic research, data-driven decision-making, and project management.
+
+### Education
+- **Bachelor's in Statistics**  
+  _Federal University of Minas Gerais (UFMG)_  
+  _2020 - Present (Expected Graduation: 2025/1)_
+
+- **High School and Technical Degree in Mechatronics**  
+  _CEFET-MG_  
+  _2016 - 2018_
 
 ### Skills
-- Statistical modeling
-- R Programming
-- Data Visualization
-- Shiny App Development
-- Git and Version Control
+- **Programming**: R (Advanced), Python (Intermediate), SQL (Basic)
+- **Data Visualization**: Power BI, R (tidyverse, leaflet), Data Storytelling
+- **Tools**: Git, GitHub, Microsoft 365 (PowerAutomate, PowerBI)
+- **Languages**: English (Advanced), German (Basic)
 
 ---
 
