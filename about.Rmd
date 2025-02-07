@@ -1,0 +1,17 @@
+---
+title: "About Me"
+---
+
+## Who Am I?
+
+I'm SofAguiar, a data enthusiast and R programmer. I love working with data, building interactive visualizations, and solving real-world problems.
+
+### Skills
+- R Programming
+- Data Visualization
+- Shiny App Development
+- Git and Version Control
+
+---
+
+**Let's connect!** [GitHub](https://github.com/SofAguiar) | [LinkedIn](#) *(add your LinkedIn link)*

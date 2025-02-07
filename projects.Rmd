@@ -1,0 +1,21 @@
+---
+title: "My Projects"
+---
+
+## Projects
+
+Here are some of the projects I've worked on:
+
+### Project 1: [Project Name]
+- **Description**: A brief description of the project.
+- **Tools Used**: R, Shiny, ggplot2
+- **Link**: [GitHub Repository](#) *(add your repo link)*
+
+### Project 2: [Project Name]
+- **Description**: Another brief description.
+- **Tools Used**: R, Markdown, dplyr
+- **Link**: [GitHub Repository](#) *(add your repo link)*
+
+---
+
+*More projects coming soon!*

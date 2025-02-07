@@ -1,0 +1,15 @@
+---
+title: "Welcome to My Portfolio"
+---
+
+## Hi, I'm SofAguiar!
+
+Welcome to my portfolio website. Here, I showcase my projects, skills, and experiences. Feel free to explore!
+
+### Featured Projects
+- [Project 1](#) *(coming soon)*
+- [Project 2](#) *(coming soon)*
+
+---
+
+**Contact Me**: [Your Email](mailto:youremail@example.com) | [GitHub](https://github.com/SofAguiar)
