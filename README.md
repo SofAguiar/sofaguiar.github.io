@@ -1,6 +1,6 @@
-# SofAguiar's Portfolio
+# My Portifolio
 
-Welcome to my GitHub Pages portfolio! This repository contains the source code for my personal website, where I showcase my projects and skills.
+Welcome to my portfolio! This repository contains the source code for my personal website, where I showcase my projects and skills.
 
 ## Website Structure
 - **Home**: Introduction and featured projects.
@@ -15,4 +15,4 @@ Welcome to my GitHub Pages portfolio! This repository contains the source code f
 
 ---
 
-**Contact**: [Your Email](mailto:youremail@example.com) | [GitHub](https://github.com/SofAguiar)
+**Contact**: [Email me](mailto:sof.m.aguiar@gmail.com) | [GitHub](https://github.com/SofAguiar)
