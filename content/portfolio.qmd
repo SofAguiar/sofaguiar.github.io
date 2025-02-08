@@ -1,7 +1,16 @@
-### **What I can do**
+Welcome to my portfolio! Here are all my projects:
 
-- Data viz
+### [Project 1](projects/data_viz.qmd)
+**Date:** October 1, 2023  
+**Description:** A description of Project 1.  
+**Tags:** Data Viz, R
 
-- Spatial modeling
+### [Project 2](projects/survival.qmd)
+**Date:** October 5, 2023  
+**Description:** A description of Project 2.  
+**Tags:** Statistics, Survival Analysis, R
 
-- Survival Analysis
+### [Project 2](projects/spatial.qmd)
+**Date:** October 5, 2023  
+**Description:** A description of Project 2.  
+**Tags:** Statistics, Spatial Analysis, R

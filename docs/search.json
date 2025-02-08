@@ -7,32 +7,11 @@
     "text": "What have I done\nChild Obesity Prevalence Across Brazilian Regions 12th Brazilian Congress of Epidemiology\nTCC\nArticle on Sptial Analysis\nArticle on ENEM grades"
   },
   {
-    "objectID": "content/index.html",
-    "href": "content/index.html",
+    "objectID": "content/portfolio.html",
+    "href": "content/portfolio.html",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "Hi, I’m Sof!\nAnd welcome to my portfolio. I’m a Statistics graduate currently researching Public Health and Epidemiology. Here, you’ll find my projects, publications and tutorials for R progamming."
-  },
-  {
-    "objectID": "content/blog.html",
-    "href": "content/blog.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Exploring how predictive models can enhance epidemiological studies and improve decision-making in healthcare.\n\n\n\n\n\nExploring resources and improving your Data Visualization\n\n\n\n\n\nTechniques for analyzing interval-censored data, with applications in epidemiology and public health research.\n\n\n\n\n\nA guide to using R for spatial data visualization and analysis in public health contexts."
-  },
-  {
-    "objectID": "content/blog.html#recent-posts",
-    "href": "content/blog.html#recent-posts",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Exploring how predictive models can enhance epidemiological studies and improve decision-making in healthcare.\n\n\n\n\n\nExploring resources and improving your Data Visualization\n\n\n\n\n\nTechniques for analyzing interval-censored data, with applications in epidemiology and public health research.\n\n\n\n\n\nA guide to using R for spatial data visualization and analysis in public health contexts."
-  },
-  {
-    "objectID": "content/about.html",
-    "href": "content/about.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Education\nBachelor’s Degree in Statistics\nUniversidade Federal de Minas Gerais (UFMG)\n- Expected Graduation: 2025\n- Relevant Coursework: Data Analysis, Statistical Modeling, Machine Learning, Programming in R and Python\nTechnical High School in Mechatronics\nFederal Center for Technological Education of Minas Gerais (CEFET-MG)\n- Graduated: 2018\n\n\nResearch Experience\nResearch Assistant – Child Obesity Prediction\nUFMG | August 2023 – Present\n- Develop predictive algorithms for childhood obesity in the Brazilian population using descriptive analysis and statistical modeling.\n- Collaborate with the UFMG School of Nursing and CIDACS (Center for Data Integration and Knowledge for Health).\n- Presented research findings at the 12th Brazilian Congress of Epidemiology.\nResearch Assistant – Gender Bias in Word Embeddings\nUFMG | October 2021 – October 2022\n- Assisted in identifying and correcting gender biases in popular Word Embeddings.\n- Worked with Python and natural language processing (NLP) techniques.\n\n\nProfessional Experience\nPeople Analytics Intern\ngreen4T | March 2024 – Present\n- Develop and optimize HR processes using Power BI to create insightful reports on employee data.\n- Collaborate with cross-functional teams to improve data-driven decision-making in the HR department.\nSummer Intern\ngreen4T | January 2024 – March 2024\n- Contributed to sustainability projects using Design Thinking methodologies.\n- Utilized R programming and Microsoft Office tools to analyze and present data.\nStatistics Intern\nInstituto Ver | November 2023 – January 2024\n- Conducted quantitative data analysis for electoral and opinion research projects.\n- Assisted in the preparation of statistical reports and visualizations.\nPresident & Project Manager\nESTAT MG (Junior Statistics Company) | January 2021 – November 2022\n- Led the company as President, overseeing administrative, financial, and accounting operations, achieving a 20% annual revenue growth.\n- Managed statistical projects for clients, including data analysis, consulting, and private tutoring.\n\n\nSkills\n\nProgramming Languages: R (Advanced), Python (Intermediate), SQL (Intermediate)\n\nData Analysis Tools: Power BI (Basic), Power Automate (Basic), Git/GitHub\n\nLanguages: English (Advanced), German (Basic)\n\nOther Skills: Microsoft Office Suite, Data Storytelling, Statistical Modeling, Machine Learning\n\n\n\nCertifications & Courses\n\nData Governance Fundamentals – DataCamp\n\nData Storytelling – DataCamp\n\nMachine Learning for Health Predictions – 12th Brazilian Congress of Epidemiology\n\nSpatial Data Visualization in R – 12th Brazilian Congress of Epidemiology"
+    "text": "Welcome to my portfolio! Here are all my projects:\n\nProject 1\nDate: October 1, 2023\nDescription: A description of Project 1.\nTags: Data Viz, R\n\n\nProject 2\nDate: October 5, 2023\nDescription: A description of Project 2.\nTags: Statistics, Survival Analysis, R\n\n\nProject 2\nDate: October 5, 2023\nDescription: A description of Project 2.\nTags: Statistics, Spatial Analysis, R"
   },
   {
     "objectID": "content/contact.html",
@@ -42,10 +21,24 @@
     "text": "Feel free to contact me through these channels!\n\nEmail: sof.m.aguiar@gmail.com\n\nGitHub: github.com/SofAguiar"
   },
   {
-    "objectID": "content/portfolio.html",
-    "href": "content/portfolio.html",
+    "objectID": "content/about.html",
+    "href": "content/about.html",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "What I can do\n\nData viz\nSpatial modeling\nSurvival Analysis"
+    "text": "Education\nBachelor’s Degree in Statistics\nUniversidade Federal de Minas Gerais (UFMG)\n- Expected Graduation: 2025\n- Relevant Coursework: Data Analysis, Statistical Modeling, Machine Learning, Programming in R and Python\nTechnical High School in Mechatronics\nFederal Center for Technological Education of Minas Gerais (CEFET-MG)\n- Graduated: 2018\n\n\nResearch Experience\nResearch Assistant – Child Obesity Prediction\nUFMG | August 2023 – Present\n- Develop predictive algorithms for childhood obesity in the Brazilian population using descriptive analysis and statistical modeling.\n- Collaborate with the UFMG School of Nursing and CIDACS (Center for Data Integration and Knowledge for Health).\n- Presented research findings at the 12th Brazilian Congress of Epidemiology.\nResearch Assistant – Gender Bias in Word Embeddings\nUFMG | October 2021 – October 2022\n- Assisted in identifying and correcting gender biases in popular Word Embeddings.\n- Worked with Python and natural language processing (NLP) techniques.\n\n\nProfessional Experience\nPeople Analytics Intern\ngreen4T | March 2024 – Present\n- Develop and optimize HR processes using Power BI to create insightful reports on employee data.\n- Collaborate with cross-functional teams to improve data-driven decision-making in the HR department.\nSummer Intern\ngreen4T | January 2024 – March 2024\n- Contributed to sustainability projects using Design Thinking methodologies.\n- Utilized R programming and Microsoft Office tools to analyze and present data.\nStatistics Intern\nInstituto Ver | November 2023 – January 2024\n- Conducted quantitative data analysis for electoral and opinion research projects.\n- Assisted in the preparation of statistical reports and visualizations.\nPresident & Project Manager\nESTAT MG (Junior Statistics Company) | January 2021 – November 2022\n- Led the company as President, overseeing administrative, financial, and accounting operations, achieving a 20% annual revenue growth.\n- Managed statistical projects for clients, including data analysis, consulting, and private tutoring.\n\n\nSkills\n\nProgramming Languages: R (Advanced), Python (Intermediate), SQL (Intermediate)\n\nData Analysis Tools: Power BI (Basic), Power Automate (Basic), Git/GitHub\n\nLanguages: English (Advanced), German (Basic)\n\nOther Skills: Microsoft Office Suite, Data Storytelling, Statistical Modeling, Machine Learning\n\n\n\nCertifications & Courses\n\nData Governance Fundamentals – DataCamp\n\nData Storytelling – DataCamp\n\nMachine Learning for Health Predictions – 12th Brazilian Congress of Epidemiology\n\nSpatial Data Visualization in R – 12th Brazilian Congress of Epidemiology"
+  },
+  {
+    "objectID": "content/blog.html",
+    "href": "content/blog.html",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "Welcome to my blog! Here are all my posts:\n\nTech Blog\nDate: October 1, 2023\nDescription: A deep dive into the latest tech trends.\n\n\nLife Blog\nDate: October 5, 2023\nDescription: Reflections on life and personal growth."
+  },
+  {
+    "objectID": "content/index.html",
+    "href": "content/index.html",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "Hi, I’m Sof!\nAnd welcome to my portfolio. I’m a Statistics graduate currently researching Public Health and Epidemiology. Here, you’ll find my projects, publications and tutorials for R progamming."
   }
 ]
