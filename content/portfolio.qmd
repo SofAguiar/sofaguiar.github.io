@@ -5,8 +5,8 @@ format: html
 
 ### What I can do
 
-- Spatial modeling
-
 - Data viz
 
-- 
+- Spatial modeling
+
+- Survival Analysis

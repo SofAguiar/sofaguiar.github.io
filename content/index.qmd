@@ -1,5 +1,4 @@
-## Hi, I’m Sof! 
+### **Hi, I’m Sof!**
 
-And welcome to my portfolio. I’m a Statistics graduate and researcher in Public Health and Epidemiology. Here, you’ll find my projects, publications and tutorials for R progamming.
+And welcome to my portfolio. I’m a Statistics graduate currently researching Public Health and Epidemiology. Here, you’ll find my projects, publications and tutorials for R progamming.
 
-Feel free to explore :)

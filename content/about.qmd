@@ -1,33 +1,56 @@
-### Education
+### **Education**  
 
-- Statistics | UFMG
+**Bachelor’s Degree in Statistics**  
+_Universidade Federal de Minas Gerais (UFMG)_  
+- **Expected Graduation:** 2025  
+- **Relevant Coursework:** Data Analysis, Statistical Modeling, Machine Learning, Programming in R and Python  
 
-- Mechatronics | CEFET-MG
+**Technical High School in Mechatronics**  
+_Federal Center for Technological Education of Minas Gerais (CEFET-MG)_  
+- **Graduated:** 2018  
+
+### **Research Experience**  
+**Research Assistant – Child Obesity Prediction**  
+_UFMG | August 2023 – Present_  
+- Develop predictive algorithms for childhood obesity in the Brazilian population using descriptive analysis and statistical modeling.  
+- Collaborate with the UFMG School of Nursing and CIDACS (Center for Data Integration and Knowledge for Health).  
+- Presented research findings at the 12th Brazilian Congress of Epidemiology.  
+
+**Research Assistant – Gender Bias in Word Embeddings**  
+_UFMG | October 2021 – October 2022_  
+- Assisted in identifying and correcting gender biases in popular Word Embeddings.  
+- Worked with Python and natural language processing (NLP) techniques.  
 
 
-### Research
+### **Professional Experience**  
+**People Analytics Intern**  
+_green4T | March 2024 – Present_  
+- Develop and optimize HR processes using Power BI to create insightful reports on employee data.  
+- Collaborate with cross-functional teams to improve data-driven decision-making in the HR department.  
 
-- NIEPE - 2023-present
+**Summer Intern**  
+_green4T | January 2024 – March 2024_  
+- Contributed to sustainability projects using Design Thinking methodologies.  
+- Utilized R programming and Microsoft Office tools to analyze and present data.  
 
-- UAI - 2021-2022
+**Statistics Intern**  
+_Instituto Ver | November 2023 – January 2024_  
+- Conducted quantitative data analysis for electoral and opinion research projects.  
+- Assisted in the preparation of statistical reports and visualizations.  
 
-### Academical activities
+**President & Project Manager**  
+_ESTAT MG (Junior Statistics Company) | January 2021 – November 2022_  
+- Led the company as President, overseeing administrative, financial, and accounting operations, achieving a 20% annual revenue growth.  
+- Managed statistical projects for clients, including data analysis, consulting, and private tutoring.  
 
-- ESTAT-MG
-- President
+### **Skills**  
+- **Programming Languages:** R (Advanced), Python (Intermediate), SQL (Intermediate)  
+- **Data Analysis Tools:** Power BI (Basic), Power Automate (Basic), Git/GitHub  
+- **Languages:** English (Advanced), German (Basic)  
+- **Other Skills:** Microsoft Office Suite, Data Storytelling, Statistical Modeling, Machine Learning 
 
-
-### Work experience
-
-- green4T 
-- intern
-
-- Instituto Ver
-- intern
-
-### Courses and Certifications
-
-- **Machine Learning for Health Predictions** (12º Congresso Brasileiro de Epidemiologia)
-- **Visalization of Maps and Spatial Information in Heathcare Using R for Epidemiological Surveillance**(12º Congresso Brasileiro de Epidemiologia)
-- **Data Storytelling** (DataCamp)
-- **Data Governance Fundamentals** (DataCamp)
+### **Certifications & Courses**  
+- **Data Governance Fundamentals** – DataCamp  
+- **Data Storytelling** – DataCamp  
+- **Machine Learning for Health Predictions** – 12th Brazilian Congress of Epidemiology  
+- **Spatial Data Visualization in R** – 12th Brazilian Congress of Epidemiology  
