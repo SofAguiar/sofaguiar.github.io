@@ -1,9 +1,4 @@
----
-title: "Portfolio"
-format: html
----
-
-### What I can do
+### **What I can do**
 
 - Data viz
 
