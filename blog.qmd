@@ -1,0 +1,21 @@
+---
+title: "Blog"
+format: html
+---
+
+# Blog
+
+## Recent Posts
+
+### **Machine Learning in Public Health**
+- Exploring how predictive models can enhance epidemiological studies and improve decision-making in healthcare.
+
+### **Statistical Modeling for Interval Data**
+- Techniques for analyzing interval-censored data, with applications in epidemiology and public health research.
+
+### **Spatial Analysis with R**
+- A guide to using R for spatial data visualization and analysis in public health contexts.
+
+<footer>
+&copy; 2025 Sofia Aguiar
+</footer>

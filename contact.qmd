@@ -1,0 +1,16 @@
+---
+title: "Contact"
+format: html
+---
+
+# Contact Me
+
+Feel free to reach out to me through any of the channels below:
+
+- **Email**: sofia.aguiar42@gmail.com
+- **LinkedIn**: [linkedin.com/in/sofia-aguiar](https://www.linkedin.com/in/sofia-aguiar)
+- **GitHub**: [github.com/SofAguiar](https://github.com/SofAguiar)
+
+<footer>
+&copy; 2025 Sofia Aguiar
+</footer>

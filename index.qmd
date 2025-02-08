@@ -1,11 +1,15 @@
 ---
-title: "site"
+title: "Sofia Aguiar - Portfolio"
+format: html
 ---
 
-This is a Quarto website.
+# Welcome!
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I am Sofia Aguiar, a Statistics graduate from UFMG. I have experience in data analysis, machine learning, and statistical modeling, focusing on applications in public health.
 
-```{r}
-1 + 1
-```
+## About Me
+My goal is to apply advanced data analysis techniques to solve public health challenges, especially in epidemiology.
+
+<footer>
+&copy; 2025 Sofia Aguiar
+</footer>

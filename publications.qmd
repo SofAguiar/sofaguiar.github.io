@@ -1,0 +1,18 @@
+---
+title: "Publications"
+format: html
+---
+
+# Publications
+
+- **Poster:** Childhood obesity prevalence presented at the 12th Brazilian Congress of Epidemiology.
+
+# Courses and Certifications
+
+- **Machine Learning for Health Predictions**
+- **Data Storytelling** (DataCamp)
+- **Data Governance Fundamentals** (DataCamp)
+
+<footer>
+&copy; 2025 Sofia Aguiar
+</footer>
