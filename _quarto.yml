@@ -20,6 +20,8 @@ website:
         text: Contact Me
       - text: Blog
         menu:
+          - text: All
+            href: content/blog.qmd
           - text: Tech
             href: content/blog/tech.qmd
           - text: Life
