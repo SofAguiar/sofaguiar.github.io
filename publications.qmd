@@ -9,7 +9,8 @@ format: html
 
 # Courses and Certifications
 
-- **Machine Learning for Health Predictions**
+- **Machine Learning for Health Predictions** (12º Congresso Brasileiro de Epidemiologia)
+- **Visalization of Maps and Spatial Information in Heathcare Using R for Epidemiological Surveillance**(12º Congresso Brasileiro de Epidemiologia)
 - **Data Storytelling** (DataCamp)
 - **Data Governance Fundamentals** (DataCamp)
 

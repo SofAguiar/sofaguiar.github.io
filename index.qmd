@@ -1,14 +1,14 @@
 ---
-title: "Sofia Aguiar - Portfolio"
+title: "Sof Aguiar"
 format: html
 ---
 
-# Welcome!
+# Welcome to my Portfolio!
 
-I am Sofia Aguiar, a Statistics graduate from UFMG. I have experience in data analysis, machine learning, and statistical modeling, focusing on applications in public health.
+I am Sof, a Statistics graduate from UFMG. I have experience in data visualization, spatial analysis and statistical modeling, focusing on applications in public health. Currently, I am studying machine learning methods, such as deep learning and transfer learning.
 
-## About Me
-My goal is to apply advanced data analysis techniques to solve public health challenges, especially in epidemiology.
+Feel free to explore my page, where you can find my experience, publications and tutorials to R programming.
+
 
 <footer>
 &copy; 2025 Sofia Aguiar
