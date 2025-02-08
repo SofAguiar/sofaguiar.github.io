@@ -34,7 +34,6 @@ format:
   html:
     css: 
       - assets/styles.css
-    include-after-body: assets/scripts.js
     theme: 
       - light
       - dark
