@@ -3,16 +3,10 @@ title: "Portfolio"
 format: html
 ---
 
-# Academic Projects
+### What I can do
 
-- **Childhood Obesity Prediction**: Research in partnership with CIDACS and UFMG focused on statistical modeling.
-- **Bias Correction**: Identification and correction of gender biases in Word Embeddings.
+- Spatial modeling
 
-# Experiences
+- Data viz
 
-- **People Analytics - green4T**: Development of interactive reports in Power BI.
-- **ESTAT MG**: Leadership and management of statistical projects with a focus on organizational growth.
-
-<footer>
-&copy; 2025 Sofia Aguiar
-</footer>
+- 

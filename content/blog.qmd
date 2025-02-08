@@ -1,9 +1,3 @@
----
-title: "Blog"
-format: html
----
-
-# Blog
 
 ## Recent Posts
 
@@ -15,7 +9,3 @@ format: html
 
 ### **Spatial Analysis with R**
 - A guide to using R for spatial data visualization and analysis in public health contexts.
-
-<footer>
-&copy; 2025 Sofia Aguiar
-</footer>

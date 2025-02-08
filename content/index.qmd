@@ -1,7 +1,5 @@
 ## Hi, I’m Sof! 
 
-Welcome to my personal website. I’m passionate about [your interests]. Here, you’ll find my projects, thoughts, and more.
+And welcome to my portfolio. I’m a Statistics graduate and researcher in Public Health and Epidemiology. Here, you’ll find my projects, publications and tutorials for R progamming.
 
-:::{.callout-note}
-**Recent Work**: Check out my latest project on [GitHub](https://github.com/SofAguiar).
-:::
+Feel free to explore :)

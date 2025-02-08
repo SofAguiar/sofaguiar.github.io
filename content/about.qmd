@@ -1,11 +1,33 @@
----
-title: "About"
----
+### Education
 
-## Education
+- Statistics | UFMG
 
-## Research
+- Mechatronics | CEFET-MG
 
-## Academical activities
 
-## Work experience
+### Research
+
+- NIEPE - 2023-present
+
+- UAI - 2021-2022
+
+### Academical activities
+
+- ESTAT-MG
+- President
+
+
+### Work experience
+
+- green4T 
+- intern
+
+- Instituto Ver
+- intern
+
+### Courses and Certifications
+
+- **Machine Learning for Health Predictions** (12º Congresso Brasileiro de Epidemiologia)
+- **Visalization of Maps and Spatial Information in Heathcare Using R for Epidemiological Surveillance**(12º Congresso Brasileiro de Epidemiologia)
+- **Data Storytelling** (DataCamp)
+- **Data Governance Fundamentals** (DataCamp)

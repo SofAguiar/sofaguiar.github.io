@@ -1,19 +1,2 @@
----
-title: "Publications"
-format: html
----
+### What have I done
 
-# Publications
-
-- **Poster:** Childhood obesity prevalence presented at the 12th Brazilian Congress of Epidemiology.
-
-# Courses and Certifications
-
-- **Machine Learning for Health Predictions** (12º Congresso Brasileiro de Epidemiologia)
-- **Visalization of Maps and Spatial Information in Heathcare Using R for Epidemiological Surveillance**(12º Congresso Brasileiro de Epidemiologia)
-- **Data Storytelling** (DataCamp)
-- **Data Governance Fundamentals** (DataCamp)
-
-<footer>
-&copy; 2025 Sofia Aguiar
-</footer>
