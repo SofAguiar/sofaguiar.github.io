@@ -9,9 +9,9 @@
   {
     "objectID": "content/index.html",
     "href": "content/index.html",
-    "title": "Hi!",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "Welcome to my Portfolio!\nI am Sof, a Statistics graduate from UFMG. I have experience in data visualization, spatial analysis and statistical modeling, focusing on applications in public health. Currently, I am studying machine learning methods, such as deep learning and transfer learning.\nFeel free to explore my page, where you can find my experience, publications and tutorials for R programming."
+    "text": "Welcome to my personal website. I’m passionate about [your interests]. Here, you’ll find my projects, thoughts, and more.\n\n\n\n\n\n\nNote\n\n\n\nRecent Work: Check out my latest project on GitHub."
   },
   {
     "objectID": "content/blog.html",
@@ -68,5 +68,12 @@
     "title": "Portfolio",
     "section": "",
     "text": "Academic Projects\n\nChildhood Obesity Prediction: Research in partnership with CIDACS and UFMG focused on statistical modeling.\nBias Correction: Identification and correction of gender biases in Word Embeddings.\n\n\n\nExperiences\n\nPeople Analytics - green4T: Development of interactive reports in Power BI.\nESTAT MG: Leadership and management of statistical projects with a focus on organizational growth.\n\n\n© 2025 Sofia Aguiar"
+  },
+  {
+    "objectID": "content/index.html#hi-im-sof",
+    "href": "content/index.html#hi-im-sof",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "Welcome to my personal website. I’m passionate about [your interests]. Here, you’ll find my projects, thoughts, and more.\n\n\n\n\n\n\nNote\n\n\n\nRecent Work: Check out my latest project on GitHub."
   }
 ]

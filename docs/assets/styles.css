@@ -1,1 +1,93 @@
-/* css styles */
+/* Custom styles for your Quarto website */
+body {
+  font-family: 'Verdana', sans-serif;
+  background-color: #F3EAFB; /* Um tom mais suave de lavanda */
+  color: #4B0082;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalhos */
+h1 {
+  color: #4B0082;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h2, h3 {
+  color: #4B0082;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #4B0082 !important;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #E6E6FA !important;
+  font-size: 1.5rem;
+}
+
+.navbar a {
+  color: #E6E6FA !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #FF69B4 !important;
+}
+
+/* Botões */
+button, .btn {
+  background-color: #9370DB;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover, .btn:hover {
+  background-color: #6A5ACD;
+}
+
+/* Links */
+a {
+  color: #9370DB;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #4B0082;
+  text-decoration: underline;
+}
+
+/* Callouts */
+.callout-note {
+  border-left: 5px solid #4B0082;
+  background-color: #FFFFFF;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Melhorias para seções */
+section {
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+}

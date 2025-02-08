@@ -18,6 +18,8 @@ website:
         text: Contact Me
       - text: Blog
         href: content/blog.qmd
+    
 
-  css:
-    - assets/styles.css
+format:
+  html:
+    css: assets/styles.css
