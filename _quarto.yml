@@ -28,4 +28,4 @@ website:
           - href: blog-category-2.qmd
             text: Category 2
   css:
-    - assets/styles.css
+    - styles.css

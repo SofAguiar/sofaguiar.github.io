@@ -1,12 +1,7 @@
----
-title: "Hi!"
-format: html
----
+## Hi, I’m Sof! 
 
-### Welcome to my Portfolio!
+Welcome to my personal website. I’m passionate about [your interests]. Here, you’ll find my projects, thoughts, and more.
 
-I am Sof, a Statistics graduate from UFMG. I have experience in data visualization, spatial analysis and statistical modeling, focusing on applications in public health. Currently, I am studying machine learning methods, such as deep learning and transfer learning.
-
-Feel free to explore my page, where you can find my experience, publications and tutorials for R programming.
-
-
+:::{.callout-note}
+**Recent Work**: Check out my latest project on [GitHub](https://github.com/SofAguiar).
+:::
