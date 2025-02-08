@@ -6,7 +6,6 @@ Welcome to my personal website repository! This project hosts my personal portfo
 - [About](#about)
 - [Features](#features)
 - [Setup](#setup)
-- [Usage](#usage)
 
 ## About
 This repository contains the source code for my personal website. The site is designed to showcase my projects, skills, and experiences. It serves as a central hub for anyone interested in learning more about me and my work.
