@@ -6,26 +6,18 @@ website:
   title: "Sof Aguiar"
   navbar:
     left:
-      - href: index.qmd
+      - href: content/index.qmd
         text: Home
-        icon: home
-      - href: about.qmd
+      - href: content/about.qmd
         text: About
-        icon: user
-      - href: publications.qmd
+      - href: content/publications.qmd
         text: Publications
-        icon: file-alt
-      - href: portfolio.qmd
+      - href: content/portfolio.qmd
         text: Portfolio
-      - href: contact.qmd
+      - href: content/contact.qmd
         text: Contact Me
       - text: Blog
-        menu:
-          - href: blog.qmd
-            text: All Posts
-          - href: blog-category-1.qmd
-            text: Category 1
-          - href: blog-category-2.qmd
-            text: Category 2
+        href: content/blog.qmd
+
   css:
-    - styles.css
+    - assets/styles.css
