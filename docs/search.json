@@ -9,9 +9,9 @@
   {
     "objectID": "content/index.html",
     "href": "content/index.html",
-    "title": "Sof Aguiar",
+    "title": "Hi!",
     "section": "",
-    "text": "Welcome to my Portfolio!\nI am Sof, a Statistics graduate from UFMG. I have experience in data visualization, spatial analysis and statistical modeling, focusing on applications in public health. Currently, I am studying machine learning methods, such as deep learning and transfer learning.\nFeel free to explore my page, where you can find my experience, publications and tutorials to R programming.\n\n© 2025 Sofia Aguiar"
+    "text": "Welcome to my Portfolio!\nI am Sof, a Statistics graduate from UFMG. I have experience in data visualization, spatial analysis and statistical modeling, focusing on applications in public health. Currently, I am studying machine learning methods, such as deep learning and transfer learning.\nFeel free to explore my page, where you can find my experience, publications and tutorials for R programming."
   },
   {
     "objectID": "content/blog.html",
@@ -58,6 +58,13 @@
   {
     "objectID": "content/portfolio.html",
     "href": "content/portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Academic Projects\n\nChildhood Obesity Prediction: Research in partnership with CIDACS and UFMG focused on statistical modeling.\nBias Correction: Identification and correction of gender biases in Word Embeddings.\n\n\n\nExperiences\n\nPeople Analytics - green4T: Development of interactive reports in Power BI.\nESTAT MG: Leadership and management of statistical projects with a focus on organizational growth.\n\n\n© 2025 Sofia Aguiar"
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
     "title": "Portfolio",
     "section": "",
     "text": "Academic Projects\n\nChildhood Obesity Prediction: Research in partnership with CIDACS and UFMG focused on statistical modeling.\nBias Correction: Identification and correction of gender biases in Word Embeddings.\n\n\n\nExperiences\n\nPeople Analytics - green4T: Development of interactive reports in Power BI.\nESTAT MG: Leadership and management of statistical projects with a focus on organizational growth.\n\n\n© 2025 Sofia Aguiar"

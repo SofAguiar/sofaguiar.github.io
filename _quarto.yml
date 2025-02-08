@@ -1,24 +1,31 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Sof Aguiar"
   navbar:
     left:
-      - href: content/index.qmd
+      - href: index.qmd
         text: Home
-      - content/about.qmd
-      - content/publications.qmd
-      - content/contact.qmd
-      - content/blog.qmd
-
-format:
-  html:
-    theme:
-      - cosmo
-      - brand
-    css: assets/styles.css
-    toc: true
-
-
-
+        icon: home
+      - href: about.qmd
+        text: About
+        icon: user
+      - href: publications.qmd
+        text: Publications
+        icon: file-alt
+      - href: portfolio.qmd
+        text: Portfolio
+      - href: contact.qmd
+        text: Contact Me
+      - text: Blog
+        menu:
+          - href: blog.qmd
+            text: All Posts
+          - href: blog-category-1.qmd
+            text: Category 1
+          - href: blog-category-2.qmd
+            text: Category 2
+  css:
+    - assets/styles.css
