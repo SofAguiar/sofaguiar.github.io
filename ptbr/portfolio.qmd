@@ -1,12 +1,22 @@
----
-title: "Portfolio"
----
+### **Análise de sobrevivência intervalar para grandes amostras**
+*alnkclkansc*
 
-oi
 
-## Projects
-### [Project Name]
-*Short description of an advanced project with links to GitHub or demos.*
+akdnladnckça
+acklncçsnc
+aklsclksnc
 
-- **Project 1:** [GitHub Repo](https://github.com/SofAguiar/sofaguiar.github.io/)
-- **Project 2:** [Demo](https://github.com/SofAguiar/sofaguiar.github.io/)
+[GitHub Repo](https://github.com/SofAguiar/sofaguiar.github.io/)
+
+### **Modelagem espacial**
+*aklcldsnkc*
+
+
+svsfvf
+dv
+sv
+v
+sv
+s
+
+[GitHub Repo](https://github.com/SofAguiar/sofaguiar.github.io/)

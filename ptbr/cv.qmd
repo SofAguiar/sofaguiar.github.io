@@ -1,16 +1,82 @@
+
+
+### Educação
+**Graduação em Estatística**  
+*Universidade Federal de Minas Gerais (UFMG)*  
+*2020 - Presente (Previsão de formatura: 2025/1)*  
+
+**Ensino Médio Técnico em Mecatrônica**  
+*CEFET-MG*  
+*2016 - 2018*  
+
 ---
-title: "Curriculum Vitae"
+
+### Atividades Acadêmicas
+**Iniciação Científica - Modelagem em Saúde Pública** *(Ago 2023 - Presente)*    
+*Orientador: Prof. Gustavo Velasquez (UFMG/Escola de Enfermagem)*    
+- Desenvolvimento de modelos estatísticos para predição de obesidade infantil utilizando:  
+  ▶️ Análise de sobrevivência  
+  ▶️ Modelos mistos generalizados  
+  ▶️ Modelagem espacial em R  
+- Colaboração em pesquisas sobre função renal, hipertensão e diabetes  
+- Apresentação de trabalho no 12º Congresso Brasileiro de Epidemiologia  
+
+**ESTAT MG (Empresa Júnior)** *(Jan 2021 - Nov 2022)*  
+- **Diretora Presidente** (2022):  
+  Liderança estratégica com 20% de crescimento no faturamento durante transição presencial  
+- **Assessora de Projetos** (2021):  
+  Gestão de projetos estatísticos para clientes externos  
+
+**Iniciação Científica - Correção de Viés em IA** *(Out 2021 - Out 2022)*  
+*Orientador: Prof. Flávio Figueredo (UFMG/DCC)*  
+- Identificação e mitigação de vieses de gênero em modelos de Word Embeddings  
+
 ---
 
-oi
+### Experiência Profissional
+**green4T** *(Jan 2024 - Ago 2024)*  
+- **Estagiária Multissetorial**  
+  Atuação em gestão de qualidade, controle de processos, people analytics e automação de fluxos com:  
+  ✔️ Microsoft 365 (Power BI e Power Automate)  
+  ✔️ Análise de dados orientada a resultados  
 
-## Education
-- **Statistics (BSc)**, UFMG  
+**Instituto Ver** *(Nov 2023 - Jan 2024)*  
+- Estagiária em Análise de Dados Quantitativos  
+  Processamento e interpretação de dados para pesquisas eleitorais e de opinião pública.
 
-## Experience
-- **[Your job or research experience]**  
-  *Description of role and responsibilities*
+---
 
-## Skills
-- Data analysis, machine learning, Python, R, SQL, Quarto
+### Habilidades Técnicas
+| **Programação**      | **Ferramentas**           | **Análise de Dados**       |
+|-----------------------|---------------------------|----------------------------|
+| R (Avançado)          | Power BI                  | Modelagem estatística      |
+| Python (Intermediário)| Power Automate            | Visualização espacial      |
+| SQL (Básico)          | Git/GitHub                | Machine Learning básico    |
+|                       | Microsoft 365 Suite       | Design Thinking            |
 
+---
+
+### Cursos e Certificações
+- **Machine Learning para Predições em Saúde**  
+  *12º Congresso Brasileiro de Epidemiologia*  
+- **Visualização de Dados Espaciais em R**  
+  *12º Congresso Brasileiro de Epidemiologia*  
+- **Data Storytelling**  
+  *DatoCamp*  
+
+<style>
+  table {
+    width: 100%;
+    margin: 1em 0;
+    border-collapse: collapse;
+  }
+  td, th {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+  ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+</style>

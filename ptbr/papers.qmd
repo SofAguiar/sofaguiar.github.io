@@ -1,12 +1,39 @@
----
-title: "Papers"
----
 
-oi
+### **Trabalho de Conclusão de Curso**  
 
-## Publications
-- **Análise de Sobrevivência Intervalar: Aplicação em Dados Reais**  
-  *Published in [journal/conference], YYYY*  
+**ANÁLISE DE SOBREVIVÊNCIA EM ESTUDO ENVOLVENDO A DUPLA CARGA DA MÁ NUTRIÇÃO**  
+*Uma Ilustração de Censura Intervalar em Grande Banco de Dados*  
 
-- **[Other paper title]**  
-  *Short description and publication details*
+Orientação: Prof. Enrico Antônio Colosimo  
+Co-Orientação: Prof Jorge Gustavo Meléndez Velásquez  
+
+Veja o trabalho completo [aqui](https://drive.google.com/file/d/1GVN3FMvbrB2e_8OFP02o90Jyiq030eni/view?usp=drive_link)
+
+### **Pôster no 12º Congresso Brasileiro de Epidemiologia**
+
+**ADEQUAÇÕES DE IMC E ESTATURA EM SEIS MILHÕES DE CRIANÇAS BRASILEIRAS SEGUNDO REGIÕES**  
+
+Orientação: Prof Jorge Gustavo Meléndez Velásquez  
+
+Veja o pôster completo [aqui](https://drive.google.com/file/d/16fZf4IfT-dij0VjZnHzs8OfRFIIhCNbv/view?usp=sharing)
+
+### **Apresentação Oral na II Conferência Internacional de Políticas Públicas e Ciência de Dados**  
+
+**INFLUÊNCIA DAS POLÍTICAS DE TRANSFERÊNCIA DE RENDA NAS ELEIÇÕES BRASILEIRAS**  
+*Uma Análise Comparativa da geografia eleitoral de 2014, 2018 e 2022 para o cargo de Presidente*  
+
+Autores: João Paulo Dellasta do Nascimento, Sofia M Aguiar  
+
+### **Publicação em Livro Impactos da Pandemia do COVID 19 na Educação: Desafios, Adaptações e o Futuro da Prática Docente**   
+
+**Desigualdade no Ensino Médio e o desempenho do estudante no ENEM**  
+
+Autores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar  
+
+ISBN: 978-65-993373-5-2 | DOI: 10.5281/zenodo.4646433 
+
+### **Apresentação no Congresso Nacional Universidade, EAD e Software Livre 2020.1**  
+
+**Desigualdade no Ensino Médio e o desempenho do estudante no ENEM**  
+
+Autores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar 

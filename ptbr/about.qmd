@@ -1,8 +1,14 @@
 ## Sof Aguiar
 
-oi
+Bem-vindo ao meu site! 🎉  
 
-### Contato
+Aqui você encontra informações sobre mim, meu trabalho e meus projetos. 
+O site inclui meu [currículo](cv.qmd), uma seção de [artigos e apresentações em congresso](papers.qmd), um [blog](blog.qmd) com tutoriais e um [portifólio](portfolio.qmd) com projetos avançados. 
+
+Sinta-se à vontade para explorar :)
+
+
+### Entre em contato!
 📧 Email: [sof.m.aguiar@gmail.com](mailto:sof.m.aguiar@gmail.com)  
 🔗 GitHub: [github.com/sofaguiar](https://github.com/sofaguiar)  
 

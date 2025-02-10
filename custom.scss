@@ -2,7 +2,7 @@
 $primary-color: #628B48;    // Verde escuro
 $secondary-color: #6AB547;  // Verde claro
 $background-color: #FFFFFF; // Branco
-$accent-color: #FF2020;     // Vermelho
+$accent-color: #FF748B;     // Rosa
 $text-color: #000022;       // Azul escuro
 $font-family: "Roboto Flex", sans-serif;
 
@@ -72,7 +72,8 @@ h1, h2, h3, h4, h5, h6 {
   (assumindo que o dropdown seja renderizado com a classe .dropdown-menu)
 */
 .navbar .dropdown-menu a {
-  color: $accent-color !important;
+  color: white !important;
+  background-color: $accent-color !important;
   text-decoration: none;
   padding: 10px 15px;
   font-weight: 500;

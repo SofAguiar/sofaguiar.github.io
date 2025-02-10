@@ -2,79 +2,44 @@
   {
     "objectID": "ptbr/portfolio.html",
     "href": "ptbr/portfolio.html",
-    "title": "Portfolio",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "oi"
-  },
-  {
-    "objectID": "ptbr/portfolio.html#projects",
-    "href": "ptbr/portfolio.html#projects",
-    "title": "Portfolio",
-    "section": "Projects",
-    "text": "Projects\n\n[Project Name]\nShort description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
+    "text": "Análise de sobrevivência intervalar para grandes amostras\nalnkclkansc\nakdnladnckça acklncçsnc aklsclksnc\nGitHub Repo\n\n\nModelagem espacial\naklcldsnkc\nsvsfvf dv sv v sv s\nGitHub Repo"
   },
   {
     "objectID": "ptbr/cv.html",
     "href": "ptbr/cv.html",
-    "title": "Curriculum Vitae",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "oi"
-  },
-  {
-    "objectID": "ptbr/cv.html#education",
-    "href": "ptbr/cv.html#education",
-    "title": "Curriculum Vitae",
-    "section": "Education",
-    "text": "Education\n\nStatistics (BSc), UFMG"
-  },
-  {
-    "objectID": "ptbr/cv.html#experience",
-    "href": "ptbr/cv.html#experience",
-    "title": "Curriculum Vitae",
-    "section": "Experience",
-    "text": "Experience\n\n[Your job or research experience]\nDescription of role and responsibilities"
-  },
-  {
-    "objectID": "ptbr/cv.html#skills",
-    "href": "ptbr/cv.html#skills",
-    "title": "Curriculum Vitae",
-    "section": "Skills",
-    "text": "Skills\n\nData analysis, machine learning, Python, R, SQL, Quarto"
+    "text": "Educação\nGraduação em Estatística\nUniversidade Federal de Minas Gerais (UFMG)\n2020 - Presente (Previsão de formatura: 2025/1)\nEnsino Médio Técnico em Mecatrônica\nCEFET-MG\n2016 - 2018\n\n\n\nAtividades Acadêmicas\nIniciação Científica - Modelagem em Saúde Pública (Ago 2023 - Presente)\nOrientador: Prof. Gustavo Velasquez (UFMG/Escola de Enfermagem)\n- Desenvolvimento de modelos estatísticos para predição de obesidade infantil utilizando:\n▶️ Análise de sobrevivência\n▶️ Modelos mistos generalizados\n▶️ Modelagem espacial em R\n- Colaboração em pesquisas sobre função renal, hipertensão e diabetes\n- Apresentação de trabalho no 12º Congresso Brasileiro de Epidemiologia\nESTAT MG (Empresa Júnior) (Jan 2021 - Nov 2022)\n- Diretora Presidente (2022):\nLiderança estratégica com 20% de crescimento no faturamento durante transição presencial\n- Assessora de Projetos (2021):\nGestão de projetos estatísticos para clientes externos\nIniciação Científica - Correção de Viés em IA (Out 2021 - Out 2022)\nOrientador: Prof. Flávio Figueredo (UFMG/DCC)\n- Identificação e mitigação de vieses de gênero em modelos de Word Embeddings\n\n\n\nExperiência Profissional\ngreen4T (Jan 2024 - Ago 2024)\n- Estagiária Multissetorial\nAtuação em gestão de qualidade, controle de processos, people analytics e automação de fluxos com:\n✔️ Microsoft 365 (Power BI e Power Automate)\n✔️ Análise de dados orientada a resultados\nInstituto Ver (Nov 2023 - Jan 2024)\n- Estagiária em Análise de Dados Quantitativos\nProcessamento e interpretação de dados para pesquisas eleitorais e de opinião pública.\n\n\n\nHabilidades Técnicas\n\n\n\n\n\n\n\n\nProgramação\nFerramentas\nAnálise de Dados\n\n\n\n\nR (Avançado)\nPower BI\nModelagem estatística\n\n\nPython (Intermediário)\nPower Automate\nVisualização espacial\n\n\nSQL (Básico)\nGit/GitHub\nMachine Learning básico\n\n\n\nMicrosoft 365 Suite\nDesign Thinking\n\n\n\n\n\n\nCursos e Certificações\n\nMachine Learning para Predições em Saúde\n12º Congresso Brasileiro de Epidemiologia\n\nVisualização de Dados Espaciais em R\n12º Congresso Brasileiro de Epidemiologia\n\nData Storytelling\nDatoCamp"
   },
   {
     "objectID": "ptbr/blog/survival-analysis.html",
     "href": "ptbr/blog/survival-analysis.html",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "oi"
+    "text": "Análise de Sobrevivência Básica"
   },
   {
     "objectID": "ptbr/about.html",
     "href": "ptbr/about.html",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "oi\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+    "text": "Bem-vindo ao meu site! 🎉\nAqui você encontra informações sobre mim, meu trabalho e meus projetos. O site inclui meu currículo, uma seção de artigos e apresentações em congresso, um blog com tutoriais e um portifólio com projetos avançados.\nSinta-se à vontade para explorar :)\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
   },
   {
     "objectID": "ptbr/about.html#sof-aguiar",
     "href": "ptbr/about.html#sof-aguiar",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "oi\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+    "text": "Bem-vindo ao meu site! 🎉\nAqui você encontra informações sobre mim, meu trabalho e meus projetos. O site inclui meu currículo, uma seção de artigos e apresentações em congresso, um blog com tutoriais e um portifólio com projetos avançados.\nSinta-se à vontade para explorar :)\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
   },
   {
     "objectID": "en/papers.html",
     "href": "en/papers.html",
-    "title": "Papers",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "Análise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
-  },
-  {
-    "objectID": "en/papers.html#publications",
-    "href": "en/papers.html#publications",
-    "title": "Papers",
-    "section": "",
-    "text": "Análise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
+    "text": "Trabalho de Conclusão de Curso\nANÁLISE DE SOBREVIVÊNCIA EM ESTUDO ENVOLVENDO A DUPLA CARGA DA MÁ NUTRIÇÃO\nUma Ilustração de Censura Intervalar em Grande Banco de Dados\nOrientação: Prof. Enrico Antônio Colosimo\nCo-Orientação: Prof Jorge Gustavo Meléndez Velásquez\nVeja o trabalho completo aqui\n\n\nPôster no 12º Congresso Brasileiro de Epidemiologia\nADEQUAÇÕES DE IMC E ESTATURA EM SEIS MILHÕES DE CRIANÇAS BRASILEIRAS SEGUNDO REGIÕES\nOrientação: Prof Jorge Gustavo Meléndez Velásquez\nVeja o pôster completo aqui\n\n\nApresentação Oral na II Conferência Internacional de Políticas Públicas e Ciência de Dados\nINFLUÊNCIA DAS POLÍTICAS DE TRANSFERÊNCIA DE RENDA NAS ELEIÇÕES BRASILEIRAS\nUma Análise Comparativa da geografia eleitoral de 2014, 2018 e 2022 para o cargo de Presidente\nAutores: João Paulo Dellasta do Nascimento, Sofia M Aguiar\n\n\nPublicação em Livro Impactos da Pandemia do COVID 19 na Educação: Desafios, Adaptações e o Futuro da Prática Docente\nDesigualdade no Ensino Médio e o desempenho do estudante no ENEM\nAutores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar\nISBN: 978-65-993373-5-2 | DOI: 10.5281/zenodo.4646433\n\n\nApresentação no Congresso Nacional Universidade, EAD e Software Livre 2020.1\nDesigualdade no Ensino Médio e o desempenho do estudante no ENEM\nAutores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar"
   },
   {
     "objectID": "en/blog.html",
@@ -105,34 +70,6 @@
     "text": "I am a Statistics graduate from UFMG with experience in data analysis, statistical modeling, and scientific research. My work focuses on using data-driven approaches to address challenges in public health and epidemiology.\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
   },
   {
-    "objectID": "en/cv.html",
-    "href": "en/cv.html",
-    "title": "Curriculum Vitae",
-    "section": "",
-    "text": "Statistics (BSc), UFMG"
-  },
-  {
-    "objectID": "en/cv.html#education",
-    "href": "en/cv.html#education",
-    "title": "Curriculum Vitae",
-    "section": "",
-    "text": "Statistics (BSc), UFMG"
-  },
-  {
-    "objectID": "en/cv.html#experience",
-    "href": "en/cv.html#experience",
-    "title": "Curriculum Vitae",
-    "section": "Experience",
-    "text": "Experience\n\n[Your job or research experience]\nDescription of role and responsibilities"
-  },
-  {
-    "objectID": "en/cv.html#skills",
-    "href": "en/cv.html#skills",
-    "title": "Curriculum Vitae",
-    "section": "Skills",
-    "text": "Skills\n\nData analysis, machine learning, Python, R, SQL, Quarto"
-  },
-  {
     "objectID": "en/portfolio.html",
     "href": "en/portfolio.html",
     "title": "Portfolio",
@@ -151,34 +88,27 @@
     "href": "ptbr/blog/data-viz.html",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "oi"
+    "text": "Data Viz básico e fácil"
   },
   {
     "objectID": "ptbr/blog.html",
     "href": "ptbr/blog.html",
-    "title": "Blog",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "oi"
+    "text": "Understanding Survival Analysis\nData Viz"
   },
   {
-    "objectID": "ptbr/blog.html#tutorials-and-articles",
-    "href": "ptbr/blog.html#tutorials-and-articles",
-    "title": "Blog",
-    "section": "Tutorials and Articles",
-    "text": "Tutorials and Articles\n\nUnderstanding Survival Analysis\nSQL for Data Science"
+    "objectID": "ptbr/blog.html#tutoriais-em-r",
+    "href": "ptbr/blog.html#tutoriais-em-r",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "Understanding Survival Analysis\nData Viz"
   },
   {
     "objectID": "ptbr/papers.html",
     "href": "ptbr/papers.html",
-    "title": "Papers",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "oi"
-  },
-  {
-    "objectID": "ptbr/papers.html#publications",
-    "href": "ptbr/papers.html#publications",
-    "title": "Papers",
-    "section": "Publications",
-    "text": "Publications\n\nAnálise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
+    "text": "Trabalho de Conclusão de Curso\nANÁLISE DE SOBREVIVÊNCIA EM ESTUDO ENVOLVENDO A DUPLA CARGA DA MÁ NUTRIÇÃO\nUma Ilustração de Censura Intervalar em Grande Banco de Dados\nOrientação: Prof. Enrico Antônio Colosimo\nCo-Orientação: Prof Jorge Gustavo Meléndez Velásquez\nVeja o trabalho completo aqui\n\n\nPôster no 12º Congresso Brasileiro de Epidemiologia\nADEQUAÇÕES DE IMC E ESTATURA EM SEIS MILHÕES DE CRIANÇAS BRASILEIRAS SEGUNDO REGIÕES\nOrientação: Prof Jorge Gustavo Meléndez Velásquez\nVeja o pôster completo aqui\n\n\nApresentação Oral na II Conferência Internacional de Políticas Públicas e Ciência de Dados\nINFLUÊNCIA DAS POLÍTICAS DE TRANSFERÊNCIA DE RENDA NAS ELEIÇÕES BRASILEIRAS\nUma Análise Comparativa da geografia eleitoral de 2014, 2018 e 2022 para o cargo de Presidente\nAutores: João Paulo Dellasta do Nascimento, Sofia M Aguiar\n\n\nPublicação em Livro Impactos da Pandemia do COVID 19 na Educação: Desafios, Adaptações e o Futuro da Prática Docente\nDesigualdade no Ensino Médio e o desempenho do estudante no ENEM\nAutores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar\nISBN: 978-65-993373-5-2 | DOI: 10.5281/zenodo.4646433\n\n\nApresentação no Congresso Nacional Universidade, EAD e Software Livre 2020.1\nDesigualdade no Ensino Médio e o desempenho do estudante no ENEM\nAutores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar"
   }
 ]
