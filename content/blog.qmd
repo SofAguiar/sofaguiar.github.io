@@ -1,9 +1,0 @@
-Welcome to my blog! Here are all my posts:
-
-### [Tech Blog](blog/tech.qmd)
-**Date:** October 1, 2023  
-**Description:** A deep dive into the latest tech trends.
-
-### [Life Blog](blog/life.qmd)
-**Date:** October 5, 2023  
-**Description:** Reflections on life and personal growth.

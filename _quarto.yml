@@ -4,36 +4,24 @@ project:
 
 website:
   title: "Sof Aguiar"
-  description: "Personal website of Sof Aguiar [Sofia Moreira de Aguiar], showcasing portfolio, publications, and blog posts."
-  favicon: assets/favicon.ico
   navbar:
     left:
-      - href: content/index.qmd
-        text: Home
-      - href: content/about.qmd
-        text: About
-      - href: content/publications.qmd
-        text: Publications
-      - href: content/portfolio.qmd
-        text: Portfolio
-      - href: content/contact.qmd
-        text: Contact Me
-      - text: Blog
-        menu:
-          - text: All
-            href: content/blog.qmd
-          - text: Tech
-            href: content/blog/tech.qmd
-          - text: Life
-            href: content/blog/life.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "CV"
+        href: cv.qmd
+      - text: "Papers"
+        href: papers.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Portfolio"
+        href: portfolio.qmd
     right:
-      - icon: fab fa-github
-        href: https://github.com/SofAguiar
+      - text: "en / pt-br"
+        href: "#"  # Placeholder for language toggle
 
 format:
   html:
-    css: 
-      - assets/styles.css
-    theme: 
-      - light
-      - dark
+    theme:
+      light: [sandstone, custom.scss]
+    toc: true

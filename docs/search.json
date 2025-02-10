@@ -1,107 +1,86 @@
 [
   {
-    "objectID": "content/publications.html",
-    "href": "content/publications.html",
-    "title": "Sof Aguiar",
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
     "section": "",
-    "text": "What have I done\nChild Obesity Prevalence Across Brazilian Regions 12th Brazilian Congress of Epidemiology\nTCC\nArticle on Sptial Analysis\nArticle on ENEM grades"
+    "text": "Short description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
   },
   {
-    "objectID": "content/portfolio/survival.html",
-    "href": "content/portfolio/survival.html",
-    "title": "Survival Analysis",
+    "objectID": "portfolio.html#projects",
+    "href": "portfolio.html#projects",
+    "title": "Portfolio",
     "section": "",
-    "text": "This is the content for Project 1."
+    "text": "Short description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
   },
   {
-    "objectID": "content/portfolio/survival.html#overview",
-    "href": "content/portfolio/survival.html#overview",
-    "title": "Survival Analysis",
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
     "section": "",
-    "text": "This is the content for Project 1."
+    "text": "Statistics (BSc), UFMG"
   },
   {
-    "objectID": "content/portfolio/survival.html#technologies-used",
-    "href": "content/portfolio/survival.html#technologies-used",
-    "title": "Survival Analysis",
-    "section": "Technologies Used",
-    "text": "Technologies Used\n\nJavaScript\nHTML/CSS\nNode.js"
-  },
-  {
-    "objectID": "content/portfolio/data_viz.html",
-    "href": "content/portfolio/data_viz.html",
-    "title": "Data Viz",
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Curriculum Vitae",
     "section": "",
-    "text": "This is the content for Project 1."
+    "text": "Statistics (BSc), UFMG"
   },
   {
-    "objectID": "content/portfolio/data_viz.html#overview",
-    "href": "content/portfolio/data_viz.html#overview",
-    "title": "Data Viz",
+    "objectID": "cv.html#experience",
+    "href": "cv.html#experience",
+    "title": "Curriculum Vitae",
+    "section": "Experience",
+    "text": "Experience\n\n[Your job or research experience]\nDescription of role and responsibilities"
+  },
+  {
+    "objectID": "cv.html#skills",
+    "href": "cv.html#skills",
+    "title": "Curriculum Vitae",
+    "section": "Skills",
+    "text": "Skills\n\nData analysis, machine learning, Python, R, SQL, Quarto"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "\nWelcome to My Website\n",
     "section": "",
-    "text": "This is the content for Project 1."
+    "text": "This is a modern, responsive website built with Quarto and custom SCSS.\n\nGet Started"
   },
   {
-    "objectID": "content/portfolio/data_viz.html#technologies-used",
-    "href": "content/portfolio/data_viz.html#technologies-used",
-    "title": "Data Viz",
-    "section": "Technologies Used",
-    "text": "Technologies Used\n\nJavaScript\nHTML/CSS\nNode.js"
+    "objectID": "about.html#sof-aguiar",
+    "href": "about.html#sof-aguiar",
+    "title": "\nWelcome to My Website\n",
+    "section": "Sof Aguiar",
+    "text": "Sof Aguiar\nI am a Statistics graduate from UFMG with experience in data analysis, machine learning, and scientific research. My work focuses on using data-driven approaches to address challenges in public health and epidemiology.\n\nContact\n📧 Email: [your email]\n🔗 GitHub: github.com/sofaguiar\n\n\nFeature One\n\n\nThis is a feature card with a hover effect.\n\n\n\n\nFeature Two\n\n\nAnother feature card with a modern design.\n\n\n\n\n© 2025 Sof Aguiar. All rights reserved."
   },
   {
-    "objectID": "content/contact.html",
-    "href": "content/contact.html",
-    "title": "Sof Aguiar",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "Feel free to contact me through these channels!\n\nEmail: sof.m.aguiar@gmail.com\n\nGitHub: github.com/SofAguiar"
+    "text": "Understanding Survival Analysis\nSQL for Data Science"
   },
   {
-    "objectID": "content/about.html",
-    "href": "content/about.html",
-    "title": "Sof Aguiar",
+    "objectID": "blog.html#tutorials-and-articles",
+    "href": "blog.html#tutorials-and-articles",
+    "title": "Blog",
     "section": "",
-    "text": "Education\nBachelor’s Degree in Statistics\nUniversidade Federal de Minas Gerais (UFMG)\n- Expected Graduation: 2025\n- Relevant Coursework: Data Analysis, Statistical Modeling, Machine Learning, Programming in R and Python\nTechnical High School in Mechatronics\nFederal Center for Technological Education of Minas Gerais (CEFET-MG)\n- Graduated: 2018\n\n\nResearch Experience\nResearch Assistant – Child Obesity Prediction\nUFMG | August 2023 – Present\n- Develop predictive algorithms for childhood obesity in the Brazilian population using descriptive analysis and statistical modeling.\n- Collaborate with the UFMG School of Nursing and CIDACS (Center for Data Integration and Knowledge for Health).\n- Presented research findings at the 12th Brazilian Congress of Epidemiology.\nResearch Assistant – Gender Bias in Word Embeddings\nUFMG | October 2021 – October 2022\n- Assisted in identifying and correcting gender biases in popular Word Embeddings.\n- Worked with Python and natural language processing (NLP) techniques.\n\n\nProfessional Experience\nPeople Analytics Intern\ngreen4T | March 2024 – Present\n- Develop and optimize HR processes using Power BI to create insightful reports on employee data.\n- Collaborate with cross-functional teams to improve data-driven decision-making in the HR department.\nSummer Intern\ngreen4T | January 2024 – March 2024\n- Contributed to sustainability projects using Design Thinking methodologies.\n- Utilized R programming and Microsoft Office tools to analyze and present data.\nStatistics Intern\nInstituto Ver | November 2023 – January 2024\n- Conducted quantitative data analysis for electoral and opinion research projects.\n- Assisted in the preparation of statistical reports and visualizations.\nPresident & Project Manager\nESTAT MG (Junior Statistics Company) | January 2021 – November 2022\n- Led the company as President, overseeing administrative, financial, and accounting operations, achieving a 20% annual revenue growth.\n- Managed statistical projects for clients, including data analysis, consulting, and private tutoring.\n\n\nSkills\n\nProgramming Languages: R (Advanced), Python (Intermediate), SQL (Intermediate)\n\nData Analysis Tools: Power BI (Basic), Power Automate (Basic), Git/GitHub\n\nLanguages: English (Advanced), German (Basic)\n\nOther Skills: Microsoft Office Suite, Data Storytelling, Statistical Modeling, Machine Learning\n\n\n\nCertifications & Courses\n\nData Governance Fundamentals – DataCamp\n\nData Storytelling – DataCamp\n\nMachine Learning for Health Predictions – 12th Brazilian Congress of Epidemiology\n\nSpatial Data Visualization in R – 12th Brazilian Congress of Epidemiology"
+    "text": "Understanding Survival Analysis\nSQL for Data Science"
   },
   {
-    "objectID": "content/blog.html",
-    "href": "content/blog.html",
-    "title": "Sof Aguiar",
+    "objectID": "papers.html",
+    "href": "papers.html",
+    "title": "Papers",
     "section": "",
-    "text": "Welcome to my blog! Here are all my posts:\n\nTech Blog\nDate: October 1, 2023\nDescription: A deep dive into the latest tech trends.\n\n\nLife Blog\nDate: October 5, 2023\nDescription: Reflections on life and personal growth."
+    "text": "Análise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
   },
   {
-    "objectID": "content/index.html",
-    "href": "content/index.html",
-    "title": "Sof Aguiar",
+    "objectID": "papers.html#publications",
+    "href": "papers.html#publications",
+    "title": "Papers",
     "section": "",
-    "text": "Hi, I’m Sof!\nAnd welcome to my portfolio. I’m a Statistics graduate currently researching Public Health and Epidemiology. Here, you’ll find my projects, publications and tutorials for R progamming."
-  },
-  {
-    "objectID": "content/portfolio/spatial.html",
-    "href": "content/portfolio/spatial.html",
-    "title": "Spatial Modeling",
-    "section": "",
-    "text": "This is the content for Project 1."
-  },
-  {
-    "objectID": "content/portfolio/spatial.html#overview",
-    "href": "content/portfolio/spatial.html#overview",
-    "title": "Spatial Modeling",
-    "section": "",
-    "text": "This is the content for Project 1."
-  },
-  {
-    "objectID": "content/portfolio/spatial.html#technologies-used",
-    "href": "content/portfolio/spatial.html#technologies-used",
-    "title": "Spatial Modeling",
-    "section": "Technologies Used",
-    "text": "Technologies Used\n\nJavaScript\nHTML/CSS\nNode.js"
-  },
-  {
-    "objectID": "content/portfolio.html",
-    "href": "content/portfolio.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Data Viz\n\n\n\n\n\n\ntidyverse\n\n\nR\n\n\ndata viz\n\n\n\nA description of Project 1.\n\n\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nSpatial Modeling\n\n\n\n\n\n\ntidyverse\n\n\nsf\n\n\nR\n\n\nspatial\n\n\nmaps\n\n\n\nA description of Project 1.\n\n\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nSurvival Analysis\n\n\n\n\n\n\nsurvival\n\n\nR\n\n\nstatistics\n\n\n\nA description of Project 1.\n\n\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Análise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
   }
 ]
