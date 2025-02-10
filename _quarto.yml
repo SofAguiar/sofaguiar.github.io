@@ -5,6 +5,7 @@ project:
 
 website:
   title: "Sof Aguiar"
+  favicon: assets/favicon.ico
   navbar:
     right:
       - text: "About"
