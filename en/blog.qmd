@@ -1,0 +1,8 @@
+---
+title: "Blog"
+---
+
+## Tutorials and Articles
+- [Understanding Survival Analysis](blog/survival-analysis.qmd)
+- [SQL for Data Science](blog/data-viz.qmd)
+

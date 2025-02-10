@@ -1,86 +1,184 @@
 [
   {
-    "objectID": "portfolio.html",
-    "href": "portfolio.html",
+    "objectID": "ptbr/portfolio.html",
+    "href": "ptbr/portfolio.html",
     "title": "Portfolio",
     "section": "",
-    "text": "Short description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
+    "text": "oi"
   },
   {
-    "objectID": "portfolio.html#projects",
-    "href": "portfolio.html#projects",
+    "objectID": "ptbr/portfolio.html#projects",
+    "href": "ptbr/portfolio.html#projects",
     "title": "Portfolio",
-    "section": "",
-    "text": "Short description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
+    "section": "Projects",
+    "text": "Projects\n\n[Project Name]\nShort description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
   },
   {
-    "objectID": "cv.html",
-    "href": "cv.html",
+    "objectID": "ptbr/cv.html",
+    "href": "ptbr/cv.html",
     "title": "Curriculum Vitae",
     "section": "",
-    "text": "Statistics (BSc), UFMG"
+    "text": "oi"
   },
   {
-    "objectID": "cv.html#education",
-    "href": "cv.html#education",
+    "objectID": "ptbr/cv.html#education",
+    "href": "ptbr/cv.html#education",
     "title": "Curriculum Vitae",
-    "section": "",
-    "text": "Statistics (BSc), UFMG"
+    "section": "Education",
+    "text": "Education\n\nStatistics (BSc), UFMG"
   },
   {
-    "objectID": "cv.html#experience",
-    "href": "cv.html#experience",
+    "objectID": "ptbr/cv.html#experience",
+    "href": "ptbr/cv.html#experience",
     "title": "Curriculum Vitae",
     "section": "Experience",
     "text": "Experience\n\n[Your job or research experience]\nDescription of role and responsibilities"
   },
   {
-    "objectID": "cv.html#skills",
-    "href": "cv.html#skills",
+    "objectID": "ptbr/cv.html#skills",
+    "href": "ptbr/cv.html#skills",
     "title": "Curriculum Vitae",
     "section": "Skills",
     "text": "Skills\n\nData analysis, machine learning, Python, R, SQL, Quarto"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "\nWelcome to My Website\n",
+    "objectID": "ptbr/blog/survival-analysis.html",
+    "href": "ptbr/blog/survival-analysis.html",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "This is a modern, responsive website built with Quarto and custom SCSS.\n\nGet Started"
+    "text": "oi"
   },
   {
-    "objectID": "about.html#sof-aguiar",
-    "href": "about.html#sof-aguiar",
-    "title": "\nWelcome to My Website\n",
-    "section": "Sof Aguiar",
-    "text": "Sof Aguiar\nI am a Statistics graduate from UFMG with experience in data analysis, machine learning, and scientific research. My work focuses on using data-driven approaches to address challenges in public health and epidemiology.\n\nContact\n📧 Email: [your email]\n🔗 GitHub: github.com/sofaguiar\n\n\nFeature One\n\n\nThis is a feature card with a hover effect.\n\n\n\n\nFeature Two\n\n\nAnother feature card with a modern design.\n\n\n\n\n© 2025 Sof Aguiar. All rights reserved."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
+    "objectID": "ptbr/about.html",
+    "href": "ptbr/about.html",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "Understanding Survival Analysis\nSQL for Data Science"
+    "text": "oi\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
   },
   {
-    "objectID": "blog.html#tutorials-and-articles",
-    "href": "blog.html#tutorials-and-articles",
-    "title": "Blog",
+    "objectID": "ptbr/about.html#sof-aguiar",
+    "href": "ptbr/about.html#sof-aguiar",
+    "title": "Sof Aguiar",
     "section": "",
-    "text": "Understanding Survival Analysis\nSQL for Data Science"
+    "text": "oi\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
   },
   {
-    "objectID": "papers.html",
-    "href": "papers.html",
+    "objectID": "en/papers.html",
+    "href": "en/papers.html",
     "title": "Papers",
     "section": "",
     "text": "Análise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
   },
   {
-    "objectID": "papers.html#publications",
-    "href": "papers.html#publications",
+    "objectID": "en/papers.html#publications",
+    "href": "en/papers.html#publications",
     "title": "Papers",
     "section": "",
     "text": "Análise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
+  },
+  {
+    "objectID": "en/blog.html",
+    "href": "en/blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Understanding Survival Analysis\nSQL for Data Science"
+  },
+  {
+    "objectID": "en/blog.html#tutorials-and-articles",
+    "href": "en/blog.html#tutorials-and-articles",
+    "title": "Blog",
+    "section": "",
+    "text": "Understanding Survival Analysis\nSQL for Data Science"
+  },
+  {
+    "objectID": "en/about.html",
+    "href": "en/about.html",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "I am a Statistics graduate from UFMG with experience in data analysis, statistical modeling, and scientific research. My work focuses on using data-driven approaches to address challenges in public health and epidemiology.\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+  },
+  {
+    "objectID": "en/about.html#sof-aguiar",
+    "href": "en/about.html#sof-aguiar",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "I am a Statistics graduate from UFMG with experience in data analysis, statistical modeling, and scientific research. My work focuses on using data-driven approaches to address challenges in public health and epidemiology.\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+  },
+  {
+    "objectID": "en/cv.html",
+    "href": "en/cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Statistics (BSc), UFMG"
+  },
+  {
+    "objectID": "en/cv.html#education",
+    "href": "en/cv.html#education",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Statistics (BSc), UFMG"
+  },
+  {
+    "objectID": "en/cv.html#experience",
+    "href": "en/cv.html#experience",
+    "title": "Curriculum Vitae",
+    "section": "Experience",
+    "text": "Experience\n\n[Your job or research experience]\nDescription of role and responsibilities"
+  },
+  {
+    "objectID": "en/cv.html#skills",
+    "href": "en/cv.html#skills",
+    "title": "Curriculum Vitae",
+    "section": "Skills",
+    "text": "Skills\n\nData analysis, machine learning, Python, R, SQL, Quarto"
+  },
+  {
+    "objectID": "en/portfolio.html",
+    "href": "en/portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Short description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
+  },
+  {
+    "objectID": "en/portfolio.html#projects",
+    "href": "en/portfolio.html#projects",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Short description of an advanced project with links to GitHub or demos.\n\nProject 1: GitHub Repo\nProject 2: Demo"
+  },
+  {
+    "objectID": "ptbr/blog/data-viz.html",
+    "href": "ptbr/blog/data-viz.html",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "oi"
+  },
+  {
+    "objectID": "ptbr/blog.html",
+    "href": "ptbr/blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "oi"
+  },
+  {
+    "objectID": "ptbr/blog.html#tutorials-and-articles",
+    "href": "ptbr/blog.html#tutorials-and-articles",
+    "title": "Blog",
+    "section": "Tutorials and Articles",
+    "text": "Tutorials and Articles\n\nUnderstanding Survival Analysis\nSQL for Data Science"
+  },
+  {
+    "objectID": "ptbr/papers.html",
+    "href": "ptbr/papers.html",
+    "title": "Papers",
+    "section": "",
+    "text": "oi"
+  },
+  {
+    "objectID": "ptbr/papers.html#publications",
+    "href": "ptbr/papers.html#publications",
+    "title": "Papers",
+    "section": "Publications",
+    "text": "Publications\n\nAnálise de Sobrevivência Intervalar: Aplicação em Dados Reais\nPublished in [journal/conference], YYYY\n[Other paper title]\nShort description and publication details"
   }
 ]

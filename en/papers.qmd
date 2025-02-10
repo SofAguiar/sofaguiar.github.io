@@ -1,0 +1,11 @@
+---
+title: "Papers"
+---
+
+## Publications
+- **Análise de Sobrevivência Intervalar: Aplicação em Dados Reais**  
+  *Published in [journal/conference], YYYY*  
+
+- **[Other paper title]**  
+  *Short description and publication details*
+

@@ -1,9 +1,9 @@
 /*-- scss:defaults --*/
-$primary-color: #628B48;    // Dark green
-$secondary-color: #6AB547;  // Light green
-$background-color: #FFFFFF; // White
-$accent-color: #E8B9AB;     // Soft pink
-$text-color: #000022;       // Dark blue
+$primary-color: #628B48;    // Verde escuro
+$secondary-color: #6AB547;  // Verde claro
+$background-color: #FFFFFF; // Branco
+$accent-color: #E8B9AB;     // Rosa suave
+$text-color: #000022;       // Azul escuro
 $font-family: "Roboto Flex", sans-serif;
 
 /*-- scss:mixins --*/
@@ -11,7 +11,7 @@ $font-family: "Roboto Flex", sans-serif;
   background-color: $primary-color;
   color: white;
   padding: 10px 20px;
-  border-radius: 25px; // More rounded corners
+  border-radius: 25px; // Bordas mais arredondadas
   border: none;
   cursor: pointer;
   font-weight: 500;
@@ -23,7 +23,7 @@ $font-family: "Roboto Flex", sans-serif;
   transition: 0.3s ease-in-out;
   &:hover {
     opacity: 0.8;
-    transform: translateY(-2px); // Slight lift on hover
+    transform: translateY(-2px); // Leve elevação ao passar o mouse
   }
 }
 
@@ -55,8 +55,24 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar a {
+/* 
+  Links do menu principal (nível superior) permanecem brancos 
+  (assumindo que estejam diretamente dentro de .navbar)
+*/
+.navbar > a {
   color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: 500;
+  @include hover-effect;
+}
+
+/* 
+  Links dentro do dropdown usarão a cor $accent-color 
+  (assumindo que o dropdown seja renderizado com a classe .dropdown-menu)
+*/
+.navbar .dropdown-menu a {
+  color: $accent-color !important;
   text-decoration: none;
   padding: 10px 15px;
   font-weight: 500;
@@ -113,9 +129,9 @@ button {
   @include hover-effect;
 }
 
-/* Responsive Design */
+/* Design Responsivo */
 @media (max-width: 768px) {
-  .navbar a {
+  .navbar > a {
     padding: 10px;
   }
 

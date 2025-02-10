@@ -1,0 +1,16 @@
+---
+title: "Curriculum Vitae"
+---
+
+oi
+
+## Education
+- **Statistics (BSc)**, UFMG  
+
+## Experience
+- **[Your job or research experience]**  
+  *Description of role and responsibilities*
+
+## Skills
+- Data analysis, machine learning, Python, R, SQL, Quarto
+

@@ -2,24 +2,43 @@ project:
   type: website
   output-dir: docs
 
+
 website:
   title: "Sof Aguiar"
   navbar:
-    left:
-      - text: "About"
-        href: about.qmd
-      - text: "CV"
-        href: cv.qmd
-      - text: "Papers"
-        href: papers.qmd
-      - text: "Blog"
-        href: blog.qmd
-      - text: "Portfolio"
-        href: portfolio.qmd
     right:
-      - text: "en / pt-br"
-        href: "#"  # Placeholder for language toggle
+      - text: "About"
+        menu:
+          - text: "Português"
+            href: ptbr/about.qmd
+          - text: "English"
+            href: en/about.qmd
+      - text: "CV"
+        menu:
+          - text: "Português"
+            href: ptbr/cv.qmd
+          - text: "English"
+            href: en/cv.qmd
+      - text: "Papers"
+        menu:
+          - text: "Português"
+            href: ptbr/papers.qmd
+          - text: "English"
+            href: en/papers.qmd
+      - text: "Portfolio"
+        menu:
+          - text: "Português"
+            href: ptbr/portfolio.qmd
+          - text: "English"
+            href: en/portfolio.qmd
+      - text: "Blog"
+        menu:
+          - text: "Português"
+            href: ptbr/blog.qmd
+          - text: "English"
+            href: en/blog.qmd
 
+  
 format:
   html:
     theme:

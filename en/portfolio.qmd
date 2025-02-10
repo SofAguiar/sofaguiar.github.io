@@ -1,0 +1,11 @@
+---
+title: "Portfolio"
+---
+
+## Projects
+### [Project Name]
+*Short description of an advanced project with links to GitHub or demos.*
+
+- **Project 1:** [GitHub Repo](https://github.com/SofAguiar/sofaguiar.github.io/)
+- **Project 2:** [Demo](https://github.com/SofAguiar/sofaguiar.github.io/)
+
