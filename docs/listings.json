@@ -1,0 +1,10 @@
+[
+  {
+    "listing": "/content/portfolio.html",
+    "items": [
+      "/content/portfolio/data_viz.html",
+      "/content/portfolio/spatial.html",
+      "/content/portfolio/survival.html"
+    ]
+  }
+]

@@ -7,11 +7,46 @@
     "text": "What have I done\nChild Obesity Prevalence Across Brazilian Regions 12th Brazilian Congress of Epidemiology\nTCC\nArticle on Sptial Analysis\nArticle on ENEM grades"
   },
   {
-    "objectID": "content/portfolio.html",
-    "href": "content/portfolio.html",
-    "title": "Sof Aguiar",
+    "objectID": "content/portfolio/survival.html",
+    "href": "content/portfolio/survival.html",
+    "title": "Survival Analysis",
     "section": "",
-    "text": "Welcome to my portfolio! Here are all my projects:\n\nProject 1\nDate: October 1, 2023\nDescription: A description of Project 1.\nTags: Data Viz, R\n\n\nProject 2\nDate: October 5, 2023\nDescription: A description of Project 2.\nTags: Statistics, Survival Analysis, R\n\n\nProject 2\nDate: October 5, 2023\nDescription: A description of Project 2.\nTags: Statistics, Spatial Analysis, R"
+    "text": "This is the content for Project 1."
+  },
+  {
+    "objectID": "content/portfolio/survival.html#overview",
+    "href": "content/portfolio/survival.html#overview",
+    "title": "Survival Analysis",
+    "section": "",
+    "text": "This is the content for Project 1."
+  },
+  {
+    "objectID": "content/portfolio/survival.html#technologies-used",
+    "href": "content/portfolio/survival.html#technologies-used",
+    "title": "Survival Analysis",
+    "section": "Technologies Used",
+    "text": "Technologies Used\n\nJavaScript\nHTML/CSS\nNode.js"
+  },
+  {
+    "objectID": "content/portfolio/data_viz.html",
+    "href": "content/portfolio/data_viz.html",
+    "title": "Data Viz",
+    "section": "",
+    "text": "This is the content for Project 1."
+  },
+  {
+    "objectID": "content/portfolio/data_viz.html#overview",
+    "href": "content/portfolio/data_viz.html#overview",
+    "title": "Data Viz",
+    "section": "",
+    "text": "This is the content for Project 1."
+  },
+  {
+    "objectID": "content/portfolio/data_viz.html#technologies-used",
+    "href": "content/portfolio/data_viz.html#technologies-used",
+    "title": "Data Viz",
+    "section": "Technologies Used",
+    "text": "Technologies Used\n\nJavaScript\nHTML/CSS\nNode.js"
   },
   {
     "objectID": "content/contact.html",
@@ -40,5 +75,33 @@
     "title": "Sof Aguiar",
     "section": "",
     "text": "Hi, I’m Sof!\nAnd welcome to my portfolio. I’m a Statistics graduate currently researching Public Health and Epidemiology. Here, you’ll find my projects, publications and tutorials for R progamming."
+  },
+  {
+    "objectID": "content/portfolio/spatial.html",
+    "href": "content/portfolio/spatial.html",
+    "title": "Spatial Modeling",
+    "section": "",
+    "text": "This is the content for Project 1."
+  },
+  {
+    "objectID": "content/portfolio/spatial.html#overview",
+    "href": "content/portfolio/spatial.html#overview",
+    "title": "Spatial Modeling",
+    "section": "",
+    "text": "This is the content for Project 1."
+  },
+  {
+    "objectID": "content/portfolio/spatial.html#technologies-used",
+    "href": "content/portfolio/spatial.html#technologies-used",
+    "title": "Spatial Modeling",
+    "section": "Technologies Used",
+    "text": "Technologies Used\n\nJavaScript\nHTML/CSS\nNode.js"
+  },
+  {
+    "objectID": "content/portfolio.html",
+    "href": "content/portfolio.html",
+    "title": "Sof Aguiar",
+    "section": "",
+    "text": "Data Viz\n\n\n\n\n\n\ntidyverse\n\n\nR\n\n\ndata viz\n\n\n\nA description of Project 1.\n\n\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nSpatial Modeling\n\n\n\n\n\n\ntidyverse\n\n\nsf\n\n\nR\n\n\nspatial\n\n\nmaps\n\n\n\nA description of Project 1.\n\n\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nSurvival Analysis\n\n\n\n\n\n\nsurvival\n\n\nR\n\n\nstatistics\n\n\n\nA description of Project 1.\n\n\n\n\n\nFeb 8, 2025\n\n\n\n\n\n\nNo matching items"
   }
 ]

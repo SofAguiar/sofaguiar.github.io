@@ -1,92 +1,32 @@
-/* Custom CSS for a bright palette */
-:root {
-  --bs-primary: #FF6F61;
-  --bs-secondary: #6B5B95;
-  --bs-success: #88B04B;
-  --bs-info: #92A8D1;
-  --bs-warning: #FFD662;
-  --bs-danger: #FF6F61;
-  --bs-light: #F7CAC9;
-  --bs-dark: #34568B;
+* Add this to assets/styles.css */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-/* Apply the custom colors to Bootstrap classes */
-.bg-primary {
-  background-color: var(--bs-primary) !important;
+.listing-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
 }
 
-.text-primary {
-  color: var(--bs-primary) !important;
+.listing-item img.thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
-.btn-primary {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
+.tags {
+  margin-top: 10px;
 }
 
-.btn-primary:hover {
-  background-color: #e65a50;
-  border-color: #e65a50;
+.tag {
+  display: inline-block;
+  background-color: #f1f1f1;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 2px;
+  font-size: 0.9em;
 }
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Bright App</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Buttons -->
-<div class="container mt-5">
-  <button class="btn btn-primary me-2">Primary</button>
-  <button class="btn btn-secondary me-2">Secondary</button>
-  <button class="btn btn-success me-2">Success</button>
-  <button class="btn btn-warning me-2">Warning</button>
-  <button class="btn btn-danger me-2">Danger</button>
-</div>
-
-<!-- Cards -->
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card bg-light">
-        <div class="card-body">
-          <h5 class="card-title">Card 1</h5>
-          <p class="card-text">This is a sample card with a bright background.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card bg-info text-white">
-        <div class="card-body">
-          <h5 class="card-title">Card 2</h5>
-          <p class="card-text">This card uses the info color.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card bg-warning">
-        <div class="card-body">
-          <h5 class="card-title">Card 3</h5>
-          <p class="card-text">This card uses the warning color.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

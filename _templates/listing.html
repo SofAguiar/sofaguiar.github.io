@@ -1,0 +1,16 @@
+<div class="listing-grid">
+  {{#entries}}
+    <div class="listing-item">
+      {{#thumbnail}}
+        <img src="{{thumbnail}}" alt="{{title}} Thumbnail" class="thumbnail">
+      {{/thumbnail}}
+      <h3><a href="{{path}}">{{title}}</a></h3>
+      <p>{{description}}</p>
+      <div class="tags">
+        {{#tags}}
+          <span class="tag">{{.}}</span>
+        {{/tags}}
+      </div>
+    </div>
+  {{/entries}}
+</div>

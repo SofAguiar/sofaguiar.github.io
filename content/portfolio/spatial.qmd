@@ -1,0 +1,15 @@
+---
+title: "Spatial Modeling"
+date: "2025-02-08"
+description: "A description of Project 1."
+categories: [tidyverse, sf, R, spatial, maps]
+thumbnail: ../../assets/images/maps.jpg
+---
+
+## Overview
+This is the content for Project 1.
+
+## Technologies Used
+- JavaScript
+- HTML/CSS
+- Node.js
