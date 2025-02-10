@@ -1,0 +1,80 @@
+### Education
+**Bachelor's Degree in Statistics**  
+*Federal University of Minas Gerais (UFMG)*  
+*2020 - Present (Expected graduation: 2025/1)*  
+
+**Technical High School in Mechatronics**  
+*CEFET-MG*  
+*2016 - 2018*  
+
+---
+
+### Academic Activities
+**Scientific Research - Public Health Modeling** *(Aug 2023 - Present)*    
+*Advisor: Prof. Gustavo Velasquez (UFMG/School of Nursing)*    
+- Development of statistical models for childhood obesity prediction using:  
+  ▶️ Survival analysis  
+  ▶️ Generalized mixed models  
+  ▶️ Spatial modeling in R  
+- Collaboration on research regarding kidney function, hypertension, and diabetes  
+- Presentation at the 12th Brazilian Congress of Epidemiology  
+
+**ESTAT MG (Junior Enterprise)** *(Jan 2021 - Nov 2022)*  
+- **President Director** (2022):  
+  Strategic leadership with a 20% revenue growth during the in-person transition  
+- **Project Consultant** (2021):  
+  Management of statistical projects for external clients  
+
+**Scientific Research - Bias Correction in AI** *(Oct 2021 - Oct 2022)*  
+*Advisor: Prof. Flávio Figueredo (UFMG/DCC)*  
+- Identification and mitigation of gender biases in Word Embeddings models  
+
+---
+
+### Professional Experience
+**green4T** *(Jan 2024 - Aug 2024)*  
+- **Multisectoral Intern**  
+  Work in quality management, process control, people analytics, and workflow automation with:  
+  ✔️ Microsoft 365 (Power BI and Power Automate)  
+  ✔️ Data analysis focused on results  
+
+**Instituto Ver** *(Nov 2023 - Jan 2024)*  
+- Intern in Quantitative Data Analysis  
+  Processing and interpreting data for electoral and public opinion research.  
+
+---
+
+### Technical Skills
+| **Programming**      | **Tools**                  | **Data Analysis**          |
+|----------------------|---------------------------|----------------------------|
+| R (Advanced)        | Power BI                  | Statistical modeling       |
+| Python (Intermediate)| Power Automate            | Spatial visualization      |
+| SQL (Basic)         | Git/GitHub                 | Basic Machine Learning    |
+|                      | Microsoft 365 Suite       | Design Thinking            |
+
+---
+
+### Courses and Certifications
+- **Machine Learning for Health Predictions**  
+  *12th Brazilian Congress of Epidemiology*  
+- **Spatial Data Visualization in R**  
+  *12th Brazilian Congress of Epidemiology*  
+- **Data Storytelling**  
+  *DataCamp*  
+
+<style>
+  table {
+    width: 100%;
+    margin: 1em 0;
+    border-collapse: collapse;
+  }
+  td, th {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+  ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+</style>

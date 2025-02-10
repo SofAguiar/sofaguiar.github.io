@@ -2,7 +2,7 @@
 
 Bem-vindo ao meu site! 🎉  
 
-Aqui você encontra informações sobre mim, meu trabalho e meus projetos. 
+Eu sou graduando em Estatística, atualmente pesquisando Saúde Pública e Epidemiologia. Aqui você encontra informações sobre mim, meu trabalho e meus projetos. 
 O site inclui meu [currículo](cv.qmd), uma seção de [artigos e apresentações em congresso](papers.qmd), um [blog](blog.qmd) com tutoriais e um [portifólio](portfolio.qmd) com projetos avançados. 
 
 Sinta-se à vontade para explorar :)

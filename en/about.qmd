@@ -1,9 +1,12 @@
-## Sof Aguiar
+## Sof Aguiar  
 
-I am a Statistics graduate from UFMG with experience in data analysis, statistical modeling, and scientific research. My work focuses on using data-driven approaches to address challenges in public health and epidemiology.
+Welcome to my website! 🎉  
 
-### Contact
+I'm a Statistics graduate currently researching Public Health and Epidemiology. Here you will find information about me, my work, and my projects.  
+The site includes my [CV](cv.qmd), a section of [papers and conference presentations](papers.qmd), a [blog](blog.qmd) with tutorials, and a [portfolio](portfolio.qmd) featuring advanced projects.  
+
+Feel free to explore :)  
+
+### Get in touch!  
 📧 Email: [sof.m.aguiar@gmail.com](mailto:sof.m.aguiar@gmail.com)  
-🔗 GitHub: [github.com/sofaguiar](https://github.com/sofaguiar)  
-
-
+🔗 GitHub: [github.com/sofaguiar](https://github.com/sofaguiar)

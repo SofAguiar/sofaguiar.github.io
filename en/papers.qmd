@@ -1,39 +1,47 @@
+### **Undergraduate Thesis**  
 
-### **Trabalho de Conclusão de Curso**  
+**SURVIVAL ANALYSIS IN A STUDY OF THE DOUBLE BURDEN OF MALNUTRITION**  
+*A Demonstration of Interval Censoring in Large-Scale Databases*  
 
-**ANÁLISE DE SOBREVIVÊNCIA EM ESTUDO ENVOLVENDO A DUPLA CARGA DA MÁ NUTRIÇÃO**  
-*Uma Ilustração de Censura Intervalar em Grande Banco de Dados*  
+Advisor: Prof. Enrico Antônio Colosimo  
+Co-Advisor: Prof. Jorge Gustavo Meléndez Velásquez  
 
-Orientação: Prof. Enrico Antônio Colosimo  
-Co-Orientação: Prof Jorge Gustavo Meléndez Velásquez  
+View full thesis [here](https://drive.google.com/file/d/1GVN3FMvbrB2e_8OFP02o90Jyiq030eni/view?usp=drive_link)
 
-Veja o trabalho completo [aqui](https://drive.google.com/file/d/1GVN3FMvbrB2e_8OFP02o90Jyiq030eni/view?usp=drive_link)
+---
 
-### **Pôster no 12º Congresso Brasileiro de Epidemiologia**
+### **Poster Presentation at 12th Brazilian Congress of Epidemiology**
 
-**ADEQUAÇÕES DE IMC E ESTATURA EM SEIS MILHÕES DE CRIANÇAS BRASILEIRAS SEGUNDO REGIÕES**  
+**BMI AND HEIGHT ADJUSTMENTS IN SIX MILLION BRAZILIAN CHILDREN BY REGION**  
 
-Orientação: Prof Jorge Gustavo Meléndez Velásquez  
+Advisor: Prof. Jorge Gustavo Meléndez Velásquez  
 
-Veja o pôster completo [aqui](https://drive.google.com/file/d/16fZf4IfT-dij0VjZnHzs8OfRFIIhCNbv/view?usp=sharing)
+View full poster [here](https://drive.google.com/file/d/16fZf4IfT-dij0VjZnHzs8OfRFIIhCNbv/view?usp=sharing)
 
-### **Apresentação Oral na II Conferência Internacional de Políticas Públicas e Ciência de Dados**  
+---
 
-**INFLUÊNCIA DAS POLÍTICAS DE TRANSFERÊNCIA DE RENDA NAS ELEIÇÕES BRASILEIRAS**  
-*Uma Análise Comparativa da geografia eleitoral de 2014, 2018 e 2022 para o cargo de Presidente*  
+### **Oral Presentation at II International Conference on Public Policies and Data Science**  
 
-Autores: João Paulo Dellasta do Nascimento, Sofia M Aguiar  
+**INFLUENCE OF INCOME TRANSFER POLICIES ON BRAZILIAN ELECTIONS**  
+*A Comparative Analysis of Electoral Geography in 2014, 2018, and 2022 Presidential Elections*  
 
-### **Publicação em Livro Impactos da Pandemia do COVID 19 na Educação: Desafios, Adaptações e o Futuro da Prática Docente**   
+Authors: João Paulo Dellasta do Nascimento, Sofia M Aguiar  
 
-**Desigualdade no Ensino Médio e o desempenho do estudante no ENEM**  
+---
 
-Autores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar  
+### **Book Chapter in 'Impacts of the COVID-19 Pandemic on Education: Challenges, Adaptations, and the Future of Teaching Practice'**   
+
+**INEQUALITY IN SECONDARY EDUCATION AND STUDENT PERFORMANCE IN THE ENEM EXAM**  
+
+Authors: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar  
 
 ISBN: 978-65-993373-5-2 | DOI: 10.5281/zenodo.4646433 
 
-### **Apresentação no Congresso Nacional Universidade, EAD e Software Livre 2020.1**  
+---
 
-**Desigualdade no Ensino Médio e o desempenho do estudante no ENEM**  
+### **Presentation at National Congress on University, Distance Education, and Free Software 2020.1**  
 
-Autores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar 
+**INEQUALITY IN SECONDARY EDUCATION AND STUDENT PERFORMANCE IN THE ENEM EXAM**  
+
+Authors: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar  
+
