@@ -1,25 +1,21 @@
-# SofAguiar.github.io
+# Sof Aguiar's Personal Website
 
-Welcome to my personal website repository! This project hosts my personal portfolio, blog, or any other content I wish to share with the world. The site is built using [Jekyll](https://jekyllrb.com/), a static site generator, and is hosted on GitHub Pages.
+Welcome to the official repository for my personal website! This site is hosted on GitHub Pages and serves as a hub for my projects, blog posts, and ideas.
 
 ## Table of Contents
-- [About](#about)
-- [Features](#features)
-- [Setup](#setup)
 
-## About
-This repository contains the source code for my personal website. The site is designed to showcase my projects, skills, and experiences. It serves as a central hub for anyone interested in learning more about me and my work.
+- [Overview](#overview)
+- [Features](#features)
+
+## Overview
+
+This repository contains the source code for [my website](https://sofaguiar.github.io), built with modern web technologies. It is designed to be fast, responsive, and accessible across all devices. Whether you're here to check out my latest projects or read my blog posts, you'll find everything you need in one place.
 
 ## Features
-- **Responsive Design**: The website is fully responsive and works seamlessly on all devices.
-- **Blog**: A blog section where I share my thoughts, tutorials, and updates.
-- **Portfolio**: A showcase of my projects with descriptions and links.
-- **Contact Form**: An easy way for visitors to get in touch with me.
 
-## Setup
-To run this project locally, you'll need to have Ruby and Jekyll installed on your machine.
+- **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
+- **Modern Web Practices:** Leveraging the latest in HTML, CSS, and JavaScript for performance and maintainability.
+- **Simple Deployment:** Updated via GitHub Pages for seamless and quick deployments.
+- **Portfolio & Blog:** A curated space to showcase my work and share my thoughts.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/SofAguiar/sofaguiar.github.io.git
-   cd sofaguiar.github.io
+
