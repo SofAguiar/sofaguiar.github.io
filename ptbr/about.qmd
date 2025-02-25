@@ -1,19 +1,26 @@
+# É um prazer te ver por aqui!
 
-> **Aviso:** Este site está em desenvolvimento. Mudanças podem ocorrer!
+Sou Sofia Aguiar, graduanda em Estatística pela UFMG, com interesse em saúde pública e epidemiologia. Minha pesquisa busca transformar dados em ferramentas que fortaleçam o sistema de saúde e auxiliem profissionais na tomada de decisões.
 
-É um  prazer te ver por aqui!
+Tenho experiência com visualização de dados, inferência estatística e programação em R. Atualmente, estou me aprofundando em métodos bayesianos, aprendizado de máquina e Python para expandir minhas análises e modelagens preditivas.
 
-Sou Sofia Aguiar, graduanda em estatística pela UFMG e pesquiso saúde pública e epidemiologia. Nesse site você pode ver um pouco sobre mim e minhas experiências, sinta-se a vontade para explorar :)  
+### 📬 Contato: 
+Me envie um e-mail em **sof.m.aguiar@gmail.com**
 
-Para falar comigo é só me mandar um email através do [sof.m.aguiar@gmail.com](mailto:sof.m.aguiar@gmail.com) 
+### 📌 Onde me encontrar:
 
-## Links Úteis
+- Projetos de programação: [GitHub](https://github.com/sofaguiar) 
+- Currículo acadêmico: [Lattes](http://lattes.cnpq.br/0041260570017557) 
+- Perfil acadêmico: [OrcID](https://orcid.org/0009-0007-8242-7487) 
 
-- **GitHub:** [github.com/sofaguiar](https://github.com/sofaguiar)
-- **Lattes:** [Sofia Moreira de Aguiar](http://lattes.cnpq.br/0041260570017557)
-- **OrcID:** [Sofia Moreira de Aguiar](https://orcid.org/0009-0007-8242-7487)
 
-## Projetos em Destaque
+### Meus projetos favoritos
 
 - [Understanding Survival Analysis](blog/survival-analysis.qmd)
-- [Data Viz](blog/data-viz.qmd)
+
+
+### Tutoriais em R para pesquisadores
+
+- [Análise Exploratória](blog/data-viz.qmd) - Um breve passo a passo de como olhar para seu dataset
+
+> **Aviso:** Este site está em desenvolvimento. Mudanças podem ocorrer!

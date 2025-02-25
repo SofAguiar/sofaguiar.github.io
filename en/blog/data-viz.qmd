@@ -1,0 +1,339 @@
+> Warning! The translation is still in progress, this is an automatic translation and it may not be correct
+
+# **How to visualize your database - creating beautiful graphs and tables**
+
+A well-done descriptive and exploratory analysis can often change the course of your research. This is the ideal time to think about your research objective, the scope of your work, and the main information you should pay attention to.
+
+In this tutorial, we will use the database available through Kaggle [here](https://www.kaggle.com/datasets/asinow/diabetes-dataset). It describes more than 9,000 medical records of patients associated with the risk of diabetes.
+
+### First of all, prepare the environment
+
+In programming, having the code organized is essential. Both so that you can return to the analyses you did and understand what was done, and so that you can collaborate with other researchers.
+
+We will start by configuring our environment, loading the necessary packages and other settings.
+
+```{r, warning=FALSE, message=FALSE}
+# Packages used
+# This structure loads and installs packages if they are not already installed
+if(!require(tidyverse)) install.packages("tidyverse")
+if(!require(kableExtra)) install.packages("kableExtra")
+if(!require(ggcorrplot)) install.packages("ggcorrplot")
+if(!require(corrr)) install.packages("corrr")
+if(!require(rstatix)) install.packages("rstatix")
+
+# For possible variables with very small or very large values, this option
+# avoids scientific notation
+options(scipen = 9999)
+```
+
+### Load your database
+
+For databases on platforms like Kagle, there are n ways to load the database besides the traditional download and upload of the file. In my case, I downloaded the database and uploaded it to the website's GitHub since I'll be using the same dataset several times.
+
+```{r}
+# Browse through the folders and load the database in .csv
+diabetes_dataset = read.csv("../../assets/datasets/diabetes_dataset.csv")
+```
+
+Before performing any analysis, we need to check the database. Ask yourself a few questions:
+
+- Were all the columns read correctly?
+
+- Were the decimal places set correctly?
+
+- What are the types of each column?
+
+- Are the characters set correctly?
+
+To answer this, two simple commands and a little knowledge of what each variable means are enough.
+```{r}
+# Shows each column, the type and the first observations
+glimpse(diabetes_dataset)
+```
+
+
+```{r}
+# Shows the first 6 rows of the database
+head(diabetes_dataset)
+```
+
+
+All right! We can continue.
+
+### Reading the dictionary
+
+The last step before a good descriptive and exploratory analysis is **reading the dictionary of variables**. This is essential to understand acronyms that may be in another language, check the unit of measurement of each variable and identify the type of each column.
+
+- Age: Age of the individual (18-90 years).
+- Pregnancies: Number of times the patient has been pregnant.
+- BMI (Body Mass Index - BMI): Measurement of body fat based on height and weight (kg/m²).
+- Glucose: Blood glucose concentration (mg/dL), a key indicator of diabetes.
+- Blood Pressure: Systolic blood pressure (mmHg), high levels may indicate hypertension.
+- HbA1c: Glycated hemoglobin level (%), representing the average blood sugar level over several months.
+- LDL (Low-Density Lipoprotein): Level of "bad" cholesterol (mg/dL).
+- HDL (High-Density Lipoprotein): Level of "good" cholesterol (mg/dL).
+- Triglycerides: Levels of fat in the blood (mg/dL), high values ​​increase the risk of diabetes.
+- Waist Circumference: Waist measurement (cm), indicator of central obesity. - Hip Circumference (HipCircumference): Hip measurement (cm), used to calculate the waist-to-hip ratio.
+- Waist-to-Hip Ratio (WHR): Waist circumference divided by hip circumference.
+- Family History (FamilyHistory): Indicates whether the individual has a family history of diabetes (1 = Yes, 0 = No).
+- Diet Type (DietType): Eating habits (0 = Unbalanced, 1 = Balanced, 2 = Vegan/Vegetarian).
+- Hypertension (Hypertension): Presence of high blood pressure (1 = Yes, 0 = No).
+- Medication Use (MedicationUse): Indicates whether the individual uses medication (1 = Yes, 0 = No).
+- Outcome: Diagnosis of diabetes (1 = Diabetes, 0 = No Diabetes).
+
+### Univariate Analysis
+
+We finally get to the stage of creating graphs and tables. An important piece of knowledge is knowing how to distinguish continuous variables (numbers and measurements) from categorical variables (classifications of some kind, such as race and sex).
+
+For continuous variables, summary measures in a single table are an excellent way to add information to a report. For you, the researcher, to understand your database, creating histograms is a great way to visualize what is happening with each column, and to notice outliers and asymmetries.
+
+### Univariate Analysis
+
+We finally get to the stage of creating graphs and tables. An important piece of knowledge is knowing how to distinguish continuous variables (numbers and measurements) from categorical variables (classifications of some kind, such as race and sex).
+
+For continuous variables, summary measurements in a single table are an excellent way to add information to a report. For you, the researcher, to understand your database, creating histograms is a great way to visualize what is happening with each column, and to notice outliers and asymmetry, even if you don't include them in the report.
+
+So, to run the histogram, I recommend using the ggplot2 package, which provides a beautiful graph with relatively little effort.
+
+```{r}
+diabetes_dataset %>% # Opens the database
+select(WaistCircumference) %>% # Selects the variable of interest
+ggplot(aes(x = WaistCircumference)) + # Calls the function to create graphs by placing our var on the x axis
+geom_histogram(fill = "#F2C354", color = "white") + # Creates the histogram with the desired colors
+labs(title = "Histogram for Waist Circumference in cm", # Adds title
+x = "Waist Circumference (cm)", # And replaces the default text on the axes
+y = "Frequency")
+```
+
+And now for our table we will need a little more code.
+
+```{r}
+# We define the labels in Portuguese for each categorical variable
+rotulos_categoricas <- c( FamilyHistory = "Family History", # Indicates whether the individual has a family history of diabetes (1 = Yes, 0 = No)
+DietType = "Diet Type", # Eating habits (0 = Unbalanced, 1 = Balanced, 2 = Vegan/Vegetarian)
+Hypertension = "Hypertension", # Presence of high blood pressure (1 = Yes, 0 = No)
+MedicationUse = "Use of Medications", # Indicates whether the individual uses medication (1 = Yes, 0 = No)
+Outcome = "Result" # Diagnosis of diabetes (1 = Diabetes, 0 = No Diabetes)
+)
+# We select only the categorical variables based on the defined labels
+variaveis_categoricas <- names(rotulos_categoricas)
+
+# Calculate the frequency and proportion for each category of categorical variables
+resumo_categoricas <- diabetes_dataset %>% # Access the dataset
+select(all_of(variaveis_categoricas)) %>% # Select the categorical columns
+pivot_longer(cols = everything(), names_to = "Variável", values_to = "Categoria") %>% # Convert the wide format to long
+group_by(Variável,Categoria) %>% # Groups by unique values ​​of categorical variables
+summarise(Frequency = n(), .groups = "drop") %>% # Counts how many times each category appears
+mutate(Proportion = Frequency / sum(Frequency) * 100) %>% # Calculates the relative percentage of each category
+mutate(Variável = recode(Variável, !!!rotulos_categoricas)) # Replaces the variable names with the labels in Portuguese
+
+# Let's create the table formatted
+resumo_categoricas %>% # Calls the created summary
+kable("html",
+caption = "Distribution of categorical variables", # Uses kable from the kableExtra library
+align = "c", # Aligns the text to the center
+col.names = c("Variable", "Category", "Frequency", "Proportion (%)")) %>% # Defines the column names
+kable_styling(full_width = FALSE,
+bootstrap_options = c("striped", "hover")) %>% # Applies style settings
+footnote(general = "Source: Prepared by the author.", # Adds the table font
+general_title = "") %>%
+add_header_above(c(" " = 1, "Descriptive Statistics" = 3)) # Adds a header for the statistics columns
+```
+
+For other formatting, just search a little in the package documentation kableExtra and understand what needs to be changed.
+
+For categorical variables, the process is very similar. We will create a bar chart (never a pie chart!!) and a table with the summary measures.
+
+```{r}
+diabetes_dataset %>% # Opens the database
+select(FamilyHistory) %>% # Selects the variable of interest
+ggplot(aes(x = as.factor(FamilyHistory))) + # Calls the function to create graphs by placing our var on the x axis as a factor (i.e. categorical var)
+geom_bar(fill = "#C97064", color = "white") + # Creates the bar graph with the desired colors
+labs(title = "Distribution for Family History of Diabetes", # Adds title
+x = "Do you have a family history? (0 = no, 1 = yes)", # And replaces the default text on the axes
+y = "Frequency")
+```
+
+It may also be interesting to create a graph for the group proportions on the y axis, in order to facilitate visualization. Just change a few lines of code as seen below.
+
+```{r}
+diabetes_dataset %>% # Open the database
+count(FamilyHistory) %>% # Count the occurrences of each category
+mutate(Proportion = n / sum(n)) %>% # Calculate the proportion
+ggplot(aes(x = as.factor(FamilyHistory), y = Proportion)) + # Set the axes
+geom_col(fill = "#68A357", color = "white") + # Create the bar chart
+labs(title = "Distribution of Family History of Diabetes", # Add title
+x = "Do you have a family history? (0 = no, 1 = yes)", # And replace the default text on the axes
+y = "Proportion")
+```
+
+Finally, now let's make the tables for the categorical variables. 
+
+```{r}
+# We define the labels in Portuguese for each categorical variable
+rotulos_categoricas <- c(
+FamilyHistory = "Family History", # Indicates whether the individual has a family history of diabetes (1 = Yes, 0 = No)
+DietType = "Diet Type", # Eating habits (0 = Unbalanced, 1 = Balanced, 2 = Vegan/Vegetarian)
+Hypertension = "Hypertension", # Presence of high blood pressure (1 = Yes, 0 = No)
+MedicationUse = "Use of Medications", # Indicates whether the individual uses medication (1 = Yes, 0 = No)
+Outcome = "Resultado" # Diagnosis of diabetes (1 = Diabetes, 0 = No Diabetes)
+)
+# We select only the categorical variables based on the defined labels
+variaveis_categoricas <- names(rotulos_categoricas)
+
+# Calculate the frequency and proportion for each category of categorical variables
+resumo_categoricas <- diabetes_dataset %>% # Access the dataset
+select(all_of(variaveis_categoricas)) %>% # Select the categorical columns
+pivot_longer(cols = everything(), names_to = "Variável", values_to = "Categoria") %>% # Convert the wide format to long
+group_by(Variável,Categoria) %>% # Groups by unique values of categorical variables
+summarise(Frequency = n(), .groups = "drop") %>% # Counts how many times each category appears
+mutate(Proporção = Frequency / sum(Frequency) * 100) %>% # Calculates the relative percentage of each category
+mutate(Variável = recode(Variável, !!!rotulos_categoricas)) # Replaces the variable names with the labels in Portuguese
+
+# We adjusted to remove the repetition of the name of the variable
+resumo_categoricas <- resumo_categoricas %>%
+group_by(Variável) %>%
+mutate(Variável = ifelse(row_number() == 1, Variável, "")) %>% # Keeps the name only in the first line of each group
+ungroup()
+
+# We create the formatted table
+resumo_categoricas %>% # Calls the created summary
+kable("html",
+caption = "Distribution of categorical variables", # Uses kable from the kableExtra library
+align = "c", # Aligns the text to the center
+col.names = c("Variable", "Category", "Frequency", "Proportion (%)")) %>% # Defines the column names
+kable_styling(full_width = FALSE,
+bootstrap_options = c("striped", "hover")) %>% # Applies style settings
+footnote(general = "Source: Prepared by the author.", # Add the table source
+general_title = "") %>%
+add_header_above(c(" " = 1, "Descriptive Statistics" = 3)) # Add a header for the statistics columns
+
+```
+
+### Bivariate analysis
+
+Univariate analysis aims to understand the distribution of the variable itself. In bivariate (and multivariate) analysis, we want to understand the relationship between the variables. Note that I am not looking for causality or the predictive value of each variable; this will be a later step depending on your research objective.
+
+We can start with a correlogram, which shows a map of the correlations of all continuous variables. It is very useful for identifying whether there is any collinearity between variables, which should be confirmed later through appropriate tests.
+
+```{r}
+# Select only continuous variables
+continuous_variables <- c("Age", "BMI", "Glucose", "BloodPressure", "HbA1c",
+"LDL", "HDL", "Triglycerides", "WaistCircumference",
+"HipCircumference", "WHR")
+
+# Create the correlation matrix
+correlation_matrix <- diabetes_dataset %>%
+select(all_of(continuous_variables)) %>% # Select only continuous variables
+cor(use = "pairwise.complete.obs") # Calculate the correlation excluding NA values
+
+# Create the correlogram
+ggcorrplot(correlation_matrix,
+method = "circle", # Set the graph style (circles)
+type = "lower", # Show only the lower half of the matrix
+lab = TRUE, # Show the correlation values
+lab_size = 3, # Size from the font of the labels
+colors = c("#6D9EC1", "white", "#E46726"), # Sets the color palette
+title = "Correlogram of Continuous Variables", # Adds a title
+ggtheme = theme_minimal()) # Applies a minimalist theme
+```
+Another very important form of correlation, especially for prediction studies, is the correlation of each variable with the outcome.
+
+```{r}
+# We define continuous and categorical variables
+continuous_variables <- c("Age", "BMI", "Glucose", "BloodPressure", "HbA1c",
+"LDL", "HDL", "Triglycerides", "WaistCircumference",
+"HipCircumference", "WHR")
+
+categorical_variables <- c("FamilyHistory", "DietType", "Hypertension",
+"MedicationUse")
+
+# --- Correlation for continuous variables with Outcome ---
+continuous_correlations <- diabetes_dataset %>%
+select(all_of(continuous_variables), Outcome) %>%
+cor(use = "pairwise.complete.obs") %>%
+as.data.frame() %>%
+select(Outcome) %>%
+rownames_to_column(var = "Variable") %>%
+rename(`Correlation` = Outcome) %>% # Rename for consistency
+mutate(Type = "Continuous")
+
+# --- Correlation for categorical variables with Outcome ---
+calcular_cramer <- function(var) {
+tab <- table(diabetes_dataset[[var]], diabetes_dataset$Outcome)
+cramer <- rstatix::cramer_v(tab) %>% as.numeric() # Convert to number
+return(data.frame(Variable = var, `Correlation` = cramer, Type = "Categorical"))
+}
+categorical_correlations <- bind_rows(lapply(categorical_variables, calcular_cramer))
+
+# --- We join all correlations ---
+total_correlations <- bind_rows(continuous_correlations, categorical_correlations) %>%
+arrange(desc(abs(Correlation))) # Sort by the strength of the correlation
+
+# We define the labels in Portuguese for all variables
+labels <- c(
+Age = "Age (years)",
+BMI = "Body Mass Index (kg/m²)",
+Glucose = "Glucose (mg/dL)",
+BloodPressure = "Blood Pressure (mmHg)",
+HbA1c = "Glycated Hemoglobin (%)",
+LDL = "LDL Cholesterol (mg/dL)",
+HDL = "HDL Cholesterol (mg/dL)",
+Triglycerides = "Triglycerides (mg/dL)",
+WaistCircumference = "Waist Circumference (cm)",
+HipCircumference = "Hip Circumference (cm)",
+WHR = "Waist-to-Hip Ratio", FamilyHistory = "Family History",
+DietType = "Diet Type",
+Hypertension = "Hypertension",
+MedicationUse = "Medication Use"
+)
+
+# Remove the correlation of Outcome with itself
+total_correlations <- total_correlations %>%
+filter(Variable != "Outcome") %>%
+mutate(Variable = recode(Variable, !!!labels)) # Apply labels
+
+# Display the formatted table
+total_correlations %>%
+mutate(Correlation = round(Correlation, 3)) %>% # Round values
+kable("html",
+caption = "Correlation of All Variables with Outcome",
+align = "c",
+col.names = c("Variable", "Correlation", "Type")) %>% # Define column names
+kable_styling(full_width = FALSE,
+bootstrap_options = c("striped", "hover")) %>% # Styling
+footnote(general = "Source: Prepared by the author.",
+general_title = "") %>%
+add_header_above(c(" " = 1, "Correlation with Outcome" = 2)) # Top header
+```
+
+From the given correlations we can create bivariate graphs with the variable of interest and a covariate.
+
+For continuous covariates, we will use the boxplot as visualization and for categorical variables, stacked bar graphs.
+
+```{r}
+diabetes_dataset %>% # Open the database
+ggplot(aes(x = as.factor(FamilyHistory), fill = as.factor(Outcome))) + # Call the graphing function, filling in the outcome
+geom_bar(position = "fill", color = "white") + # Proportion within each group
+scale_fill_manual(values= c("#C97064", "#68A357"), labels = c("No Diabetes", "Diabetes")) + # Choose colors
+labs(title = "Family History Distribution by Outcome", # Add title
+x = "Family History (0 = No, 1 = Yes)", # Add labels
+y = "Proportion",
+fill = "Outcome")
+```
+```{r}
+diabetes_dataset %>% # Open the database
+ggplot(aes(x = as.factor(Outcome), y = Glucose, fill = as.factor(Outcome))) + # Call the function for filling graphs with the outcome
+geom_boxplot(outlier.color = "red", outlier.shape = 16) + # Create the boxplot
+scale_fill_manual(values= c("#C97064", "#68A357"), labels = c("No Diabetes", "Diabetes")) + # Choose the colors
+labs(title = "Glucose Distribution by Outcome", # Add title
+x = "Outcome", # Add captions
+y = "Glucose (mg/dL)",
+fill = "Outcome")
+```
+
+### Final considerations
+
+The step-by-step suggested here is both for creating initial reports and for the researcher himself to better understand the database worked on. It is essential to do each step carefully and understand the need for pre-processing variables, such as adjusting the character to factor, and adapting the scripts as needed.
+
+I hope this helps!

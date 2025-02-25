@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -67,6 +101,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 </head>
@@ -114,8 +152,724 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<blockquote class="blockquote">
+<p>Warning! The translation is still in progress, this is an automatic translation and it may not be correct</p>
+</blockquote>
+<section id="how-to-visualize-your-database---creating-beautiful-graphs-and-tables" class="level1">
+<h1><strong>How to visualize your database - creating beautiful graphs and tables</strong></h1>
+<p>A well-done descriptive and exploratory analysis can often change the course of your research. This is the ideal time to think about your research objective, the scope of your work, and the main information you should pay attention to.</p>
+<p>In this tutorial, we will use the database available through Kaggle <a href="https://www.kaggle.com/datasets/asinow/diabetes-dataset">here</a>. It describes more than 9,000 medical records of patients associated with the risk of diabetes.</p>
+<section id="first-of-all-prepare-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="first-of-all-prepare-the-environment">First of all, prepare the environment</h3>
+<p>In programming, having the code organized is essential. Both so that you can return to the analyses you did and understand what was done, and so that you can collaborate with other researchers.</p>
+<p>We will start by configuring our environment, loading the necessary packages and other settings.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages used</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This structure loads and installs packages if they are not already installed</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(kableExtra)) <span class="fu">install.packages</span>(<span class="st">"kableExtra"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggcorrplot)) <span class="fu">install.packages</span>(<span class="st">"ggcorrplot"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(corrr)) <span class="fu">install.packages</span>(<span class="st">"corrr"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(rstatix)) <span class="fu">install.packages</span>(<span class="st">"rstatix"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For possible variables with very small or very large values, this option</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># avoids scientific notation</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">9999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-your-database" class="level3">
+<h3 class="anchored" data-anchor-id="load-your-database">Load your database</h3>
+<p>For databases on platforms like Kagle, there are n ways to load the database besides the traditional download and upload of the file. In my case, I downloaded the database and uploaded it to the website’s GitHub since I’ll be using the same dataset several times.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Browse through the folders and load the database in .csv</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>diabetes_dataset <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"../../assets/datasets/diabetes_dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before performing any analysis, we need to check the database. Ask yourself a few questions:</p>
+<ul>
+<li><p>Were all the columns read correctly?</p></li>
+<li><p>Were the decimal places set correctly?</p></li>
+<li><p>What are the types of each column?</p></li>
+<li><p>Are the characters set correctly?</p></li>
+</ul>
+<p>To answer this, two simple commands and a little knowledge of what each variable means are enough.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows each column, the type and the first observations</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(diabetes_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 9,538
+Columns: 17
+$ Age                &lt;int&gt; 69, 32, 89, 78, 38, 41, 20, 39, 70, 19, 47, 55, 19,…
+$ Pregnancies        &lt;int&gt; 5, 1, 13, 13, 8, 10, 16, 4, 3, 1, 8, 0, 15, 12, 6, …
+$ BMI                &lt;dbl&gt; 28.39, 26.49, 25.34, 29.91, 24.56, 17.47, 15.76, 28…
+$ Glucose            &lt;dbl&gt; 130.1, 116.5, 101.0, 146.0, 103.2, 67.0, 61.6, 105.…
+$ BloodPressure      &lt;dbl&gt; 77, 72, 82, 104, 74, 71, 60, 94, 90, 62, 93, 87, 60…
+$ HbA1c              &lt;dbl&gt; 5.4, 4.5, 4.9, 5.7, 4.7, 4.2, 4.0, 4.5, 4.0, 4.0, 4…
+$ LDL                &lt;dbl&gt; 130.4, 87.4, 112.5, 50.7, 102.5, 105.3, 62.4, 91.0,…
+$ HDL                &lt;dbl&gt; 44.0, 54.2, 56.8, 39.1, 29.1, 58.8, 43.4, 50.1, 51.…
+$ Triglycerides      &lt;dbl&gt; 50.0, 129.9, 177.6, 117.0, 145.9, 140.7, 64.6, 195.…
+$ WaistCircumference &lt;dbl&gt; 90.5, 113.3, 84.7, 108.9, 84.1, 81.8, 66.5, 123.2, …
+$ HipCircumference   &lt;dbl&gt; 107.9, 81.4, 107.2, 110.0, 92.8, 93.2, 102.7, 121.4…
+$ WHR                &lt;dbl&gt; 0.84, 1.39, 0.79, 0.99, 0.91, 0.88, 0.65, 1.01, 0.7…
+$ FamilyHistory      &lt;int&gt; 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
+$ DietType           &lt;int&gt; 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 2, 1, 1, 1, …
+$ Hypertension       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ MedicationUse      &lt;int&gt; 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, …
+$ Outcome            &lt;int&gt; 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows the first 6 rows of the database</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(diabetes_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Age Pregnancies   BMI Glucose BloodPressure HbA1c   LDL  HDL Triglycerides
+1  69           5 28.39   130.1            77   5.4 130.4 44.0          50.0
+2  32           1 26.49   116.5            72   4.5  87.4 54.2         129.9
+3  89          13 25.34   101.0            82   4.9 112.5 56.8         177.6
+4  78          13 29.91   146.0           104   5.7  50.7 39.1         117.0
+5  38           8 24.56   103.2            74   4.7 102.5 29.1         145.9
+6  41          10 17.47    67.0            71   4.2 105.3 58.8         140.7
+  WaistCircumference HipCircumference  WHR FamilyHistory DietType Hypertension
+1               90.5            107.9 0.84             0        0            0
+2              113.3             81.4 1.39             0        0            0
+3               84.7            107.2 0.79             0        0            0
+4              108.9            110.0 0.99             0        0            0
+5               84.1             92.8 0.91             0        1            0
+6               81.8             93.2 0.88             1        0            0
+  MedicationUse Outcome
+1             1       0
+2             0       0
+3             1       0
+4             1       1
+5             0       0
+6             0       1</code></pre>
+</div>
+</div>
+<p>All right! We can continue.</p>
+</section>
+<section id="reading-the-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="reading-the-dictionary">Reading the dictionary</h3>
+<p>The last step before a good descriptive and exploratory analysis is <strong>reading the dictionary of variables</strong>. This is essential to understand acronyms that may be in another language, check the unit of measurement of each variable and identify the type of each column.</p>
+<ul>
+<li>Age: Age of the individual (18-90 years).</li>
+<li>Pregnancies: Number of times the patient has been pregnant.</li>
+<li>BMI (Body Mass Index - BMI): Measurement of body fat based on height and weight (kg/m²).</li>
+<li>Glucose: Blood glucose concentration (mg/dL), a key indicator of diabetes.</li>
+<li>Blood Pressure: Systolic blood pressure (mmHg), high levels may indicate hypertension.</li>
+<li>HbA1c: Glycated hemoglobin level (%), representing the average blood sugar level over several months.</li>
+<li>LDL (Low-Density Lipoprotein): Level of “bad” cholesterol (mg/dL).</li>
+<li>HDL (High-Density Lipoprotein): Level of “good” cholesterol (mg/dL).</li>
+<li>Triglycerides: Levels of fat in the blood (mg/dL), high values ​​increase the risk of diabetes.</li>
+<li>Waist Circumference: Waist measurement (cm), indicator of central obesity. - Hip Circumference (HipCircumference): Hip measurement (cm), used to calculate the waist-to-hip ratio.</li>
+<li>Waist-to-Hip Ratio (WHR): Waist circumference divided by hip circumference.</li>
+<li>Family History (FamilyHistory): Indicates whether the individual has a family history of diabetes (1 = Yes, 0 = No).</li>
+<li>Diet Type (DietType): Eating habits (0 = Unbalanced, 1 = Balanced, 2 = Vegan/Vegetarian).</li>
+<li>Hypertension (Hypertension): Presence of high blood pressure (1 = Yes, 0 = No).</li>
+<li>Medication Use (MedicationUse): Indicates whether the individual uses medication (1 = Yes, 0 = No).</li>
+<li>Outcome: Diagnosis of diabetes (1 = Diabetes, 0 = No Diabetes).</li>
+</ul>
+</section>
+<section id="univariate-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-analysis">Univariate Analysis</h3>
+<p>We finally get to the stage of creating graphs and tables. An important piece of knowledge is knowing how to distinguish continuous variables (numbers and measurements) from categorical variables (classifications of some kind, such as race and sex).</p>
+<p>For continuous variables, summary measures in a single table are an excellent way to add information to a report. For you, the researcher, to understand your database, creating histograms is a great way to visualize what is happening with each column, and to notice outliers and asymmetries.</p>
+</section>
+<section id="univariate-analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-analysis-1">Univariate Analysis</h3>
+<p>We finally get to the stage of creating graphs and tables. An important piece of knowledge is knowing how to distinguish continuous variables (numbers and measurements) from categorical variables (classifications of some kind, such as race and sex).</p>
+<p>For continuous variables, summary measurements in a single table are an excellent way to add information to a report. For you, the researcher, to understand your database, creating histograms is a great way to visualize what is happening with each column, and to notice outliers and asymmetry, even if you don’t include them in the report.</p>
+<p>So, to run the histogram, I recommend using the ggplot2 package, which provides a beautiful graph with relatively little effort.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>diabetes_dataset <span class="sc">%&gt;%</span> <span class="co"># Opens the database</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(WaistCircumference) <span class="sc">%&gt;%</span> <span class="co"># Selects the variable of interest</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> WaistCircumference)) <span class="sc">+</span> <span class="co"># Calls the function to create graphs by placing our var on the x axis</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"#F2C354"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="co"># Creates the histogram with the desired colors</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram for Waist Circumference in cm"</span>, <span class="co"># Adds title</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Waist Circumference (cm)"</span>, <span class="co"># And replaces the default text on the axes</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And now for our table we will need a little more code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the labels in Portuguese for each categorical variable</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rotulos_categoricas <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="at">FamilyHistory =</span> <span class="st">"Family History"</span>, <span class="co"># Indicates whether the individual has a family history of diabetes (1 = Yes, 0 = No)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">DietType =</span> <span class="st">"Diet Type"</span>, <span class="co"># Eating habits (0 = Unbalanced, 1 = Balanced, 2 = Vegan/Vegetarian)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">Hypertension =</span> <span class="st">"Hypertension"</span>, <span class="co"># Presence of high blood pressure (1 = Yes, 0 = No)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">MedicationUse =</span> <span class="st">"Use of Medications"</span>, <span class="co"># Indicates whether the individual uses medication (1 = Yes, 0 = No)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">Outcome =</span> <span class="st">"Result"</span> <span class="co"># Diagnosis of diabetes (1 = Diabetes, 0 = No Diabetes)</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We select only the categorical variables based on the defined labels</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>variaveis_categoricas <span class="ot">&lt;-</span> <span class="fu">names</span>(rotulos_categoricas)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the frequency and proportion for each category of categorical variables</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>resumo_categoricas <span class="ot">&lt;-</span> diabetes_dataset <span class="sc">%&gt;%</span> <span class="co"># Access the dataset</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="fu">all_of</span>(variaveis_categoricas)) <span class="sc">%&gt;%</span> <span class="co"># Select the categorical columns</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Variável"</span>, <span class="at">values_to =</span> <span class="st">"Categoria"</span>) <span class="sc">%&gt;%</span> <span class="co"># Convert the wide format to long</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Variável,Categoria) <span class="sc">%&gt;%</span> <span class="co"># Groups by unique values ​​of categorical variables</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">Frequency =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> <span class="co"># Counts how many times each category appears</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Proportion =</span> Frequency <span class="sc">/</span> <span class="fu">sum</span>(Frequency) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="co"># Calculates the relative percentage of each category</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(Variável <span class="ot">=</span> <span class="fu">recode</span>(Variável, <span class="sc">!!!</span>rotulos_categoricas)) <span class="co"># Replaces the variable names with the labels in Portuguese</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's create the table formatted</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>resumo_categoricas <span class="sc">%&gt;%</span> <span class="co"># Calls the created summary</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="st">"html"</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="at">caption =</span> <span class="st">"Distribution of categorical variables"</span>, <span class="co"># Uses kable from the kableExtra library</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="at">align =</span> <span class="st">"c"</span>, <span class="co"># Aligns the text to the center</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Category"</span>, <span class="st">"Frequency"</span>, <span class="st">"Proportion (%)"</span>)) <span class="sc">%&gt;%</span> <span class="co"># Defines the column names</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span> <span class="co"># Applies style settings</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu">footnote</span>(<span class="at">general =</span> <span class="st">"Source: Prepared by the author."</span>, <span class="co"># Adds the table font</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="at">general_title =</span> <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Descriptive Statistics"</span> <span class="ot">=</span> <span class="dv">3</span>)) <span class="co"># Adds a header for the statistics columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Distribution of categorical variables</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Descriptive Statistics
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Category</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Frequency</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Proportion (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Diet Type</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5794</td>
+<td style="text-align: center;">12.1492975</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Diet Type</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2851</td>
+<td style="text-align: center;">5.9781925</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Diet Type</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">893</td>
+<td style="text-align: center;">1.8725100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Family History</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6653</td>
+<td style="text-align: center;">13.9505137</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Family History</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2885</td>
+<td style="text-align: center;">6.0494863</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hypertension</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">9528</td>
+<td style="text-align: center;">19.9790312</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Hypertension</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.0209688</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Use of Medications</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5675</td>
+<td style="text-align: center;">11.8997693</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Use of Medications</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3863</td>
+<td style="text-align: center;">8.1002307</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Result</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6256</td>
+<td style="text-align: center;">13.1180541</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Result</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3282</td>
+<td style="text-align: center;">6.8819459</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: center; padding: 0;"><sup></sup> Source: Prepared by the author.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
 
 
+</div>
+</div>
+<p>For other formatting, just search a little in the package documentation kableExtra and understand what needs to be changed.</p>
+<p>For categorical variables, the process is very similar. We will create a bar chart (never a pie chart!!) and a table with the summary measures.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>diabetes_dataset <span class="sc">%&gt;%</span> <span class="co"># Opens the database</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(FamilyHistory) <span class="sc">%&gt;%</span> <span class="co"># Selects the variable of interest</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(FamilyHistory))) <span class="sc">+</span> <span class="co"># Calls the function to create graphs by placing our var on the x axis as a factor (i.e. categorical var)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#C97064"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="co"># Creates the bar graph with the desired colors</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution for Family History of Diabetes"</span>, <span class="co"># Adds title</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Do you have a family history? (0 = no, 1 = yes)"</span>, <span class="co"># And replaces the default text on the axes</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It may also be interesting to create a graph for the group proportions on the y axis, in order to facilitate visualization. Just change a few lines of code as seen below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>diabetes_dataset <span class="sc">%&gt;%</span> <span class="co"># Open the database</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(FamilyHistory) <span class="sc">%&gt;%</span> <span class="co"># Count the occurrences of each category</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Proportion =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> <span class="co"># Calculate the proportion</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(FamilyHistory), <span class="at">y =</span> Proportion)) <span class="sc">+</span> <span class="co"># Set the axes</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#68A357"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="co"># Create the bar chart</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Family History of Diabetes"</span>, <span class="co"># Add title</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Do you have a family history? (0 = no, 1 = yes)"</span>, <span class="co"># And replace the default text on the axes</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Finally, now let’s make the tables for the categorical variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the labels in Portuguese for each categorical variable</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>rotulos_categoricas <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">FamilyHistory =</span> <span class="st">"Family History"</span>, <span class="co"># Indicates whether the individual has a family history of diabetes (1 = Yes, 0 = No)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">DietType =</span> <span class="st">"Diet Type"</span>, <span class="co"># Eating habits (0 = Unbalanced, 1 = Balanced, 2 = Vegan/Vegetarian)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">Hypertension =</span> <span class="st">"Hypertension"</span>, <span class="co"># Presence of high blood pressure (1 = Yes, 0 = No)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">MedicationUse =</span> <span class="st">"Use of Medications"</span>, <span class="co"># Indicates whether the individual uses medication (1 = Yes, 0 = No)</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">Outcome =</span> <span class="st">"Resultado"</span> <span class="co"># Diagnosis of diabetes (1 = Diabetes, 0 = No Diabetes)</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># We select only the categorical variables based on the defined labels</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>variaveis_categoricas <span class="ot">&lt;-</span> <span class="fu">names</span>(rotulos_categoricas)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the frequency and proportion for each category of categorical variables</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>resumo_categoricas <span class="ot">&lt;-</span> diabetes_dataset <span class="sc">%&gt;%</span> <span class="co"># Access the dataset</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="fu">all_of</span>(variaveis_categoricas)) <span class="sc">%&gt;%</span> <span class="co"># Select the categorical columns</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Variável"</span>, <span class="at">values_to =</span> <span class="st">"Categoria"</span>) <span class="sc">%&gt;%</span> <span class="co"># Convert the wide format to long</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Variável,Categoria) <span class="sc">%&gt;%</span> <span class="co"># Groups by unique values of categorical variables</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">Frequency =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> <span class="co"># Counts how many times each category appears</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(Proporção <span class="ot">=</span> Frequency <span class="sc">/</span> <span class="fu">sum</span>(Frequency) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="co"># Calculates the relative percentage of each category</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(Variável <span class="ot">=</span> <span class="fu">recode</span>(Variável, <span class="sc">!!!</span>rotulos_categoricas)) <span class="co"># Replaces the variable names with the labels in Portuguese</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># We adjusted to remove the repetition of the name of the variable</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>resumo_categoricas <span class="ot">&lt;-</span> resumo_categoricas <span class="sc">%&gt;%</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Variável) <span class="sc">%&gt;%</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(Variável <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">row_number</span>() <span class="sc">==</span> <span class="dv">1</span>, Variável, <span class="st">""</span>)) <span class="sc">%&gt;%</span> <span class="co"># Keeps the name only in the first line of each group</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ungroup</span>()</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co"># We create the formatted table</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>resumo_categoricas <span class="sc">%&gt;%</span> <span class="co"># Calls the created summary</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="st">"html"</span>,</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="at">caption =</span> <span class="st">"Distribution of categorical variables"</span>, <span class="co"># Uses kable from the kableExtra library</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="at">align =</span> <span class="st">"c"</span>, <span class="co"># Aligns the text to the center</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Category"</span>, <span class="st">"Frequency"</span>, <span class="st">"Proportion (%)"</span>)) <span class="sc">%&gt;%</span> <span class="co"># Defines the column names</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span> <span class="co"># Applies style settings</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="fu">footnote</span>(<span class="at">general =</span> <span class="st">"Source: Prepared by the author."</span>, <span class="co"># Add the table source</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="at">general_title =</span> <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Descriptive Statistics"</span> <span class="ot">=</span> <span class="dv">3</span>)) <span class="co"># Add a header for the statistics columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Distribution of categorical variables</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Descriptive Statistics
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Category</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Frequency</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Proportion (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Diet Type</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5794</td>
+<td style="text-align: center;">12.1492975</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2851</td>
+<td style="text-align: center;">5.9781925</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">893</td>
+<td style="text-align: center;">1.8725100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Family History</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6653</td>
+<td style="text-align: center;">13.9505137</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2885</td>
+<td style="text-align: center;">6.0494863</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hypertension</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">9528</td>
+<td style="text-align: center;">19.9790312</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.0209688</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Use of Medications</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5675</td>
+<td style="text-align: center;">11.8997693</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3863</td>
+<td style="text-align: center;">8.1002307</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Resultado</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6256</td>
+<td style="text-align: center;">13.1180541</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3282</td>
+<td style="text-align: center;">6.8819459</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: center; padding: 0;"><sup></sup> Source: Prepared by the author.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="bivariate-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="bivariate-analysis">Bivariate analysis</h3>
+<p>Univariate analysis aims to understand the distribution of the variable itself. In bivariate (and multivariate) analysis, we want to understand the relationship between the variables. Note that I am not looking for causality or the predictive value of each variable; this will be a later step depending on your research objective.</p>
+<p>We can start with a correlogram, which shows a map of the correlations of all continuous variables. It is very useful for identifying whether there is any collinearity between variables, which should be confirmed later through appropriate tests.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only continuous variables</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>continuous_variables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Age"</span>, <span class="st">"BMI"</span>, <span class="st">"Glucose"</span>, <span class="st">"BloodPressure"</span>, <span class="st">"HbA1c"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">"LDL"</span>, <span class="st">"HDL"</span>, <span class="st">"Triglycerides"</span>, <span class="st">"WaistCircumference"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">"HipCircumference"</span>, <span class="st">"WHR"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the correlation matrix</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="ot">&lt;-</span> diabetes_dataset <span class="sc">%&gt;%</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="fu">all_of</span>(continuous_variables)) <span class="sc">%&gt;%</span> <span class="co"># Select only continuous variables</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>) <span class="co"># Calculate the correlation excluding NA values</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the correlogram</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(correlation_matrix,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="at">method =</span> <span class="st">"circle"</span>, <span class="co"># Set the graph style (circles)</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="st">"lower"</span>, <span class="co"># Show only the lower half of the matrix</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="at">lab =</span> <span class="cn">TRUE</span>, <span class="co"># Show the correlation values</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="at">lab_size =</span> <span class="dv">3</span>, <span class="co"># Size from the font of the labels</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#6D9EC1"</span>, <span class="st">"white"</span>, <span class="st">"#E46726"</span>), <span class="co"># Sets the color palette</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Correlogram of Continuous Variables"</span>, <span class="co"># Adds a title</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()) <span class="co"># Applies a minimalist theme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Another very important form of correlation, especially for prediction studies, is the correlation of each variable with the outcome.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We define continuous and categorical variables</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>continuous_variables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Age"</span>, <span class="st">"BMI"</span>, <span class="st">"Glucose"</span>, <span class="st">"BloodPressure"</span>, <span class="st">"HbA1c"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">"LDL"</span>, <span class="st">"HDL"</span>, <span class="st">"Triglycerides"</span>, <span class="st">"WaistCircumference"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">"HipCircumference"</span>, <span class="st">"WHR"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>categorical_variables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"FamilyHistory"</span>, <span class="st">"DietType"</span>, <span class="st">"Hypertension"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">"MedicationUse"</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Correlation for continuous variables with Outcome ---</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>continuous_correlations <span class="ot">&lt;-</span> diabetes_dataset <span class="sc">%&gt;%</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="fu">all_of</span>(continuous_variables), Outcome) <span class="sc">%&gt;%</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(Outcome) <span class="sc">%&gt;%</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Variable"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(<span class="st">`</span><span class="at">Correlation</span><span class="st">`</span> <span class="ot">=</span> Outcome) <span class="sc">%&gt;%</span> <span class="co"># Rename for consistency</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Type =</span> <span class="st">"Continuous"</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Correlation for categorical variables with Outcome ---</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>calcular_cramer <span class="ot">&lt;-</span> <span class="cf">function</span>(var) {</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(diabetes_dataset[[var]], diabetes_dataset<span class="sc">$</span>Outcome)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>cramer <span class="ot">&lt;-</span> rstatix<span class="sc">::</span><span class="fu">cramer_v</span>(tab) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>() <span class="co"># Convert to number</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">Variable =</span> var, <span class="st">`</span><span class="at">Correlation</span><span class="st">`</span> <span class="ot">=</span> cramer, <span class="at">Type =</span> <span class="st">"Categorical"</span>))</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>categorical_correlations <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="fu">lapply</span>(categorical_variables, calcular_cramer))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in stats::chisq.test(x, y, correct = correct, ...): Aproximação do
+qui-quadrado pode estar incorreta</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- We join all correlations ---</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>total_correlations <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(continuous_correlations, categorical_correlations) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">abs</span>(Correlation))) <span class="co"># Sort by the strength of the correlation</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the labels in Portuguese for all variables</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="at">Age =</span> <span class="st">"Age (years)"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="at">BMI =</span> <span class="st">"Body Mass Index (kg/m²)"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="at">Glucose =</span> <span class="st">"Glucose (mg/dL)"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">BloodPressure =</span> <span class="st">"Blood Pressure (mmHg)"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">HbA1c =</span> <span class="st">"Glycated Hemoglobin (%)"</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="at">LDL =</span> <span class="st">"LDL Cholesterol (mg/dL)"</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="at">HDL =</span> <span class="st">"HDL Cholesterol (mg/dL)"</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="at">Triglycerides =</span> <span class="st">"Triglycerides (mg/dL)"</span>,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="at">WaistCircumference =</span> <span class="st">"Waist Circumference (cm)"</span>,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="at">HipCircumference =</span> <span class="st">"Hip Circumference (cm)"</span>,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="at">WHR =</span> <span class="st">"Waist-to-Hip Ratio"</span>, <span class="at">FamilyHistory =</span> <span class="st">"Family History"</span>,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="at">DietType =</span> <span class="st">"Diet Type"</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="at">Hypertension =</span> <span class="st">"Hypertension"</span>,</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="at">MedicationUse =</span> <span class="st">"Medication Use"</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the correlation of Outcome with itself</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>total_correlations <span class="ot">&lt;-</span> total_correlations <span class="sc">%&gt;%</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(Variable <span class="sc">!=</span> <span class="st">"Outcome"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Variable =</span> <span class="fu">recode</span>(Variable, <span class="sc">!!!</span>labels)) <span class="co"># Apply labels</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the formatted table</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>total_correlations <span class="sc">%&gt;%</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Correlation =</span> <span class="fu">round</span>(Correlation, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="co"># Round values</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="st">"html"</span>,</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="at">caption =</span> <span class="st">"Correlation of All Variables with Outcome"</span>,</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Correlation"</span>, <span class="st">"Type"</span>)) <span class="sc">%&gt;%</span> <span class="co"># Define column names</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span> <span class="co"># Styling</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="fu">footnote</span>(<span class="at">general =</span> <span class="st">"Source: Prepared by the author."</span>,</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="at">general_title =</span> <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Correlation with Outcome"</span> <span class="ot">=</span> <span class="dv">2</span>)) <span class="co"># Top header</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Correlation of All Variables with Outcome</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Correlation with Outcome
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Correlation</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Family History</td>
+<td style="text-align: center;">0.909</td>
+<td style="text-align: center;">Categorical</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Glucose (mg/dL)</td>
+<td style="text-align: center;">0.168</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Glycated Hemoglobin (%)</td>
+<td style="text-align: center;">0.152</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Body Mass Index (kg/m²)</td>
+<td style="text-align: center;">0.107</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Blood Pressure (mmHg)</td>
+<td style="text-align: center;">0.096</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Waist Circumference (cm)</td>
+<td style="text-align: center;">0.087</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Hip Circumference (cm)</td>
+<td style="text-align: center;">0.083</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age (years)</td>
+<td style="text-align: center;">0.068</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Medication Use</td>
+<td style="text-align: center;">0.064</td>
+<td style="text-align: center;">Categorical</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hypertension</td>
+<td style="text-align: center;">0.028</td>
+<td style="text-align: center;">Categorical</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Waist-to-Hip Ratio</td>
+<td style="text-align: center;">0.022</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">LDL Cholesterol (mg/dL)</td>
+<td style="text-align: center;">0.019</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Diet Type</td>
+<td style="text-align: center;">0.016</td>
+<td style="text-align: center;">Categorical</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">HDL Cholesterol (mg/dL)</td>
+<td style="text-align: center;">-0.009</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Triglycerides (mg/dL)</td>
+<td style="text-align: center;">-0.008</td>
+<td style="text-align: center;">Continuous</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: center; padding: 0;"><sup></sup> Source: Prepared by the author.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+<p>From the given correlations we can create bivariate graphs with the variable of interest and a covariate.</p>
+<p>For continuous covariates, we will use the boxplot as visualization and for categorical variables, stacked bar graphs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>diabetes_dataset <span class="sc">%&gt;%</span> <span class="co"># Open the database</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(FamilyHistory), <span class="at">fill =</span> <span class="fu">as.factor</span>(Outcome))) <span class="sc">+</span> <span class="co"># Call the graphing function, filling in the outcome</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="co"># Proportion within each group</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_manual</span>(<span class="at">values=</span> <span class="fu">c</span>(<span class="st">"#C97064"</span>, <span class="st">"#68A357"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No Diabetes"</span>, <span class="st">"Diabetes"</span>)) <span class="sc">+</span> <span class="co"># Choose colors</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Family History Distribution by Outcome"</span>, <span class="co"># Add title</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Family History (0 = No, 1 = Yes)"</span>, <span class="co"># Add labels</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">"Outcome"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>diabetes_dataset <span class="sc">%&gt;%</span> <span class="co"># Open the database</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Outcome), <span class="at">y =</span> Glucose, <span class="at">fill =</span> <span class="fu">as.factor</span>(Outcome))) <span class="sc">+</span> <span class="co"># Call the function for filling graphs with the outcome</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(<span class="at">outlier.color =</span> <span class="st">"red"</span>, <span class="at">outlier.shape =</span> <span class="dv">16</span>) <span class="sc">+</span> <span class="co"># Create the boxplot</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_manual</span>(<span class="at">values=</span> <span class="fu">c</span>(<span class="st">"#C97064"</span>, <span class="st">"#68A357"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No Diabetes"</span>, <span class="st">"Diabetes"</span>)) <span class="sc">+</span> <span class="co"># Choose the colors</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Glucose Distribution by Outcome"</span>, <span class="co"># Add title</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Outcome"</span>, <span class="co"># Add captions</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Glucose (mg/dL)"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">"Outcome"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="final-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="final-considerations">Final considerations</h3>
+<p>The step-by-step suggested here is both for creating initial reports and for the researcher himself to better understand the database worked on. It is essential to do each step carefully and understand the need for pre-processing variables, such as adjusting the character to factor, and adapting the scripts as needed.</p>
+<p>I hope this helps!</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
