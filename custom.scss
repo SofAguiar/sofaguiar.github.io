@@ -1,9 +1,9 @@
 /*-- scss:defaults --*/
-$primary-color: #628B48;    // Verde escuro
-$secondary-color: #6AB547;  // Verde claro
-$background-color: #FFFFFF; // Branco
-$accent-color: #FF748B;     // Rosa
-$text-color: #000022;       // Azul escuro
+$primary-color: #68A357;    
+$secondary-color: #F2C354;  
+$background-color: #F7F7FF; 
+$accent-color: #C97064;     
+$text-color: #262626;       
 $font-family: "Roboto Flex", sans-serif;
 
 /*-- scss:mixins --*/
@@ -55,10 +55,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 
-  Links do menu principal (nível superior) permanecem brancos 
-  (assumindo que estejam diretamente dentro de .navbar)
-*/
+/* Links do menu principal (nível superior) */
 .navbar > a {
   color: white;
   text-decoration: none;
@@ -67,10 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   @include hover-effect;
 }
 
-/* 
-  Links dentro do dropdown usarão a cor $accent-color 
-  (assumindo que o dropdown seja renderizado com a classe .dropdown-menu)
-*/
+/* Links dentro do dropdown */
 .navbar .dropdown-menu a {
   color: white !important;
   background-color: $accent-color !important;
@@ -86,9 +80,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  @include button-style;
   @include hover-effect;
-  background-color: $accent-color;
+  color: $accent-color;
 }
 
 .card {
@@ -106,6 +99,7 @@ button {
 }
 
 .hero h1 {
+  color: white;
   font-size: 3rem;
   margin-bottom: 20px;
 }
@@ -114,6 +108,12 @@ button {
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.hero .btn {
+  color: $accent-color !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .footer {
@@ -125,10 +125,32 @@ button {
 }
 
 .footer a {
-  color: $primary-color;
+  color: $accent-color;
   text-decoration: none;
   @include hover-effect;
 }
+
+/* Global links (fora da sidebar) */
+a {
+  color: $accent-color;
+  text-decoration: none;
+  @include hover-effect;
+}
+
+/* Estilo para tabindex quando selecionado */
+*:focus {
+  outline: 2px solid $accent-color;
+  outline-offset: 2px;
+}
+
+/* Sidebar do Quarto */
+.sidebar {
+  background-color: transparent;
+  color: $text-color;
+  padding: 15px;
+  border-radius: 10px;
+}
+
 
 /* Design Responsivo */
 @media (max-width: 768px) {

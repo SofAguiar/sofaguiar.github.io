@@ -1,14 +1,19 @@
-## Sof Aguiar
 
-Bem-vindo ao meu site! 🎉  
+> **Aviso:** Este site está em desenvolvimento. Mudanças podem ocorrer!
 
-Eu sou graduando em Estatística, atualmente pesquisando Saúde Pública e Epidemiologia. Aqui você encontra informações sobre mim, meu trabalho e meus projetos. 
-O site inclui meu [currículo](cv.qmd), uma seção de [artigos e apresentações em congresso](papers.qmd), um [blog](blog.qmd) com tutoriais e um [portifólio](portfolio.qmd) com projetos avançados. 
+É um  prazer te ver por aqui!
 
-Sinta-se à vontade para explorar :)
+Sou Sofia Aguiar, graduanda em estatística pela UFMG e pesquiso saúde pública e epidemiologia. Nesse site você pode ver um pouco sobre mim e minhas experiências, sinta-se a vontade para explorar :)  
 
+Para falar comigo é só me mandar um email através do [sof.m.aguiar@gmail.com](mailto:sof.m.aguiar@gmail.com) 
 
-### Entre em contato!
-📧 Email: [sof.m.aguiar@gmail.com](mailto:sof.m.aguiar@gmail.com)  
-🔗 GitHub: [github.com/sofaguiar](https://github.com/sofaguiar)  
+## Links Úteis
 
+- **GitHub:** [github.com/sofaguiar](https://github.com/sofaguiar)
+- **Lattes:** [Sofia Moreira de Aguiar](http://lattes.cnpq.br/0041260570017557)
+- **OrcID:** [Sofia Moreira de Aguiar](https://orcid.org/0009-0007-8242-7487)
+
+## Projetos em Destaque
+
+- [Understanding Survival Analysis](blog/survival-analysis.qmd)
+- [Data Viz](blog/data-viz.qmd)

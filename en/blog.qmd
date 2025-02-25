@@ -1,3 +1,0 @@
-## **Tutoriais em R**
-- [Understanding Survival Analysis](blog/survival-analysis.qmd)
-- [Data Viz](blog/data-viz.qmd)

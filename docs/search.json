@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "ptbr/portfolio.html",
-    "href": "ptbr/portfolio.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Análise de sobrevivência intervalar para grandes amostras\nalnkclkansc\nakdnladnckça acklncçsnc aklsclksnc\nGitHub Repo\n\n\nModelagem espacial\naklcldsnkc\nsvsfvf dv sv v sv s\nGitHub Repo"
-  },
-  {
-    "objectID": "ptbr/cv.html",
-    "href": "ptbr/cv.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Educação\nGraduação em Estatística\nUniversidade Federal de Minas Gerais (UFMG)\n2020 - Presente (Previsão de formatura: 2025/1)\nEnsino Médio Técnico em Mecatrônica\nCEFET-MG\n2016 - 2018\n\n\n\nAtividades Acadêmicas\nIniciação Científica - Modelagem em Saúde Pública (Ago 2023 - Presente)\nOrientador: Prof. Gustavo Velasquez (UFMG/Escola de Enfermagem)\n- Desenvolvimento de modelos estatísticos para predição de obesidade infantil utilizando:\n▶️ Análise de sobrevivência\n▶️ Modelos mistos generalizados\n▶️ Modelagem espacial em R\n- Colaboração em pesquisas sobre função renal, hipertensão e diabetes\n- Apresentação de trabalho no 12º Congresso Brasileiro de Epidemiologia\nESTAT MG (Empresa Júnior) (Jan 2021 - Nov 2022)\n- Diretora Presidente (2022):\nLiderança estratégica com 20% de crescimento no faturamento durante transição presencial\n- Assessora de Projetos (2021):\nGestão de projetos estatísticos para clientes externos\nIniciação Científica - Correção de Viés em IA (Out 2021 - Out 2022)\nOrientador: Prof. Flávio Figueredo (UFMG/DCC)\n- Identificação e mitigação de vieses de gênero em modelos de Word Embeddings\n\n\n\nExperiência Profissional\ngreen4T (Jan 2024 - Ago 2024)\n- Estagiária Multissetorial\nAtuação em gestão de qualidade, controle de processos, people analytics e automação de fluxos com:\n✔️ Microsoft 365 (Power BI e Power Automate)\n✔️ Análise de dados orientada a resultados\nInstituto Ver (Nov 2023 - Jan 2024)\n- Estagiária em Análise de Dados Quantitativos\nProcessamento e interpretação de dados para pesquisas eleitorais e de opinião pública.\n\n\n\nHabilidades Técnicas\n\n\n\n\n\n\n\n\nProgramação\nFerramentas\nAnálise de Dados\n\n\n\n\nR (Avançado)\nPower BI\nModelagem estatística\n\n\nPython (Intermediário)\nPower Automate\nVisualização espacial\n\n\nSQL (Básico)\nGit/GitHub\nMachine Learning básico\n\n\n\nMicrosoft 365 Suite\nDesign Thinking\n\n\n\n\n\n\nCursos e Certificações\n\nMachine Learning para Predições em Saúde\n12º Congresso Brasileiro de Epidemiologia\n\nVisualização de Dados Espaciais em R\n12º Congresso Brasileiro de Epidemiologia\n\nData Storytelling\nDatoCamp"
-  },
-  {
     "objectID": "ptbr/blog/survival-analysis.html",
     "href": "ptbr/blog/survival-analysis.html",
     "title": "Sof Aguiar",
@@ -25,63 +11,42 @@
     "href": "ptbr/about.html",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "Bem-vindo ao meu site! 🎉\nEu sou graduando em Estatística, atualmente pesquisando Saúde Pública e Epidemiologia. Aqui você encontra informações sobre mim, meu trabalho e meus projetos. O site inclui meu currículo, uma seção de artigos e apresentações em congresso, um blog com tutoriais e um portifólio com projetos avançados.\nSinta-se à vontade para explorar :)\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+    "text": "Aviso: Este site está em desenvolvimento. Mudanças podem ocorrer!\nÉ um prazer te ver por aqui!\nSou Sofia Aguiar, graduanda em estatística pela UFMG e pesquiso saúde pública e epidemiologia. Nesse site você pode ver um pouco sobre mim e minhas experiências, sinta-se a vontade para explorar :)\nPara falar comigo é só me mandar um email através do sof.m.aguiar@gmail.com"
   },
   {
-    "objectID": "ptbr/about.html#sof-aguiar",
-    "href": "ptbr/about.html#sof-aguiar",
+    "objectID": "ptbr/about.html#links-úteis",
+    "href": "ptbr/about.html#links-úteis",
     "title": "Sof Aguiar",
-    "section": "",
-    "text": "Bem-vindo ao meu site! 🎉\nEu sou graduando em Estatística, atualmente pesquisando Saúde Pública e Epidemiologia. Aqui você encontra informações sobre mim, meu trabalho e meus projetos. O site inclui meu currículo, uma seção de artigos e apresentações em congresso, um blog com tutoriais e um portifólio com projetos avançados.\nSinta-se à vontade para explorar :)\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+    "section": "Links Úteis",
+    "text": "Links Úteis\n\nGitHub: github.com/sofaguiar\nLattes: Sofia Moreira de Aguiar\nOrcID: Sofia Moreira de Aguiar"
   },
   {
-    "objectID": "en/papers.html",
-    "href": "en/papers.html",
+    "objectID": "ptbr/about.html#projetos-em-destaque",
+    "href": "ptbr/about.html#projetos-em-destaque",
     "title": "Sof Aguiar",
-    "section": "",
-    "text": "Undergraduate Thesis\nSURVIVAL ANALYSIS IN A STUDY OF THE DOUBLE BURDEN OF MALNUTRITION\nA Demonstration of Interval Censoring in Large-Scale Databases\nAdvisor: Prof. Enrico Antônio Colosimo\nCo-Advisor: Prof. Jorge Gustavo Meléndez Velásquez\nView full thesis here\n\n\n\nPoster Presentation at 12th Brazilian Congress of Epidemiology\nBMI AND HEIGHT ADJUSTMENTS IN SIX MILLION BRAZILIAN CHILDREN BY REGION\nAdvisor: Prof. Jorge Gustavo Meléndez Velásquez\nView full poster here\n\n\n\nOral Presentation at II International Conference on Public Policies and Data Science\nINFLUENCE OF INCOME TRANSFER POLICIES ON BRAZILIAN ELECTIONS\nA Comparative Analysis of Electoral Geography in 2014, 2018, and 2022 Presidential Elections\nAuthors: João Paulo Dellasta do Nascimento, Sofia M Aguiar\n\n\n\nBook Chapter in ‘Impacts of the COVID-19 Pandemic on Education: Challenges, Adaptations, and the Future of Teaching Practice’\nINEQUALITY IN SECONDARY EDUCATION AND STUDENT PERFORMANCE IN THE ENEM EXAM\nAuthors: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar\nISBN: 978-65-993373-5-2 | DOI: 10.5281/zenodo.4646433\n\n\n\nPresentation at National Congress on University, Distance Education, and Free Software 2020.1\nINEQUALITY IN SECONDARY EDUCATION AND STUDENT PERFORMANCE IN THE ENEM EXAM\nAuthors: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar"
-  },
-  {
-    "objectID": "en/blog.html",
-    "href": "en/blog.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Understanding Survival Analysis\nData Viz"
-  },
-  {
-    "objectID": "en/blog.html#tutoriais-em-r",
-    "href": "en/blog.html#tutoriais-em-r",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Understanding Survival Analysis\nData Viz"
+    "section": "Projetos em Destaque",
+    "text": "Projetos em Destaque\n\nUnderstanding Survival Analysis\nData Viz"
   },
   {
     "objectID": "en/about.html",
     "href": "en/about.html",
     "title": "Sof Aguiar",
     "section": "",
-    "text": "Welcome to my website! 🎉\nI’m a Statistics graduate currently researching Public Health and Epidemiology. Here you will find information about me, my work, and my projects.\nThe site includes my CV, a section of papers and conference presentations, a blog with tutorials, and a portfolio featuring advanced projects.\nFeel free to explore :)\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+    "text": "Notice: This site is under development. Changes may occur!\nIt’s a pleasure to see you here!\nI’m Sofia Aguiar, an undergraduate student in Statistics at UFMG and a researcher in Public Health and Epidemiology. On this website, you can learn a little bit about me and my experiences—feel free to explore!\nTo get in touch, just send an email to sof.m.aguiar@gmail.com."
   },
   {
-    "objectID": "en/about.html#sof-aguiar",
-    "href": "en/about.html#sof-aguiar",
+    "objectID": "en/about.html#useful-links",
+    "href": "en/about.html#useful-links",
     "title": "Sof Aguiar",
-    "section": "",
-    "text": "Welcome to my website! 🎉\nI’m a Statistics graduate currently researching Public Health and Epidemiology. Here you will find information about me, my work, and my projects.\nThe site includes my CV, a section of papers and conference presentations, a blog with tutorials, and a portfolio featuring advanced projects.\nFeel free to explore :)\n\n\n📧 Email: sof.m.aguiar@gmail.com\n🔗 GitHub: github.com/sofaguiar"
+    "section": "Useful Links",
+    "text": "Useful Links\n\nGitHub: github.com/sofaguiar\nLattes: Sofia Moreira de Aguiar\nOrcID: Sofia Moreira de Aguiar"
   },
   {
-    "objectID": "en/cv.html",
-    "href": "en/cv.html",
+    "objectID": "en/about.html#featured-projects",
+    "href": "en/about.html#featured-projects",
     "title": "Sof Aguiar",
-    "section": "",
-    "text": "Education\nBachelor’s Degree in Statistics\nFederal University of Minas Gerais (UFMG)\n2020 - Present (Expected graduation: 2025/1)\nTechnical High School in Mechatronics\nCEFET-MG\n2016 - 2018\n\n\n\nAcademic Activities\nScientific Research - Public Health Modeling (Aug 2023 - Present)\nAdvisor: Prof. Gustavo Velasquez (UFMG/School of Nursing)\n- Development of statistical models for childhood obesity prediction using:\n▶️ Survival analysis\n▶️ Generalized mixed models\n▶️ Spatial modeling in R\n- Collaboration on research regarding kidney function, hypertension, and diabetes\n- Presentation at the 12th Brazilian Congress of Epidemiology\nESTAT MG (Junior Enterprise) (Jan 2021 - Nov 2022)\n- President Director (2022):\nStrategic leadership with a 20% revenue growth during the in-person transition\n- Project Consultant (2021):\nManagement of statistical projects for external clients\nScientific Research - Bias Correction in AI (Oct 2021 - Oct 2022)\nAdvisor: Prof. Flávio Figueredo (UFMG/DCC)\n- Identification and mitigation of gender biases in Word Embeddings models\n\n\n\nProfessional Experience\ngreen4T (Jan 2024 - Aug 2024)\n- Multisectoral Intern\nWork in quality management, process control, people analytics, and workflow automation with:\n✔️ Microsoft 365 (Power BI and Power Automate)\n✔️ Data analysis focused on results\nInstituto Ver (Nov 2023 - Jan 2024)\n- Intern in Quantitative Data Analysis\nProcessing and interpreting data for electoral and public opinion research.\n\n\n\nTechnical Skills\n\n\n\n\n\n\n\n\nProgramming\nTools\nData Analysis\n\n\n\n\nR (Advanced)\nPower BI\nStatistical modeling\n\n\nPython (Intermediate)\nPower Automate\nSpatial visualization\n\n\nSQL (Basic)\nGit/GitHub\nBasic Machine Learning\n\n\n\nMicrosoft 365 Suite\nDesign Thinking\n\n\n\n\n\n\nCourses and Certifications\n\nMachine Learning for Health Predictions\n12th Brazilian Congress of Epidemiology\n\nSpatial Data Visualization in R\n12th Brazilian Congress of Epidemiology\n\nData Storytelling\nDataCamp"
-  },
-  {
-    "objectID": "en/portfolio.html",
-    "href": "en/portfolio.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Análise de sobrevivência intervalar para grandes amostras\nalnkclkansc\nakdnladnckça acklncçsnc aklsclksnc\nGitHub Repo\n\n\nModelagem espacial\naklcldsnkc\nsvsfvf dv sv v sv s\nGitHub Repo"
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\nUnderstanding Survival Analysis\nData Viz"
   },
   {
     "objectID": "ptbr/blog/data-viz.html",
@@ -89,26 +54,5 @@
     "title": "Sof Aguiar",
     "section": "",
     "text": "Data Viz básico e fácil"
-  },
-  {
-    "objectID": "ptbr/blog.html",
-    "href": "ptbr/blog.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Understanding Survival Analysis\nData Viz"
-  },
-  {
-    "objectID": "ptbr/blog.html#tutoriais-em-r",
-    "href": "ptbr/blog.html#tutoriais-em-r",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Understanding Survival Analysis\nData Viz"
-  },
-  {
-    "objectID": "ptbr/papers.html",
-    "href": "ptbr/papers.html",
-    "title": "Sof Aguiar",
-    "section": "",
-    "text": "Trabalho de Conclusão de Curso\nANÁLISE DE SOBREVIVÊNCIA EM ESTUDO ENVOLVENDO A DUPLA CARGA DA MÁ NUTRIÇÃO\nUma Ilustração de Censura Intervalar em Grande Banco de Dados\nOrientação: Prof. Enrico Antônio Colosimo\nCo-Orientação: Prof Jorge Gustavo Meléndez Velásquez\nVeja o trabalho completo aqui\n\n\nPôster no 12º Congresso Brasileiro de Epidemiologia\nADEQUAÇÕES DE IMC E ESTATURA EM SEIS MILHÕES DE CRIANÇAS BRASILEIRAS SEGUNDO REGIÕES\nOrientação: Prof Jorge Gustavo Meléndez Velásquez\nVeja o pôster completo aqui\n\n\nApresentação Oral na II Conferência Internacional de Políticas Públicas e Ciência de Dados\nINFLUÊNCIA DAS POLÍTICAS DE TRANSFERÊNCIA DE RENDA NAS ELEIÇÕES BRASILEIRAS\nUma Análise Comparativa da geografia eleitoral de 2014, 2018 e 2022 para o cargo de Presidente\nAutores: João Paulo Dellasta do Nascimento, Sofia M Aguiar\n\n\nPublicação em Livro Impactos da Pandemia do COVID 19 na Educação: Desafios, Adaptações e o Futuro da Prática Docente\nDesigualdade no Ensino Médio e o desempenho do estudante no ENEM\nAutores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar\nISBN: 978-65-993373-5-2 | DOI: 10.5281/zenodo.4646433\n\n\nApresentação no Congresso Nacional Universidade, EAD e Software Livre 2020.1\nDesigualdade no Ensino Médio e o desempenho do estudante no ENEM\nAutores: Aline Cristina Pinto; Maria Cecília Figueiredo Lopes; Renan Junio Gomes Machado; Sofia Moreira de Aguiar"
   }
 ]
