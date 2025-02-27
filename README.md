@@ -1,21 +1,39 @@
-# Sof Aguiar's Personal Website
+# SofAguiar.github.io
 
-Welcome to the official repository for my personal website! This site is hosted on GitHub Pages and serves as a hub for my projects, blog posts, and ideas.
+## 🌍 Live Website
+[Visit Here](https://sofaguiar.github.io/)
 
-## Table of Contents
+## 📖 About
+This is my personal website built using [Quarto](https://quarto.org/) and hosted on GitHub Pages. It includes information about my research, projects, and blog posts.
 
-- [Overview](#overview)
-- [Features](#features)
+## ✨ Features
+- 🌐 **Multilingual Support** (English & Portuguese)
+- 📄 **CV and Publications**
+- 📚 **Blog with Tutorials**
+- 📊 **Portfolio of Data Science Projects**
+- 🎨 **Custom Theme using Roboto Flex and Personalized Colors**
 
-## Overview
+## 🚀 Installation (Local Setup)
+To run this project on your local machine:
 
-This repository contains the source code for [my website](https://sofaguiar.github.io), built with modern web technologies. It is designed to be fast, responsive, and accessible across all devices. Whether you're here to check out my latest projects or read my blog posts, you'll find everything you need in one place.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/SofAguiar/sofaguiar.github.io.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd sofaguiar.github.io
+   ```
+3. Install [Quarto](https://quarto.org/docs/get-started/)
+4. Render the website locally:
+   ```sh
+   quarto preview
+   ```
 
-## Features
+## 🛠️ Technologies Used
+- **Quarto** - For static site generation  
+- **GitHub Pages** - Hosting  
+- **HTML/CSS** - For custom styling  
 
-- **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
-- **Modern Web Practices:** Leveraging the latest in HTML, CSS, and JavaScript for performance and maintainability.
-- **Simple Deployment:** Updated via GitHub Pages for seamless and quick deployments.
-- **Portfolio & Blog:** A curated space to showcase my work and share my thoughts.
-
-
+## 📜 License
+This project is licensed under the MIT License.
