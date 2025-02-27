@@ -316,8 +316,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cria.A</span>(<span class="at">data =</span> dat1, <span class="at">tau =</span> tau)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">=</span> <span class="fu">Turnbull</span>(p, A, dat1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Iterations =  44 
-Max difference =  0.0009855628 
+<pre><code>Iterations =  37 
+Max difference =  0.0009743063 
 Convergence criteria: Max difference &lt; 1e-3 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> df_surv[df_surv<span class="sc">$</span>var_cat <span class="sc">==</span> <span class="dv">1</span>,]</span>
@@ -327,8 +327,8 @@ Convergence criteria: Max difference &lt; 1e-3 </code></pre>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cria.A</span>(<span class="at">data =</span> dat1, <span class="at">tau =</span> tau)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tb2 <span class="ot">=</span> <span class="fu">Turnbull</span>(p, A, dat1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Iterations =  29 
-Max difference =  0.0009572271 
+<pre><code>Iterations =  40 
+Max difference =  0.0009674135 
 Convergence criteria: Max difference &lt; 1e-3 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualização das funções de sobrevivência para os dois grupos</span></span>
@@ -366,11 +366,11 @@ Baseline:  semi-parametric
 Call: ic_sp(formula = cbind(li, ui) ~ var_cat, data = df_surv, model = "ph", 
     bs_samples = 100)
 
-        Estimate Exp(Est) Std.Error z-value        p
-var_cat    0.294    1.342    0.1122    2.62 0.008784
+        Estimate Exp(Est) Std.Error z-value         p
+var_cat   0.4066    1.502   0.09684   4.199 2.687e-05
 
-final llk =  -896.2625 
-Iterations =  31 
+final llk =  -955.6242 
+Iterations =  62 
 Bootstrap Samples =  100 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste do modelo de Cox para a variável contínua</span></span>
@@ -385,10 +385,10 @@ Call: ic_sp(formula = cbind(li, ui) ~ var_cont, data = df_surv, model = "ph",
     bs_samples = 100)
 
           Estimate Exp(Est) Std.Error z-value         p
-var_cont 0.0001187        1 2.231e-05    5.32 1.036e-07
+var_cont 0.0001526        1 2.274e-05   6.709 1.963e-11
 
-final llk =  -887.2257 
-Iterations =  34 
+final llk =  -943.4134 
+Iterations =  53 
 Bootstrap Samples =  100 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleção das variáveis com p-valor &lt; 0,25 para a análise multivariada</span></span>
@@ -402,12 +402,12 @@ Baseline:  semi-parametric
 Call: ic_sp(formula = cbind(li, ui) ~ var_cat + var_cont, data = df_surv, 
     model = "ph", bs_samples = 100)
 
-          Estimate Exp(Est) Std.Error z-value         p
-var_cat  -2.496000  0.08244 3.738e-01  -6.677 2.438e-11
-var_cont  0.000678  1.00100 8.644e-05   7.844 4.441e-15
+           Estimate Exp(Est) Std.Error z-value         p
+var_cat  -2.5350000  0.07923 3.350e-01  -7.570 3.753e-14
+var_cont  0.0007336  1.00100 7.532e-05   9.741 0.000e+00
 
-final llk =  -862.1542 
-Iterations =  33 
+final llk =  -917.3918 
+Iterations =  56 
 Bootstrap Samples =  100 </code></pre>
 </div>
 </div>

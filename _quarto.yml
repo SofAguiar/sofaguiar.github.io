@@ -12,10 +12,14 @@ website:
       - text: "English"
         href: en/about.qmd
 
-
-
 format:
   html:
     theme:
       light: [assets/custom.scss]
     toc: false
+
+execute:
+  freeze: true  
+
+tools:
+  thebe: true  
