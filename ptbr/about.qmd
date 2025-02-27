@@ -1,18 +1,26 @@
-# É um prazer te ver por aqui!
+# Prazer, Sofia Aguiar!
+*Estatítica | Cientista de Dados | Pesquisadora em Saúde Pública*  
 
-Sou Sofia Aguiar, graduanda em Estatística pela UFMG, com interesse em saúde pública e epidemiologia. Minha pesquisa busca transformar dados em ferramentas que fortaleçam o sistema de saúde e auxiliem profissionais na tomada de decisões.
+Eu sou graduanda em Estatística e apaixonada por Saúde Pública. O meu foco de pesquisa é aplicar métodos estatísticos e computacionais para dados epidemiológicos com o objetivo de entender doenças, prever casos e pensar estratégias para a saúde coletiva.
 
-Tenho experiência com visualização de dados, inferência estatística e programação em R. Atualmente, estou me aprofundando em métodos bayesianos, aprendizado de máquina e Python para expandir minhas análises e modelagens preditivas.
+## Educação  
+- **Graduação em Estatística** (UFMG, previsão de formatura em 2025/1)  
 
-### 📬 Contato: 
-Me envie um e-mail em **sof.m.aguiar@gmail.com**
+## Experiência Acadêmica
+- **Iniciação Científica** sob orientação do professor Gustavo Velásquez no **Núcleo Interdisciplinar de Estudos e Pesquisa em Epidemiologia** da Escola de Enfermagem/UFMG (agosto/2023 - presente)
+- **Iniciação Científica** sob orientação do professor Flávio Figueredo no **Uncertainty in Artificial Intelligence Lab** do Departamento de Ciências da Computação/UFMG (outubro/2021 - outubro/2022)
+- **Diretora Presidente** na empresa júnior **ESTAT-MG** (janeiro - dezembro 2022)
 
-### 📌 Onde me encontrar:
 
-- Projetos de programação: [GitHub](https://github.com/sofaguiar) 
+## Fora do trabalho  
+Além de estatística e computação, amo fazer arte e artesanato. Pinto, costuro, bordo e o que mais estiver ao alcance.
+
+
+## Entre em contato e veja mais!  
+- Email: sofia.aguiar42@gmail.com    
+- Projetos de programação: [GitHub](https://github.com/SofAguiar)  
 - Currículo acadêmico: [Lattes](http://lattes.cnpq.br/0041260570017557) 
-- Perfil acadêmico: [OrcID](https://orcid.org/0009-0007-8242-7487) 
-
+- Perfil acadêmico internacional: [OrcID](https://orcid.org/0009-0007-8242-7487)
 
 ### Meus projetos favoritos
 

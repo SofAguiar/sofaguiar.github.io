@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: docs 
 
 website:
   title: "Sof Aguiar"
@@ -12,8 +12,10 @@ website:
       - text: "English"
         href: en/about.qmd
 
+
+
 format:
   html:
     theme:
-      light: [custom.scss]
+      light: [assets/custom.scss]
     toc: false

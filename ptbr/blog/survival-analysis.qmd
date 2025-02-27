@@ -189,10 +189,10 @@ tb2 = Turnbull(p, A, dat1)
 
 # Visualização das funções de sobrevivência para os dois grupos
 par(mfrow = c(1, 1))
-plot(tb1$time, tb1$surv, col = "red", type = "s", ylim = c(0, 1), xlim = c(0, 10),
+plot(tb1$time, tb1$surv, col = "#C97064", type = "s", ylim = c(0, 1), xlim = c(0, 10),
      xlab = "Tempo em anos", ylab = "S(t)")
-lines(tb2$time, tb2$surv, col = "blue", type = "s")
-legend(7.5, 0.9, lty = 1, col = c("red", "blue"), c("Categoria 0", "Categoria 1"),
+lines(tb2$time, tb2$surv, col = "#68A357", type = "s")
+legend(7.5, 0.9, lty = 1, col = c("#C97064", "#68A357"), c("Categoria 0", "Categoria 1"),
        bty = "n", cex = 0.9)
 ```
 

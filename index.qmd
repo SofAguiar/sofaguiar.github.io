@@ -1,0 +1,11 @@
+---
+format: html
+---
+
+### Redirecionando!
+
+<script>
+  window.location.href = "./ptbr/about.html";
+</script>
+
+Se você não for redirecionado automaticamente, <a href="./ptbr/about.html">clique aqui</a>.

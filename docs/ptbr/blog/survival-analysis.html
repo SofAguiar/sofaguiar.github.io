@@ -316,8 +316,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cria.A</span>(<span class="at">data =</span> dat1, <span class="at">tau =</span> tau)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">=</span> <span class="fu">Turnbull</span>(p, A, dat1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Iterations =  27 
-Max difference =  0.0009687948 
+<pre><code>Iterations =  44 
+Max difference =  0.0009855628 
 Convergence criteria: Max difference &lt; 1e-3 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> df_surv[df_surv<span class="sc">$</span>var_cat <span class="sc">==</span> <span class="dv">1</span>,]</span>
@@ -327,16 +327,16 @@ Convergence criteria: Max difference &lt; 1e-3 </code></pre>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cria.A</span>(<span class="at">data =</span> dat1, <span class="at">tau =</span> tau)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tb2 <span class="ot">=</span> <span class="fu">Turnbull</span>(p, A, dat1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Iterations =  38 
-Max difference =  0.0009939516 
+<pre><code>Iterations =  29 
+Max difference =  0.0009572271 
 Convergence criteria: Max difference &lt; 1e-3 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualização das funções de sobrevivência para os dois grupos</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tb1<span class="sc">$</span>time, tb1<span class="sc">$</span>surv, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">type =</span> <span class="st">"s"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tb1<span class="sc">$</span>time, tb1<span class="sc">$</span>surv, <span class="at">col =</span> <span class="st">"#C97064"</span>, <span class="at">type =</span> <span class="st">"s"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>),</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Tempo em anos"</span>, <span class="at">ylab =</span> <span class="st">"S(t)"</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(tb2<span class="sc">$</span>time, tb2<span class="sc">$</span>surv, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">type =</span> <span class="st">"s"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">7.5</span>, <span class="fl">0.9</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="fu">c</span>(<span class="st">"Categoria 0"</span>, <span class="st">"Categoria 1"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(tb2<span class="sc">$</span>time, tb2<span class="sc">$</span>surv, <span class="at">col =</span> <span class="st">"#68A357"</span>, <span class="at">type =</span> <span class="st">"s"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">7.5</span>, <span class="fl">0.9</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"#C97064"</span>, <span class="st">"#68A357"</span>), <span class="fu">c</span>(<span class="st">"Categoria 0"</span>, <span class="st">"Categoria 1"</span>),</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">cex =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -366,11 +366,11 @@ Baseline:  semi-parametric
 Call: ic_sp(formula = cbind(li, ui) ~ var_cat, data = df_surv, model = "ph", 
     bs_samples = 100)
 
-        Estimate Exp(Est) Std.Error z-value       p
-var_cat   0.1919    1.211    0.1013   1.894 0.05817
+        Estimate Exp(Est) Std.Error z-value        p
+var_cat    0.294    1.342    0.1122    2.62 0.008784
 
-final llk =  -921.9946 
-Iterations =  30 
+final llk =  -896.2625 
+Iterations =  31 
 Bootstrap Samples =  100 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste do modelo de Cox para a variável contínua</span></span>
@@ -385,10 +385,10 @@ Call: ic_sp(formula = cbind(li, ui) ~ var_cont, data = df_surv, model = "ph",
     bs_samples = 100)
 
           Estimate Exp(Est) Std.Error z-value         p
-var_cont 0.0001206        1 2.198e-05   5.489 4.036e-08
+var_cont 0.0001187        1 2.231e-05    5.32 1.036e-07
 
-final llk =  -911.2863 
-Iterations =  31 
+final llk =  -887.2257 
+Iterations =  34 
 Bootstrap Samples =  100 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleção das variáveis com p-valor &lt; 0,25 para a análise multivariada</span></span>
@@ -402,12 +402,12 @@ Baseline:  semi-parametric
 Call: ic_sp(formula = cbind(li, ui) ~ var_cat + var_cont, data = df_surv, 
     model = "ph", bs_samples = 100)
 
-           Estimate Exp(Est) Std.Error z-value         p
-var_cat  -3.2280000  0.03965 4.092e-01  -7.889 3.109e-15
-var_cont  0.0008609  1.00100 9.675e-05   8.898 0.000e+00
+          Estimate Exp(Est) Std.Error z-value         p
+var_cat  -2.496000  0.08244 3.738e-01  -6.677 2.438e-11
+var_cont  0.000678  1.00100 8.644e-05   7.844 4.441e-15
 
-final llk =  -866.0241 
-Iterations =  26 
+final llk =  -862.1542 
+Iterations =  33 
 Bootstrap Samples =  100 </code></pre>
 </div>
 </div>
