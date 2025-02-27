@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -114,10 +148,313 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="análise-de-sobrevivência-básica" class="level3">
-<h3 class="anchored" data-anchor-id="análise-de-sobrevivência-básica"><strong>Análise de Sobrevivência Básica</strong></h3>
+<section id="análise-de-sobrevivência-com-censura-intervalar" class="level1">
+<h1><strong>Análise de Sobrevivência com Censura Intervalar</strong></h1>
+<section id="o-que-é-análise-de-sobrevivência" class="level3">
+<h3 class="anchored" data-anchor-id="o-que-é-análise-de-sobrevivência">O que é Análise de Sobrevivência?</h3>
+<p>A Análise de Sobrevivência é um conjunto de técnicas estatísticas utilizadas para modelar o tempo até a ocorrência de um evento de interesse. Esses eventos podem ser falhas em sistemas mecânicos, tempo até a recidiva de uma doença, ou até mesmo a duração de um contrato de serviço. O diferencial da Análise de Sobrevivência em relação a outras técnicas estatísticas é a presença de censura, que ocorre quando o evento de interesse não é completamente observado.</p>
+</section>
+<section id="censura-intervalar" class="level3">
+<h3 class="anchored" data-anchor-id="censura-intervalar">Censura intervalar</h3>
+<p>A censura intervalar ocorre quando o tempo exato do evento não é conhecido, mas sabe-se que ele aconteceu dentro de um intervalo de tempo. Isso é comum em estudos médicos, nos quais os pacientes são avaliados periodicamente e o evento pode ter ocorrido entre duas consultas. Modelos tradicionais de Análise de Sobrevivência, como Kaplan-Meier e modelos de riscos proporcionais de Cox, não são adequados para lidar com esse tipo de censura, sendo necessário utilizar abordagens específicas, como as curvas de Turnbull e a extensão do modelo de Cox para censura intervalar.</p>
+</section>
+<section id="passo-a-passo" class="level3">
+<h3 class="anchored" data-anchor-id="passo-a-passo">Passo a passo</h3>
+<section id="preparo-do-ambiente" class="level4">
+<h4 class="anchored" data-anchor-id="preparo-do-ambiente">Preparo do ambiente</h4>
+<p>Para realizar a análise, utilizamos o R e carregamos os pacotes necessários para manipulação de dados e modelagem estatística.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregando os pacotes necessários</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)   <span class="co"># Pacote para manipulação e visualização de dados</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)    <span class="co"># Pacote para análise de sobrevivência</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(icenReg)     <span class="co"># Pacote para análise de sobrevivência com censura intervalar</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="obtenção-dos-dados-sintéticos" class="level4">
+<h4 class="anchored" data-anchor-id="obtenção-dos-dados-sintéticos">Obtenção dos dados sintéticos</h4>
+<p>Criamos um conjunto de dados sintético com 600 indivíduos e algumas variáveis de interesse, como uma variável categórica, uma variável contínua e o tempo até a ocorrência do evento de interesse. A construção dos dados leva em consideração a influência das variáveis na probabilidade de o evento ocorrer.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">600</span> <span class="co"># Número de indivíduos na base de dados</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de observações por indivíduo, variando entre 2 e 5 observações</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>obs_por_individuo <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>, n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Expandindo os IDs para refletir múltiplas observações por indivíduo</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="at">times =</span> obs_por_individuo)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Variável categórica exemplo (var_cat)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">var_cat =</span> <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">times =</span> obs_por_individuo),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Variável contínua exemplo (var_cont), que possui dependência da variável categórica</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">var_cont =</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(var_cat, <span class="cf">function</span>(s) {</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (s <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sample</span>(<span class="dv">5500</span><span class="sc">:</span><span class="dv">8000</span>, <span class="dv">1</span>)  <span class="co"># Valor para 'var_cat' igual a 1 </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sample</span>(<span class="dv">1800</span><span class="sc">:</span><span class="dv">3500</span>, <span class="dv">1</span>)  <span class="co"># Valor para 'var_cat' igual a 0 </span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    })),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Idade atual dos indivíduos, gerada aleatoriamente entre 0 e 10 anos</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">idade_atual =</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(obs_por_individuo, <span class="cf">function</span>(x) <span class="fu">runif</span>(x, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>))),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Risco do desfecho com base em 'var_cat' e 'var_cont'</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">risco_desfecho  =</span> <span class="fl">0.2</span> <span class="sc">+</span> var_cat <span class="sc">*</span> (<span class="sc">-</span><span class="fl">0.4</span>) <span class="sc">+</span> var_cont <span class="sc">*</span> <span class="fl">0.0001</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerando a variável 'desfecho' a partir do risco, usando 0.5 como valor de corte</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">=</span> dados <span class="sc">%&gt;%</span> </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">desfecho =</span> <span class="fu">ifelse</span>(risco_desfecho<span class="sc">&gt;</span><span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>risco_desfecho) <span class="co"># remove o risco</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="transformação-em-dados-de-sobrevivência" class="level4">
+<h4 class="anchored" data-anchor-id="transformação-em-dados-de-sobrevivência">Transformação em dados de sobrevivência</h4>
+<p>Os dados brutos precisam ser transformados em um formato adequado para análise de sobrevivência com censura intervalar. Criamos as variáveis left (limite inferior do tempo do evento) e right (limite superior do tempo do evento), bem como a variável de censura (cens), que indica se o evento foi observado (1) ou censurado (0).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_surv <span class="ot">=</span> dados <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">left =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">any</span>(desfecho <span class="sc">==</span> <span class="dv">1</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">max</span>(idade_atual[idade_atual <span class="sc">&lt;</span> <span class="fu">min</span>(idade_atual[desfecho <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm =</span> T)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                      <span class="sc">&amp;</span> desfecho <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm =</span> T),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">max</span>(idade_atual) <span class="co"># Caso não tenha ocorrência do evento, a maior idade é registrada</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">right =</span> <span class="fu">ifelse</span>(<span class="fu">any</span>(desfecho <span class="sc">==</span> <span class="dv">1</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">min</span>(idade_atual[desfecho <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm =</span> T),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                   <span class="cn">NA</span>), <span class="co"># Caso o evento não tenha ocorrido, substitui por NA</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">cens =</span> <span class="fu">ifelse</span>(<span class="fu">any</span>(desfecho <span class="sc">==</span> <span class="dv">1</span>), <span class="dv">1</span>, <span class="dv">0</span>),  <span class="co"># Indica se o evento foi observado (1) ou censurado (0)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">var_cat =</span> <span class="fu">first</span>(var_cat),   <span class="co"># Variáveis de covariáveis para análise</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">var_cont =</span> <span class="fu">first</span>(var_cont)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">left =</span> <span class="fu">ifelse</span>(left <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, left))  <span class="co"># Garante que 'left' não seja negativo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="curvas-de-turnbull" class="level4">
+<h4 class="anchored" data-anchor-id="curvas-de-turnbull">Curvas de Turnbull</h4>
+<p>As curvas de Turnbull são uma extensão do estimador de Kaplan-Meier para dados com censura intervalar. Implementamos uma função para calcular o vetor de tempos ótimos (tau), estimar a função de sobrevivência inicial e iterativamente atualizar as probabilidades de sobrevivência até a convergência do algoritmo.</p>
+<p>Comparamos as curvas de sobrevivência entre dois grupos da variável categórica para verificar diferenças na distribuição do tempo até o evento.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Função para criar o vetor de tempos (tau) a partir dos intervalos censurados</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># O uso de digitos de arrendondamento é contribuição de Sofia Aguiar </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># a fim de evitar erros em bases meiores que 10 mil</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cria.tau <span class="ot">&lt;-</span> <span class="cf">function</span>(data, <span class="at">digits =</span> <span class="dv">6</span>) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  l <span class="ot">&lt;-</span> data<span class="sc">$</span>left</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> data<span class="sc">$</span>right</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arredonda os valores para evitar pequenas diferenças numéricas</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  l <span class="ot">&lt;-</span> <span class="fu">round</span>(l, <span class="at">digits =</span> digits)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">round</span>(r, <span class="at">digits =</span> digits)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  tau <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">unique</span>(<span class="fu">c</span>(l, r[<span class="fu">is.finite</span>(r)])))  <span class="co"># Combina os tempos de censura</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tau)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Função para inicializar a função de sobrevivência com base no vetor tau</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>S.ini <span class="ot">&lt;-</span> <span class="cf">function</span>(tau){</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  m<span class="ot">&lt;-</span><span class="fu">length</span>(tau)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  ekm<span class="ot">&lt;-</span><span class="fu">survfit</span>(<span class="fu">Surv</span>(tau[<span class="dv">1</span><span class="sc">:</span>m<span class="dv">-1</span>],<span class="fu">rep</span>(<span class="dv">1</span>,m<span class="dv">-1</span>))<span class="sc">~</span><span class="dv">1</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  So<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,ekm<span class="sc">$</span>surv)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">diff</span>(So)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Função para construir a matriz A de intervalos de censura</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>cria.A <span class="ot">&lt;-</span> <span class="cf">function</span>(data,tau){</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  tau12 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(tau[<span class="sc">-</span><span class="fu">length</span>(tau)],tau[<span class="sc">-</span><span class="dv">1</span>]) <span class="co"># Cria os intervalos [tau[i], tau[i+1]]</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  interv <span class="ot">&lt;-</span> <span class="cf">function</span>(x,inf,sup) <span class="fu">ifelse</span>(x[<span class="dv">1</span>]<span class="sc">&gt;=</span>inf <span class="sc">&amp;</span> x[<span class="dv">2</span>]<span class="sc">&lt;=</span>sup,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> <span class="fu">apply</span>(tau12,<span class="dv">1</span>,interv,<span class="at">inf=</span>data<span class="sc">$</span>left,<span class="at">sup=</span>data<span class="sc">$</span>right)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  id.lin.zero <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">apply</span>(A<span class="sc">==</span><span class="dv">0</span>, <span class="dv">1</span>, all)) <span class="co"># Matriz de censura</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(id.lin.zero)<span class="sc">&gt;</span><span class="dv">0</span>) A <span class="ot">&lt;-</span> A[<span class="sc">-</span>id.lin.zero, ] <span class="co"># Filtra intervalos não observados</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(A)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Função de Turnbull, que realiza a estimação iterativa da função de sobrevivência</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>Turnbull <span class="ot">&lt;-</span> <span class="cf">function</span>(p, A, data, <span class="at">eps=</span><span class="fl">1e-3</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                     <span class="at">iter.max=</span><span class="dv">200</span>, <span class="at">verbose=</span><span class="cn">FALSE</span>){</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  n<span class="ot">&lt;-</span><span class="fu">nrow</span>(A)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  m<span class="ot">&lt;-</span><span class="fu">ncol</span>(A)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  Q<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="dv">1</span>,m)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  iter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">repeat</span> {</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    iter <span class="ot">&lt;-</span> iter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    diff<span class="ot">&lt;-</span> (Q<span class="sc">-</span>p)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    maxdiff<span class="ot">&lt;-</span><span class="fu">max</span>(<span class="fu">abs</span>(<span class="fu">as.vector</span>(diff))) <span class="co"># Diferença máxima entre iterações</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (verbose)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(maxdiff)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (maxdiff<span class="sc">&lt;</span>eps <span class="sc">|</span> iter<span class="sc">&gt;=</span>iter.max)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    Q<span class="ot">&lt;-</span>p</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    C<span class="ot">&lt;-</span>A<span class="sc">%*%</span>p</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    p<span class="ot">&lt;-</span>p<span class="sc">*</span>((<span class="fu">t</span>(A)<span class="sc">%*%</span>(<span class="dv">1</span><span class="sc">/</span>C))<span class="sc">/</span>n) <span class="co"># Atualiza as estimativas de probabilidade</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Iterations = "</span>, iter,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Max difference = "</span>, maxdiff,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Convergence criteria: Max difference &lt; 1e-3"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dimnames</span>(p)<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="cn">NULL</span>,<span class="fu">c</span>(<span class="st">"P Estimate"</span>))</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>  surv<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span><span class="sc">-</span><span class="fu">cumsum</span>(p)),<span class="at">digits=</span><span class="dv">5</span>)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>  right <span class="ot">&lt;-</span> data<span class="sc">$</span>right</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(<span class="fu">any</span>(<span class="sc">!</span>(<span class="fu">is.finite</span>(right)))){</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> <span class="fu">max</span>(right[<span class="fu">is.finite</span>(right)])</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">time=</span>tau[tau<span class="sc">&lt;</span>t],<span class="at">surv=</span>surv[tau<span class="sc">&lt;</span>t]))</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">time=</span>tau,<span class="at">surv=</span>surv)) <span class="co"># Retorna a função de sobrevivência</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimação da função de sobrevivência para 'var_cat' igual a 0 e 1 </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> df_surv[df_surv<span class="sc">$</span>var_cat <span class="sc">==</span> <span class="dv">0</span>,]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>right[<span class="fu">is.na</span>(dat1<span class="sc">$</span>right)] <span class="ot">=</span> <span class="cn">Inf</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">cria.tau</span>(dat1)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">S.ini</span>(<span class="at">tau =</span> tau)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cria.A</span>(<span class="at">data =</span> dat1, <span class="at">tau =</span> tau)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">=</span> <span class="fu">Turnbull</span>(p, A, dat1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Iterations =  27 
+Max difference =  0.0009687948 
+Convergence criteria: Max difference &lt; 1e-3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">=</span> df_surv[df_surv<span class="sc">$</span>var_cat <span class="sc">==</span> <span class="dv">1</span>,]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>right[<span class="fu">is.na</span>(dat1<span class="sc">$</span>right)] <span class="ot">=</span> <span class="cn">Inf</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">cria.tau</span>(dat1)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">S.ini</span>(<span class="at">tau =</span> tau)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">cria.A</span>(<span class="at">data =</span> dat1, <span class="at">tau =</span> tau)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tb2 <span class="ot">=</span> <span class="fu">Turnbull</span>(p, A, dat1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Iterations =  38 
+Max difference =  0.0009939516 
+Convergence criteria: Max difference &lt; 1e-3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualização das funções de sobrevivência para os dois grupos</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tb1<span class="sc">$</span>time, tb1<span class="sc">$</span>surv, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">type =</span> <span class="st">"s"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Tempo em anos"</span>, <span class="at">ylab =</span> <span class="st">"S(t)"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(tb2<span class="sc">$</span>time, tb2<span class="sc">$</span>surv, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">type =</span> <span class="st">"s"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">7.5</span>, <span class="fl">0.9</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="fu">c</span>(<span class="st">"Categoria 0"</span>, <span class="st">"Categoria 1"</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">cex =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="survival-analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="extensão-do-modelo-de-cox-para-censura-intervalar" class="level4">
+<h4 class="anchored" data-anchor-id="extensão-do-modelo-de-cox-para-censura-intervalar">Extensão do modelo de cox para censura intervalar</h4>
+<p>O modelo de riscos proporcionais de Cox é amplamente utilizado em análise de sobrevivência, mas precisa ser adaptado para lidar com censura intervalar. Utilizamos o pacote icenReg para estimar os coeficientes do modelo de Cox estendido para censura intervalar. Ajustamos modelos univariados e multivariados para identificar quais variáveis estão associadas ao tempo até o evento.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fu">max</span>(<span class="fu">summary</span>(df_surv<span class="sc">$</span>right))  <span class="co"># Máximo dos valores de censura</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>li <span class="ot">=</span> df_surv<span class="sc">$</span>left </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(df_surv<span class="sc">$</span>right), m <span class="sc">+</span> <span class="dv">1000</span>, df_surv<span class="sc">$</span>right)  <span class="co"># Ajuste para censura direita</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste do modelo de Cox para a variável categórica</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">=</span> <span class="fu">ic_sp</span>(<span class="fu">cbind</span>(li, ui) <span class="sc">~</span> var_cat, <span class="at">model =</span> <span class="st">'ph'</span>, <span class="at">bs_samples =</span> <span class="dv">100</span>, <span class="at">data =</span> df_surv)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Model:  Cox PH
+Dependency structure assumed: Independence
+Baseline:  semi-parametric 
+Call: ic_sp(formula = cbind(li, ui) ~ var_cat, data = df_surv, model = "ph", 
+    bs_samples = 100)
+
+        Estimate Exp(Est) Std.Error z-value       p
+var_cat   0.1919    1.211    0.1013   1.894 0.05817
+
+final llk =  -921.9946 
+Iterations =  30 
+Bootstrap Samples =  100 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste do modelo de Cox para a variável contínua</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">=</span> <span class="fu">ic_sp</span>(<span class="fu">cbind</span>(li, ui) <span class="sc">~</span> var_cont, <span class="at">model =</span> <span class="st">'ph'</span>, <span class="at">bs_samples =</span> <span class="dv">100</span>, <span class="at">data =</span> df_surv)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Model:  Cox PH
+Dependency structure assumed: Independence
+Baseline:  semi-parametric 
+Call: ic_sp(formula = cbind(li, ui) ~ var_cont, data = df_surv, model = "ph", 
+    bs_samples = 100)
+
+          Estimate Exp(Est) Std.Error z-value         p
+var_cont 0.0001206        1 2.198e-05   5.489 4.036e-08
+
+final llk =  -911.2863 
+Iterations =  31 
+Bootstrap Samples =  100 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleção das variáveis com p-valor &lt; 0,25 para a análise multivariada</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">=</span> <span class="fu">ic_sp</span>(<span class="fu">cbind</span>(li, ui) <span class="sc">~</span> var_cat <span class="sc">+</span> var_cont, <span class="at">model =</span> <span class="st">'ph'</span>, <span class="at">bs_samples =</span> <span class="dv">100</span>, <span class="at">data =</span> df_surv)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Model:  Cox PH
+Dependency structure assumed: Independence
+Baseline:  semi-parametric 
+Call: ic_sp(formula = cbind(li, ui) ~ var_cat + var_cont, data = df_surv, 
+    model = "ph", bs_samples = 100)
+
+           Estimate Exp(Est) Std.Error z-value         p
+var_cat  -3.2280000  0.03965 4.092e-01  -7.889 3.109e-15
+var_cont  0.0008609  1.00100 9.675e-05   8.898 0.000e+00
+
+final llk =  -866.0241 
+Iterations =  26 
+Bootstrap Samples =  100 </code></pre>
+</div>
+</div>
+</section>
+<section id="seleção-de-variáveis" class="level4">
+<h4 class="anchored" data-anchor-id="seleção-de-variáveis">Seleção de variáveis</h4>
+<p>Para selecionar as variáveis mais relevantes, utilizamos um procedimento iterativo baseado na log-verossimilhança. Variáveis com baixa contribuição para o modelo podem ser removidas para simplificar a interpretação dos resultados e reduzir o sobreajuste.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>step_icph <span class="ot">&lt;-</span> <span class="cf">function</span>(model, data) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  vars <span class="ot">&lt;-</span> <span class="fu">attr</span>(<span class="fu">terms</span>(model<span class="sc">$</span>formula), <span class="st">"term.labels"</span>)  <span class="co"># Variáveis do modelo</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  current_model <span class="ot">&lt;-</span> model</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  best_llk <span class="ot">&lt;-</span> current_model<span class="sc">$</span>llk  <span class="co"># Log-verossimilhança inicial</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Processo iterativo de remoção de variáveis com base na log-verossimilhança</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (var <span class="cf">in</span> vars) {</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    formula_new <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">"cbind(li, ui) ~"</span>, </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">paste</span>(<span class="fu">setdiff</span>(vars, var), <span class="at">collapse =</span> <span class="st">" + "</span>)))</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    model_new <span class="ot">&lt;-</span> <span class="fu">ic_sp</span>(formula_new, <span class="at">model =</span> <span class="st">"ph"</span>, <span class="at">bs_samples =</span> <span class="dv">100</span>, <span class="at">data =</span> data)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    new_llk <span class="ot">&lt;-</span> model_new<span class="sc">$</span>llk  <span class="co"># Log-verossimilhança do novo modelo</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Diagnóstico e atualização do modelo</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (new_llk <span class="sc">&gt;</span> best_llk) {</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>      best_llk <span class="ot">&lt;-</span> new_llk</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>      current_model <span class="ot">&lt;-</span> model_new</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>      vars <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(vars, var)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(current_model)  <span class="co"># Retorna o modelo final</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="conclusão" class="level3">
+<h3 class="anchored" data-anchor-id="conclusão">Conclusão</h3>
+<p>A análise de sobrevivência com censura intervalar permite estudar fenômenos nos quais o tempo exato do evento é desconhecido, mas delimitado dentro de um intervalo. O uso das curvas de Turnbull e da extensão do modelo de Cox para censura intervalar são ferramentas fundamentais para extrair informações valiosas desses dados. A seleção cuidadosa de variáveis melhora a precisão dos modelos e ajuda a compreender os fatores que influenciam o tempo até o evento de interesse.</p>
+</section>
+<section id="referências" class="level3">
+<h3 class="anchored" data-anchor-id="referências">Referências</h3>
+<p>ANDERSON-BERGMAN, C. icenReg: Regression models for interval censored data in R. Versão 2.0. Disponível em: <a href="https://cran.r-project.org/package=icenReg" class="uri">https://cran.r-project.org/package=icenReg</a>. Acesso em: 19 dez. 2024</p>
+<p>COLOSIMO, E. A.; GIOLO, S. R. Análise de sobrevivência aplicada. Blücher, 2024.</p>
+<p>SUN, Y. Survival data analysis with interval-censored data. Statistics in Medicine, v. 25, p.&nbsp;3563-3578, 2006.</p>
+<p>THERNEAU, T. M. survival: Survival Analysis, Including Penalised Likelihood (versão 3.4-0). 2023. Disponível em: <a href="https://cran.r-project.org/web/packages/survival/index.html" class="uri">https://cran.r-project.org/web/packages/survival/index.html</a>. Acesso em: 16 dez. 2024.</p>
+<p>TURNBULL, B. W. The empirical distribution function with arbitrarily grouped, censored and truncated data. Journal of the Royal Statistical Society, v. 38, p.&nbsp;290-295, 1976.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -16,7 +16,7 @@ Me envie um e-mail em **sof.m.aguiar@gmail.com**
 
 ### Meus projetos favoritos
 
-- [Understanding Survival Analysis](blog/survival-analysis.qmd)
+- [Análise de Sobrevivência Intervalar](blog/survival-analysis.qmd) - Uma aplicação dos métodos de análise de sobrevivência intervalar com banco de dados sintético.
 
 
 ### Tutoriais em R para pesquisadores

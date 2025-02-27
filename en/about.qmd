@@ -1,4 +1,4 @@
-# Great to See You Here!
+# Good to See You Here!
 
 
 I'm Sofia Aguiar, a Statistics undergraduate at UFMG with a strong interest in public health and epidemiology. My research focuses on transforming data into tools that strengthen the healthcare system and support professionals in decision-making.  
@@ -14,7 +14,7 @@ Feel free to email me at **sof.m.aguiar@gmail.com**
 - Academic Profile: [OrcID](https://orcid.org/0009-0007-8242-7487)  
 
 ###  My Favorite Projects  
-- [Understanding Survival Analysis](blog/survival-analysis.qmd)  
+- [Interval Censored Survival Analysis](blog/survival-analysis.qmd) - An application of interval censored survival analysis with a syntethic dataset 
 
 ###  R Tutorials for Researchers  
 - [Data Viz](blog/data-viz.qmd) - A brief step by step on how to look at your dataset  
